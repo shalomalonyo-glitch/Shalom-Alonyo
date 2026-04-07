@@ -178,9 +178,13 @@ nav.scrolled .nav-pill{box-shadow:0 8px 32px rgba(0,0,0,.3);border-color:rgba(25
 .hero{min-height:100vh;position:relative;display:flex;flex-direction:column;overflow:hidden}
 
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-overlay{position:absolute;inset:0;z-index:1}
 
-.hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.45);z-index:1}
-.hero-fade-bottom{position:absolute;bottom:0;left:0;right:0;height:300px;background:linear-gradient(to bottom,transparent,hsl(var(--bg)));z-index:2;pointer-events:none}
+.hero-mesh{position:absolute;inset:0;overflow:hidden}
+.mesh-grad{position:absolute;border-radius:50%;filter:blur(120px);opacity:.35}
+.mesh-1{width:700px;height:700px;background:rgba(78,133,191,.4);top:-15%;right:-5%;animation:meshFloat 16s ease-in-out infinite}
+.mesh-2{width:500px;height:500px;background:rgba(137,170,204,.3);bottom:-5%;left:-5%;animation:meshFloat 13s ease-in-out infinite reverse}
+@keyframes meshFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(50px,-40px) scale(1.1)}66%{transform:translate(-30px,30px) scale(.95)}}
 
 .hero-content{
   position:relative;z-index:10;
@@ -507,10 +511,10 @@ footer a{color:var(--accent-1);text-decoration:none}
 <!-- HERO -->
 <section class="hero">
   <video class="hero-video" autoplay loop muted playsinline>
-    <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4" type="video/mp4">
+    <source src="https://assets.mixkit.co/videos/34352/34352-720.mp4" type="video/mp4">
   </video>
-  <div class="hero-overlay"></div>
-  <div class="hero-fade-bottom"></div>
+  <div class="hero-overlay" style="background:rgba(0,0,0,.55)"></div>
+  <div class="hero-fade-bottom" style="position:absolute;bottom:0;left:0;right:0;height:300px;background:linear-gradient(to bottom,transparent,hsl(0 0% 4%));z-index:2;pointer-events:none"></div>
 
   <div class="hero-content">
     <div class="hero-badge liquid-glass anim-fade" style="border-radius:9999px">
@@ -835,10 +839,11 @@ footer a{color:var(--accent-1);text-decoration:none}
 
 <!-- CONTACT -->
 <div class="contact-section section-full" id="contact">
-  <video class="contact-video" autoplay loop muted playsinline>
-    <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4" type="video/mp4">
-  </video>
-  <div class="contact-overlay"></div>
+  <div class="hero-mesh" style="opacity:.5">
+    <div class="mesh-grad mesh-1"></div>
+    <div class="mesh-grad mesh-2"></div>
+  </div>
+  <div class="hero-noise"></div>
 
   <div class="contact-inner">
     <div class="reveal">
