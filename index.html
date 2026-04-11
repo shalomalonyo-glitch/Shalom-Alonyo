@@ -12,493 +12,361 @@
 <meta property="og:description" content="Agent logistique au CH Rodez. Supervision de 6 AGV Swisslog. Recherche alternance BTS Production.">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self'; img-src 'self' data: https://cdn.simpleicons.org;">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Shalom Alonyo","jobTitle":"Agent logistique","worksFor":{"@type":"Organization","name":"Centre Hospitalier de Rodez"},"email":"shalomalonyo24@gmail.com","telephone":"+33633123226","address":{"@type":"PostalAddress","addressLocality":"Rodez","addressCountry":"FR"}}
 </script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%9A%99%EF%B8%8F</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ===== RESET ===== */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
 :root{
-  --bg:0 0% 4%;
-  --surface:0 0% 8%;
-  --text:0 0% 96%;
-  --muted:0 0% 53%;
-  --stroke:0 0% 14%;
-  --accent-1:#89AACC;
-  --accent-2:#4E85BF;
-  --font-display:'Instrument Serif',serif;
-  --font-body:'Inter',sans-serif;
-  --transition:cubic-bezier(.25,.46,.45,.94);
+  --dk-bg:#08090B;--dk-surface:#111318;--dk-surface-2:#181A1F;
+  --dk-text:#F2F2F2;--dk-text-soft:#9DA2AB;--dk-text-dim:#7A7F88;
+  --dk-stroke:#1C1F24;--dk-stroke-light:#282C32;
+  --lt-bg:#FAFAFA;--lt-surface:#FFFFFF;--lt-surface-2:#F3F4F6;
+  --lt-text:#111318;--lt-text-soft:#5F6470;--lt-text-dim:#9DA2AB;
+  --lt-stroke:#E5E7EB;--lt-stroke-light:#D1D5DB;
+  --accent:#4A8EC9;--accent-2:#3574AB;--accent-soft:#7EB4E2;
+  --accent-glow:rgba(74,142,201,.1);
+  --warm:#D4A853;--warm-soft:#E8C97A;--success:#34D399;
+  --font-display:'DM Serif Text',serif;--font-body:'Outfit',sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);--radius:16px;--radius-lg:24px;
 }
 
 html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--font-body);background:var(--dk-bg);color:var(--dk-text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+button{border:none;background:none;font-family:inherit;cursor:pointer;color:inherit}
+ul{list-style:none}
 
-body{
-  font-family:var(--font-body);
-  background:hsl(var(--bg));
-  color:hsl(var(--text));
-  line-height:1.6;
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
+body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.018;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
 
-::selection{background:rgba(137,170,204,.2);color:hsl(var(--text))}
+.progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--warm));z-index:10001;transition:width .15s linear;border-radius:0 1px 1px 0}
 
-/* ===== LIQUID GLASS ===== */
-.liquid-glass{
-  background:rgba(255,255,255,.01);
-  background-blend-mode:luminosity;
-  backdrop-filter:blur(4px);
-  -webkit-backdrop-filter:blur(4px);
-  border:none;
-  box-shadow:inset 0 1px 1px rgba(255,255,255,.1);
-  position:relative;
-  overflow:hidden;
-}
-.liquid-glass::before{
-  content:'';position:absolute;inset:0;border-radius:inherit;padding:1.4px;
-  background:linear-gradient(180deg,rgba(255,255,255,.45) 0%,rgba(255,255,255,.15) 20%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 60%,rgba(255,255,255,.15) 80%,rgba(255,255,255,.45) 100%);
-  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
-}
+.skip-link{position:absolute;top:-100%;left:16px;padding:12px 24px;background:var(--accent);color:#fff;border-radius:8px;font-weight:600;font-size:14px;z-index:100001;transition:top .2s}
+.skip-link:focus{top:16px}
 
-.liquid-glass-strong{
-  background:rgba(255,255,255,.01);
-  background-blend-mode:luminosity;
-  backdrop-filter:blur(50px);
-  -webkit-backdrop-filter:blur(50px);
-  border:none;
-  box-shadow:4px 4px 4px rgba(0,0,0,.05),inset 0 1px 1px rgba(255,255,255,.15);
-  position:relative;
-  overflow:hidden;
-}
-.liquid-glass-strong::before{
-  content:'';position:absolute;inset:0;border-radius:inherit;padding:1.4px;
-  background:linear-gradient(180deg,rgba(255,255,255,.5) 0%,rgba(255,255,255,.2) 20%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 60%,rgba(255,255,255,.2) 80%,rgba(255,255,255,.5) 100%);
-  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
-}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
-/* ===== PROGRESS BAR ===== */
-.progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));z-index:10000;border-radius:0 2px 2px 0}
+/* Preloader */
+.preloader{position:fixed;inset:0;z-index:100000;background:var(--dk-bg);display:flex;flex-direction:column;justify-content:center;align-items:center;transition:opacity .8s var(--ease),visibility .8s}
+.preloader.done{opacity:0;visibility:hidden;pointer-events:none}
+.preloader-logo{width:80px;height:80px;border-radius:50%;overflow:hidden;border:2px solid var(--dk-stroke)}
+.preloader-logo img{width:100%;height:100%;object-fit:cover}
+.preloader-bar{width:48px;height:2px;background:var(--dk-stroke);margin-top:20px;border-radius:2px;overflow:hidden}
+.preloader-bar::after{content:'';display:block;width:100%;height:100%;background:var(--accent);animation:loader 1s var(--ease) infinite}
+@keyframes loader{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
 
-/* ===== ANIMATIONS ===== */
-@keyframes fade-rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-@keyframes scroll-line{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.1%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-@keyframes gradient-shift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-@keyframes role-cycle{0%{opacity:0;transform:translateY(8px)}15%{opacity:1;transform:translateY(0)}85%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-8px)}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@keyframes gradient-orbit{0%{transform:translate(0,0) scale(1) rotate(0deg)}33%{transform:translate(60px,-50px) scale(1.15) rotate(120deg)}66%{transform:translate(-40px,40px) scale(.9) rotate(240deg)}100%{transform:translate(0,0) scale(1) rotate(360deg)}}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
 
-.anim-fade{opacity:0;transform:translateY(28px);animation:fade-rise .8s var(--transition) both}
-.anim-d1{animation-delay:.1s}
-.anim-d2{animation-delay:.3s}
-.anim-d3{animation-delay:.5s}
-.anim-d4{animation-delay:.7s}
-.anim-d5{animation-delay:.9s}
-.anim-d6{animation-delay:1.1s}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.vis{opacity:1;transform:translateY(0)}
 
-/* Reveal on scroll */
-.reveal{opacity:0;transform:translateY(50px);transition:all .9s var(--transition)}
-.reveal.visible{opacity:1;transform:translateY(0)}
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;justify-content:center;padding:16px 20px;transition:all .5s var(--ease)}
+.nav-bar{display:inline-flex;align-items:center;gap:6px;padding:6px 8px;border-radius:9999px;background:rgba(17,19,24,.8);backdrop-filter:blur(24px);border:1px solid var(--dk-stroke);transition:all .4s var(--ease)}
+.nav.scrolled .nav-bar{box-shadow:0 8px 40px rgba(0,0,0,.35);border-color:var(--dk-stroke-light)}
 
-/* ===== NAVIGATION ===== */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  display:flex;justify-content:center;
-  padding:20px 24px;
-  transition:all .5s var(--transition);
-}
+.nav-brand{width:36px;height:36px;border-radius:50%;overflow:hidden;display:block;transition:transform .3s var(--ease)}
+.nav-brand img{width:100%;height:100%;object-fit:cover}
+.nav-brand:hover{transform:scale(1.08)}
 
-.nav-pill{
-  display:inline-flex;align-items:center;gap:4px;
-  border-radius:9999px;padding:8px 10px;
-  border:1px solid rgba(255,255,255,.06);
-  background:hsl(var(--surface));
-  backdrop-filter:blur(16px);
-  transition:all .4s;
-}
+.nav-sep{width:1px;height:18px;background:var(--dk-stroke);margin:0 6px}
+.nav-items{display:flex;gap:2px}
+.nav-item{padding:7px 16px;border-radius:9999px;font-size:12.5px;font-weight:500;letter-spacing:.2px;color:var(--dk-text-dim);transition:all .25s}
+.nav-item:hover,.nav-item.on{color:var(--dk-text);background:rgba(255,255,255,.06)}
+.nav-contact{padding:7px 18px;border-radius:9999px;font-size:12.5px;font-weight:500;color:var(--dk-text);background:rgba(255,255,255,.04);border:1px solid var(--dk-stroke);transition:all .3s}
+.nav-contact:hover{border-color:var(--accent-soft);color:var(--accent-soft)}
+.nav-menu-btn{display:none;padding:8px;font-size:20px;color:var(--dk-text)}
 
-nav.scrolled .nav-pill{box-shadow:0 8px 32px rgba(0,0,0,.3);border-color:rgba(255,255,255,.1)}
+.mobile-menu{position:fixed;inset:0;z-index:999;background:rgba(8,9,11,.97);backdrop-filter:blur(40px);display:none;flex-direction:column;justify-content:center;align-items:center;gap:32px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--font-display);font-style:italic;font-size:28px;color:var(--dk-text-soft);transition:color .3s}
+.mobile-menu a:hover{color:var(--dk-text)}
+.mobile-menu-close{position:absolute;top:20px;right:24px;font-size:28px;color:var(--dk-text-soft)}
 
-.nav-logo{
-  width:40px;height:40px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-display);font-style:italic;
-  font-size:14px;color:hsl(var(--text));
-  background:hsl(var(--bg));
-  border:2px solid transparent;
-  background-image:linear-gradient(hsl(var(--bg)),hsl(var(--bg))),linear-gradient(135deg,var(--accent-1),var(--accent-2));
-  background-origin:border-box;background-clip:padding-box,border-box;
-  transition:transform .3s;flex-shrink:0;
-}
-.nav-logo:hover{transform:scale(1.1)}
+/* Hero */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--dk-bg)}
+.hero-bg{position:absolute;inset:0;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(100px);will-change:transform}
+.orb-1{width:min(70vw,700px);height:min(70vw,700px);background:rgba(74,142,201,.12);top:-20%;right:-15%;animation:gradient-orbit 20s ease-in-out infinite}
+.orb-2{width:min(50vw,500px);height:min(50vw,500px);background:rgba(53,116,171,.08);bottom:-10%;left:-10%;animation:gradient-orbit 25s ease-in-out infinite reverse}
+.orb-3{width:min(40vw,400px);height:min(40vw,400px);background:rgba(212,168,83,.05);top:30%;left:25%;animation:gradient-orbit 18s ease-in-out infinite 5s}
+.orb-4{width:min(30vw,300px);height:min(30vw,300px);background:rgba(74,142,201,.06);bottom:20%;right:10%;animation:gradient-orbit 22s ease-in-out infinite 8s}
 
-.nav-sep{width:1px;height:20px;background:hsl(var(--stroke));margin:0 4px}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 60% 50% at 50% 50%,black 20%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 60% 50% at 50% 50%,black 20%,transparent 70%)}
+.hero-fade{position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(transparent,var(--dk-bg));z-index:2;pointer-events:none}
 
-.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+.hero-content{position:relative;z-index:10;text-align:center;max-width:780px;padding:0 24px}
 
-.nav-link{
-  padding:8px 16px;border-radius:9999px;
-  font-size:13px;font-weight:500;
-  color:hsl(var(--muted));
-  text-decoration:none;transition:all .3s;
-}
-.nav-link:hover,.nav-link.active{color:hsl(var(--text));background:hsl(var(--stroke)/.5)}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;padding:5px 6px 5px 5px;border-radius:9999px;background:rgba(255,255,255,.03);border:1px solid var(--dk-stroke);font-size:12px;font-weight:500;color:var(--dk-text-soft);margin-bottom:36px;animation:fadeUp .7s var(--ease) both}
+.hero-tag-badge{display:inline-flex;align-items:center;gap:7px;padding:4px 14px;border-radius:9999px;background:linear-gradient(135deg,rgba(74,142,201,.12),rgba(212,168,83,.08));border:1px solid rgba(74,142,201,.18);font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent-soft)}
+.tag-dot{width:5px;height:5px;border-radius:50%;background:var(--success);animation:pulse-dot 2s ease-in-out infinite}
 
-.nav-cta{
-  padding:8px 18px;border-radius:9999px;
-  font-size:13px;font-weight:500;
-  color:hsl(var(--text));background:hsl(var(--surface));
-  text-decoration:none;transition:all .3s;
-  position:relative;
-}
-.nav-cta:hover{background:hsl(var(--stroke)/.5)}
+.hero-title{font-family:var(--font-display);font-style:italic;font-size:clamp(44px,7.5vw,88px);font-weight:400;line-height:.92;letter-spacing:-2px;margin-bottom:28px;animation:fadeUp .7s var(--ease) .15s both}
+.hero-title .dim{color:var(--dk-text-dim)}
+.hero-title .glow{background:linear-gradient(135deg,var(--accent-soft),var(--warm-soft));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
-.nav-toggle{display:none;background:none;border:none;color:hsl(var(--text));font-size:24px;cursor:pointer;padding:8px}
+.hero-desc{font-size:clamp(14px,1.5vw,16px);font-weight:300;color:var(--dk-text-soft);max-width:520px;margin:0 auto 36px;line-height:1.75;animation:fadeUp .7s var(--ease) .3s both}
 
-/* Mobile menu */
-.mobile-menu{
-  display:none;position:fixed;inset:0;z-index:999;
-  background:hsl(var(--bg)/.97);backdrop-filter:blur(30px);
-  flex-direction:column;justify-content:center;align-items:center;gap:28px;
-}
-.mobile-menu.active{display:flex}
-.mobile-menu a{color:hsl(var(--text));text-decoration:none;font-family:var(--font-display);font-style:italic;font-size:32px;opacity:.7;transition:all .3s}
-.mobile-menu a:hover{opacity:1}
-.mobile-close{position:absolute;top:24px;right:28px;background:none;border:none;color:hsl(var(--text));font-size:32px;cursor:pointer}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;animation:fadeUp .7s var(--ease) .45s both}
 
-/* ===== HERO ===== */
-.hero{min-height:100vh;position:relative;display:flex;flex-direction:column;overflow:hidden}
+.btn-primary{padding:13px 30px;border-radius:9999px;font-size:13.5px;font-weight:600;letter-spacing:.3px;background:var(--dk-text);color:var(--dk-bg);transition:all .35s var(--ease);position:relative;overflow:hidden}
+.btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--accent),var(--accent-2));opacity:0;transition:opacity .35s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.3);color:#fff}
+.btn-primary:hover::before{opacity:1}
+.btn-primary span{position:relative;z-index:1}
 
-.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.hero-overlay{position:absolute;inset:0;z-index:1}
+.btn-outline{padding:13px 30px;border-radius:9999px;font-size:13.5px;font-weight:500;color:var(--dk-text-soft);border:1px solid var(--dk-stroke);background:rgba(255,255,255,.02);backdrop-filter:blur(8px);transition:all .35s var(--ease)}
+.btn-outline:hover{transform:translateY(-2px);border-color:var(--accent-soft);color:var(--accent-soft)}
 
-.hero-mesh{position:absolute;inset:0;overflow:hidden}
-.mesh-grad{position:absolute;border-radius:50%;filter:blur(120px);opacity:.35}
-.mesh-1{width:700px;height:700px;background:rgba(78,133,191,.4);top:-15%;right:-5%;animation:meshFloat 16s ease-in-out infinite}
-.mesh-2{width:500px;height:500px;background:rgba(137,170,204,.3);bottom:-5%;left:-5%;animation:meshFloat 13s ease-in-out infinite reverse}
-@keyframes meshFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(50px,-40px) scale(1.1)}66%{transform:translate(-30px,30px) scale(.95)}}
+.scroll-cue{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:10;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--dk-text-dim);animation:fadeUp .7s var(--ease) .8s both}
+.scroll-cue-line{width:1px;height:36px;background:var(--dk-stroke);position:relative;overflow:hidden}
+.scroll-cue-line::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:linear-gradient(var(--accent-soft),transparent);animation:scroll-anim 2.5s ease-in-out infinite}
+@keyframes scroll-anim{0%{top:-100%}50%{top:100%}100%{top:100%}}
 
-.hero-content{
-  position:relative;z-index:10;
-  flex:1;display:flex;flex-direction:column;
-  justify-content:center;align-items:center;
-  text-align:center;
-  padding:160px 24px 100px;
-  max-width:900px;margin:0 auto;
-}
+/* Marquee */
+.marquee{padding:24px 0;overflow:hidden;background:var(--lt-bg);border-top:1px solid var(--lt-stroke);border-bottom:1px solid var(--lt-stroke)}
+.marquee-track{display:flex;animation:marquee 50s linear infinite;width:max-content}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-track span{font-family:var(--font-display);font-style:italic;font-size:16px;color:var(--lt-text-dim);white-space:nowrap;padding:0 24px;display:flex;align-items:center;gap:20px;transition:color .3s}
+.marquee-track span:hover{color:var(--accent)}
+.m-dot{width:3px;height:3px;border-radius:50%;background:var(--accent);opacity:.5}
 
-.hero-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:6px 8px 6px 6px;margin-bottom:40px;
-  border-radius:9999px;
-  font-size:13px;font-weight:500;color:hsl(var(--text));
-}
+/* Sections */
+.section-light{background:var(--lt-bg);color:var(--lt-text);padding:120px 24px}
+.section-light .label{color:var(--lt-text-dim)}
+.section-light .label::before{background:var(--lt-stroke)}
+.section-light .heading .dim{color:var(--lt-text-dim)}
+.section-light .subtext{color:var(--lt-text-soft)}
 
-.hero-badge-dot{
-  display:inline-flex;align-items:center;gap:6px;
-  background:hsl(var(--text));color:hsl(var(--bg));
-  padding:4px 14px;border-radius:9999px;
-  font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;
-}
+.section-dark{background:var(--dk-bg);color:var(--dk-text);padding:120px 24px;position:relative;overflow:hidden}
+.section-dark .label{color:var(--dk-text-dim)}
+.section-dark .label::before{background:var(--dk-stroke)}
+.section-dark .heading .dim{color:var(--dk-text-dim)}
+.section-dark .subtext{color:var(--dk-text-soft)}
 
-.hero h1{
-  font-family:var(--font-display);font-style:italic;
-  font-size:clamp(48px,8vw,96px);
-  font-weight:400;line-height:.88;
-  letter-spacing:-3px;
-  max-width:800px;margin-bottom:0;
-  color:hsl(var(--text));
-}
-.hero h1 em{font-style:italic;color:hsl(var(--muted))}
+.section-inner{max-width:1080px;margin:0 auto}
 
-.hero-sub{
-  font-size:clamp(14px,1.6vw,17px);
-  color:hsl(var(--text)/.55);
-  max-width:480px;
-  line-height:1.7;margin-top:32px;
-  font-weight:300;
-}
+.label{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:4px;margin-bottom:16px}
+.label::before{content:'';width:24px;height:1px}
 
-.hero-buttons{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap;justify-content:center}
+.heading{font-family:var(--font-display);font-style:italic;font-size:clamp(32px,4.5vw,54px);font-weight:400;line-height:1.05;letter-spacing:-1.5px;margin-bottom:16px}
 
-.btn-glass{
-  padding:14px 32px;border-radius:9999px;
-  font-size:14px;font-weight:500;
-  color:hsl(var(--text));
-  text-decoration:none;cursor:pointer;
-  transition:all .3s;border:none;
-}
-.btn-glass:hover{transform:translateY(-2px)}
+.subtext{font-size:15px;max-width:460px;line-height:1.8;margin-bottom:56px;font-weight:300}
 
-.btn-solid{
-  padding:14px 32px;border-radius:9999px;
-  font-size:14px;font-weight:500;
-  background:hsl(var(--text));color:hsl(var(--bg));
-  text-decoration:none;cursor:pointer;border:none;
-  transition:all .3s;
-}
-.btn-solid:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(255,255,255,.1)}
+/* Bento */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+.card-lt{background:var(--lt-surface);border:1px solid var(--lt-stroke);border-radius:var(--radius-lg);padding:32px;position:relative;overflow:hidden;transition:all .45s var(--ease);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.card-lt:hover{border-color:rgba(74,142,201,.2);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.08)}
+.card-lt::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(74,142,201,.02) 45%,rgba(74,142,201,.05) 50%,rgba(74,142,201,.02) 55%,transparent 65%);transform:translateX(-120%);transition:transform .7s var(--ease);pointer-events:none}
+.card-lt:hover::after{transform:translateX(120%)}
+.c8{grid-column:span 8}.c4{grid-column:span 4}.c6{grid-column:span 6}
 
-/* Scroll indicator */
-.scroll-indicator{
-  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:10;
-  display:flex;flex-direction:column;align-items:center;gap:10px;
-  color:hsl(var(--muted));font-size:10px;letter-spacing:3px;text-transform:uppercase;
-}
-.scroll-line{width:1px;height:40px;background:hsl(var(--stroke));position:relative;overflow:hidden}
-.scroll-line::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,var(--accent-1),var(--accent-2));animation:scroll-line 2s ease-in-out infinite}
+.card-icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:20px;background:var(--lt-surface-2);margin-bottom:18px;transition:transform .3s var(--ease);color:var(--lt-text)}
+.card-lt:hover .card-icon{transform:scale(1.08) rotate(-3deg)}
 
-/* ===== MARQUEE ===== */
-.marquee-section{padding:28px 0;overflow:hidden;border-top:1px solid hsl(var(--stroke));border-bottom:1px solid hsl(var(--stroke))}
-.marquee-track{display:flex;animation:marquee 40s linear infinite;width:max-content}
-.marquee-track span{font-family:var(--font-display);font-style:italic;font-size:18px;color:hsl(var(--muted));white-space:nowrap;padding:0 20px;display:flex;align-items:center;gap:16px}
-.marquee-dot{width:4px;height:4px;border-radius:50%;background:var(--accent-1);opacity:.5}
+.card-lt h3{font-size:16px;font-weight:600;margin-bottom:8px;letter-spacing:-.2px;color:var(--lt-text)}
+.card-lt p{font-size:13.5px;color:var(--lt-text-soft);line-height:1.8;font-weight:300}
 
-/* ===== SECTIONS ===== */
-.section{padding:140px 24px;max-width:1100px;margin:0 auto}
-.section-full{padding:140px 0}
+.stat{font-family:var(--font-display);font-style:italic;font-size:64px;font-weight:400;background:linear-gradient(135deg,var(--accent),var(--warm));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;transition:transform .4s var(--ease)}
+.card-lt:hover .stat{transform:scale(1.06)}
+.stat-label{font-size:12px;color:var(--lt-text-dim);margin-top:6px;font-weight:400;letter-spacing:.3px}
 
-.section-eyebrow{
-  display:inline-flex;align-items:center;gap:14px;
-  font-size:11px;font-weight:600;text-transform:uppercase;
-  letter-spacing:4px;color:hsl(var(--muted));margin-bottom:20px;
-}
-.section-eyebrow::before{content:'';width:28px;height:1px;background:hsl(var(--stroke))}
+/* Experience */
+.exp-glow{position:absolute;top:-200px;right:-200px;width:500px;height:500px;border-radius:50%;background:rgba(74,142,201,.04);filter:blur(120px);pointer-events:none}
+.exp-glow-2{position:absolute;bottom:-200px;left:-200px;width:400px;height:400px;border-radius:50%;background:rgba(212,168,83,.03);filter:blur(120px);pointer-events:none}
 
-.section-title{
-  font-family:var(--font-display);font-style:italic;
-  font-size:clamp(36px,5vw,60px);
-  font-weight:400;letter-spacing:-2px;
-  line-height:1;margin-bottom:20px;
-  color:hsl(var(--text));
-}
-.section-title em{color:hsl(var(--muted));font-style:italic}
+.timeline{position:relative;padding-left:48px}
+.timeline::before{content:'';position:absolute;left:9px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent-soft),var(--dk-stroke))}
 
-.section-desc{font-size:16px;color:hsl(var(--text)/.5);max-width:520px;line-height:1.8;margin-bottom:64px;font-weight:300}
+.tl-entry{position:relative;margin-bottom:28px;opacity:0;transform:translateX(-24px);transition:all .7s var(--ease)}
+.tl-entry.vis{opacity:1;transform:translateX(0)}
 
-/* ===== BENTO GRID ===== */
-.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.tl-marker{position:absolute;left:-44px;top:26px;width:14px;height:14px;border-radius:50%;background:var(--dk-bg);border:2.5px solid var(--accent-soft);z-index:2;transition:all .35s var(--ease)}
+.tl-entry:hover .tl-marker{background:var(--accent-soft);box-shadow:0 0 16px rgba(126,180,226,.35);transform:scale(1.25)}
 
-.bento-card{
-  background:hsl(var(--surface));
-  border:1px solid hsl(var(--stroke));
-  border-radius:24px;padding:36px;
-  position:relative;overflow:hidden;
-  transition:all .5s var(--transition);
-}
-.bento-card:hover{transform:translateY(-6px);border-color:rgba(137,170,204,.2);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.tl-card{background:var(--dk-surface);border:1px solid var(--dk-stroke);border-radius:var(--radius);padding:28px;transition:all .35s var(--ease);position:relative;overflow:hidden}
+.tl-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:2px;background:var(--accent-soft);opacity:0;transition:opacity .35s}
+.tl-card:hover{border-color:rgba(126,180,226,.12);transform:translateX(4px);box-shadow:0 6px 24px rgba(0,0,0,.15)}
+.tl-card:hover::before{opacity:1}
 
-.b8{grid-column:span 8}.b4{grid-column:span 4}.b6{grid-column:span 6}
+.tl-when{font-size:10px;color:var(--accent-soft);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px}
+.tl-what{font-family:var(--font-display);font-style:italic;font-size:20px;margin-bottom:2px;color:var(--dk-text)}
+.tl-where{font-size:12px;color:var(--dk-text-dim);margin-bottom:12px}
+.tl-how{font-size:13px;color:var(--dk-text-soft);line-height:1.8;font-weight:300}
 
-.bento-icon{
-  width:52px;height:52px;border-radius:14px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:24px;margin-bottom:20px;
-  background:hsl(var(--stroke)/.5);
-}
+/* Skills with icons */
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.skill-lt{background:var(--lt-surface);border:1px solid var(--lt-stroke);border-radius:var(--radius);padding:28px;transition:all .45s var(--ease);position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.skill-lt:hover{transform:translateY(-4px);border-color:rgba(74,142,201,.2);box-shadow:0 12px 36px rgba(0,0,0,.07)}
+.skill-lt::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--warm));transform:scaleX(0);transition:transform .4s var(--ease);transform-origin:left}
+.skill-lt:hover::before{transform:scaleX(1)}
 
-.bento-card h3{font-size:18px;font-weight:600;margin-bottom:10px}
-.bento-card p{font-size:14px;color:hsl(var(--text)/.55);line-height:1.8;font-weight:300}
+.skill-lt h3{font-size:14px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:8px;color:var(--lt-text)}
+.sk-i{display:inline-flex;align-items:center;flex-shrink:0}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
 
-.stat-big{
-  font-family:var(--font-display);font-style:italic;
-  font-size:72px;font-weight:400;
-  background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  line-height:1;
-}
-.stat-label{font-size:13px;color:hsl(var(--muted));margin-top:6px;font-weight:400}
+.tag-lt{padding:6px 16px;background:var(--lt-surface-2);border:1px solid var(--lt-stroke);border-radius:9999px;font-size:11.5px;font-weight:500;color:var(--lt-text-soft);transition:all .3s var(--ease);display:inline-flex;align-items:center;gap:6px}
+.tag-lt:hover{background:var(--accent-glow);border-color:rgba(74,142,201,.25);color:var(--accent);transform:translateY(-1px)}
+.tag-lt img{width:14px;height:14px;object-fit:contain;flex-shrink:0}
 
-/* ===== EXPERIENCE (dark + glow) ===== */
-.exp-section{background:hsl(var(--bg));position:relative;overflow:hidden}
-.exp-section::before{content:'';position:absolute;top:-200px;right:-200px;width:500px;height:500px;border-radius:50%;background:rgba(137,170,204,.06);filter:blur(100px)}
+/* Certs */
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.cert-dk{background:var(--dk-surface);border:1px solid var(--dk-stroke);border-radius:var(--radius);padding:24px;display:flex;gap:16px;transition:all .35s var(--ease);text-decoration:none;color:var(--dk-text)}
+.cert-dk:hover{transform:translateY(-3px);border-color:rgba(126,180,226,.12);box-shadow:0 10px 32px rgba(0,0,0,.15)}
+.cert-dk .cert-link{font-size:10px;color:var(--accent-soft);margin-top:6px;display:inline-flex;align-items:center;gap:4px;opacity:.7;transition:opacity .3s}
+.cert-dk:hover .cert-link{opacity:1}
 
-.exp-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:140px 24px}
+.cert-i{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;flex-shrink:0;background:var(--dk-surface-2);transition:transform .3s var(--ease);color:var(--dk-text)}
+.cert-dk:hover .cert-i{transform:rotate(-5deg) scale(1.05)}
+.cert-dk h3{font-size:14px;font-weight:600;margin-bottom:3px}
+.cert-dk p{font-size:11.5px;color:var(--dk-text-dim)}
+.cert-badge{display:inline-flex;align-items:center;gap:5px;margin-top:8px;padding:3px 10px;border-radius:9999px;font-size:10px;font-weight:600}
+.badge-wip{background:rgba(217,119,6,.08);color:#d97706}
+.badge-ok{background:rgba(52,211,153,.08);color:#34D399}
 
-.timeline{position:relative;padding-left:52px}
-.timeline::before{content:'';position:absolute;left:11px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent-1),var(--accent-2),hsl(var(--stroke)))}
+/* Education */
+.edu{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.edu-lt{background:var(--lt-surface);border:1px solid var(--lt-stroke);border-radius:var(--radius);padding:28px;transition:all .4s var(--ease);position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.edu-lt:hover{transform:translateY(-4px);border-color:rgba(74,142,201,.2);box-shadow:0 12px 36px rgba(0,0,0,.07)}
+.edu-lt::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--warm));transform:scaleX(0);transition:transform .4s var(--ease);transform-origin:left}
+.edu-lt:hover::before{transform:scaleX(1)}
 
-.tl-item{position:relative;margin-bottom:36px;opacity:0;transform:translateX(-30px);transition:all .7s var(--transition)}
-.tl-item.visible{opacity:1;transform:translateX(0)}
+.edu-year{display:inline-block;padding:3px 12px;border-radius:9999px;background:var(--accent-glow);color:var(--accent);font-size:10px;font-weight:700;letter-spacing:.5px;margin-bottom:12px;border:1px solid rgba(74,142,201,.12)}
+.edu-lt h3{font-size:15px;font-weight:600;margin-bottom:4px;color:var(--lt-text)}
+.edu-lt .edu-place{font-size:12px;color:var(--lt-text-dim);margin-bottom:14px}
+.edu-tags{display:flex;flex-wrap:wrap;gap:5px}
+.edu-tags li{padding:3px 10px;background:var(--lt-surface-2);border-radius:9999px;font-size:10.5px;color:var(--lt-text-dim);font-weight:500;transition:all .3s}
+.edu-lt:hover .edu-tags li{background:var(--accent-glow);color:var(--accent)}
 
-.tl-dot{
-  position:absolute;left:-48px;top:28px;width:18px;height:18px;border-radius:50%;
-  background:hsl(var(--bg));border:3px solid var(--accent-1);z-index:2;transition:all .4s;
-}
-.tl-item:hover .tl-dot{background:var(--accent-1);box-shadow:0 0 20px rgba(137,170,204,.4);transform:scale(1.2)}
+/* Loisirs visual cards */
+.loisirs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.loisir-card{background:var(--dk-surface);border:1px solid var(--dk-stroke);border-radius:var(--radius-lg);padding:28px;position:relative;overflow:hidden;transition:all .45s var(--ease)}
+.loisir-card:hover{transform:translateY(-4px);border-color:rgba(126,180,226,.15);box-shadow:0 12px 36px rgba(0,0,0,.2)}
+.loisir-card h3{font-size:16px;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px;color:var(--dk-text)}
 
-.tl-card{
-  background:hsl(var(--surface));border:1px solid hsl(var(--stroke));
-  border-radius:20px;padding:32px;transition:all .4s var(--transition);
-}
-.tl-card:hover{border-color:rgba(137,170,204,.15);transform:translateX(6px);box-shadow:0 8px 32px rgba(0,0,0,.2)}
+.loisir-items{display:flex;flex-wrap:wrap;gap:8px}
+.loisir-item{display:flex;align-items:center;gap:8px;padding:10px 20px;background:var(--dk-surface-2);border:1px solid var(--dk-stroke);border-radius:var(--radius);font-size:12.5px;font-weight:500;color:var(--dk-text-soft);transition:all .35s var(--ease);position:relative;overflow:hidden}
+.loisir-item::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .35s}
+.loisir-item:hover{transform:translateY(-2px);border-color:rgba(126,180,226,.2);color:var(--dk-text)}
+.loisir-item:hover::before{opacity:1}
+.loisir-item .li-icon{display:inline-flex;align-items:center;flex-shrink:0}
 
-.tl-date{font-size:11px;color:var(--accent-1);font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
-.tl-title{font-size:20px;font-weight:600;margin-bottom:4px;font-family:var(--font-display);font-style:italic;font-size:24px}
-.tl-place{font-size:13px;color:hsl(var(--muted));margin-bottom:14px}
-.tl-desc{font-size:14px;color:hsl(var(--text)/.5);line-height:1.8;font-weight:300}
+.loisir-item.sport::before{background:linear-gradient(135deg,rgba(239,68,68,.06),rgba(249,115,22,.06))}
+.loisir-item.voyage::before{background:linear-gradient(135deg,rgba(59,130,246,.06),rgba(99,102,241,.06))}
+.loisir-item.photo::before{background:linear-gradient(135deg,rgba(168,85,247,.06),rgba(236,72,153,.06))}
+.loisir-item.ia::before{background:linear-gradient(135deg,rgba(52,211,153,.06),rgba(74,142,201,.06))}
 
-/* ===== SKILLS ===== */
-.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+/* Langues */
+.langues-card{background:var(--dk-surface);border:1px solid var(--dk-stroke);border-radius:var(--radius-lg);padding:28px;transition:all .45s var(--ease)}
+.langues-card:hover{transform:translateY(-4px);border-color:rgba(126,180,226,.15);box-shadow:0 12px 36px rgba(0,0,0,.2)}
+.langues-card h3{font-size:16px;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px;color:var(--dk-text)}
 
-.skill-card{
-  background:hsl(var(--surface));border:1px solid hsl(var(--stroke));
-  border-radius:20px;padding:32px;transition:all .5s var(--transition);
-  position:relative;overflow:hidden;
-}
-.skill-card:hover{transform:translateY(-6px);border-color:rgba(137,170,204,.2);box-shadow:0 16px 48px rgba(0,0,0,.2)}
-.skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));transform:scaleX(0);transition:transform .4s var(--transition);transform-origin:left}
-.skill-card:hover::before{transform:scaleX(1)}
+.lang-items{display:flex;flex-wrap:wrap;gap:8px}
+.lang-item{padding:8px 20px;background:var(--dk-surface-2);border:1px solid var(--dk-stroke);border-radius:9999px;font-size:12px;font-weight:500;color:var(--dk-text-soft);transition:all .3s var(--ease)}
+.lang-item:hover{border-color:rgba(126,180,226,.2);color:var(--accent-soft);transform:translateY(-1px)}
+.lang-item.primary{background:rgba(126,180,226,.08);border-color:rgba(126,180,226,.18);color:var(--accent-soft)}
 
-.skill-card h3{font-size:16px;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:10px}
-.sk-icon{font-size:20px}
-.skill-tags{display:flex;flex-wrap:wrap;gap:8px}
-.skill-tag{
-  padding:8px 18px;background:hsl(var(--stroke)/.5);
-  border:1px solid hsl(var(--stroke));border-radius:9999px;
-  font-size:12px;font-weight:500;color:hsl(var(--text)/.7);
-  transition:all .3s;
-}
-.skill-tag:hover{background:rgba(137,170,204,.1);border-color:rgba(137,170,204,.3);color:var(--accent-1);transform:translateY(-2px)}
+/* Plus grid */
+.plus-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 
-/* ===== CERTIFICATIONS ===== */
-.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+/* Contact */
+.contact{position:relative;overflow:hidden;background:var(--dk-bg);color:var(--dk-text)}
+.contact-bg{position:absolute;inset:0;overflow:hidden}
+.contact-bg .orb{opacity:.6}
+.contact-inner{position:relative;z-index:10;max-width:1080px;margin:0 auto;padding:120px 24px;text-align:center}
 
-.cert-card{
-  background:hsl(var(--surface));border:1px solid hsl(var(--stroke));
-  border-radius:20px;padding:28px;display:flex;gap:18px;
-  transition:all .4s var(--transition);
-}
-.cert-card:hover{transform:translateY(-4px);border-color:rgba(137,170,204,.15);box-shadow:0 12px 40px rgba(0,0,0,.2)}
+.contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+.contact-pill{display:flex;align-items:center;gap:12px;padding:18px 28px;border-radius:var(--radius);background:var(--dk-surface);border:1px solid var(--dk-stroke);transition:all .35s var(--ease);backdrop-filter:blur(12px)}
+.contact-pill:hover{transform:translateY(-3px);border-color:rgba(126,180,226,.15);box-shadow:0 12px 36px rgba(0,0,0,.2)}
 
-.cert-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;background:hsl(var(--stroke)/.5)}
-.cert-card h3{font-size:15px;font-weight:600;margin-bottom:4px}
-.cert-card p{font-size:12px;color:hsl(var(--muted))}
-.cert-status{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:4px 12px;border-radius:9999px;font-size:11px;font-weight:600}
-.status-progress{background:rgba(217,119,6,.1);color:#d97706}
-.status-done{background:rgba(5,150,105,.1);color:#059669}
+.cp-icon{width:40px;height:40px;border-radius:10px;background:rgba(74,142,201,.08);display:grid;place-items:center;transition:transform .3s var(--ease);color:var(--dk-text)}
+.contact-pill:hover .cp-icon{transform:scale(1.1)}
+.contact-pill span{font-size:13px;font-weight:500;color:var(--dk-text)}
 
-/* ===== FORMATION ===== */
-.formation-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+/* Map link styling */
+.contact-pill.map-link{cursor:pointer}
+.contact-pill.map-link .map-hint{font-size:10px;color:var(--accent-soft);margin-left:auto;opacity:.6;transition:opacity .3s}
+.contact-pill.map-link:hover .map-hint{opacity:1}
 
-.formation-card{
-  background:hsl(var(--surface));border:1px solid hsl(var(--stroke));
-  border-radius:20px;padding:32px;transition:all .4s var(--transition);
-  position:relative;overflow:hidden;
-}
-.formation-card:hover{transform:translateY(-6px);border-color:rgba(137,170,204,.15);box-shadow:0 16px 48px rgba(0,0,0,.2)}
-.formation-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));transform:scaleX(0);transition:transform .4s var(--transition);transform-origin:left}
-.formation-card:hover::before{transform:scaleX(1)}
+.cv-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cv-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:9999px;font-size:14px;font-weight:600;transition:all .35s var(--ease)}
+.cv-download{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 6px 24px rgba(74,142,201,.25)}
+.cv-download:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(74,142,201,.35)}
+.cv-view{background:rgba(255,255,255,.03);border:1px solid var(--dk-stroke);color:var(--dk-text-soft)}
+.cv-view:hover{transform:translateY(-2px);border-color:var(--accent-soft);color:var(--accent-soft)}
 
-.f-year{display:inline-block;padding:4px 14px;background:rgba(137,170,204,.1);color:var(--accent-1);border-radius:9999px;font-size:11px;font-weight:700;margin-bottom:14px;letter-spacing:.5px}
-.formation-card h3{font-size:17px;font-weight:600;margin-bottom:6px}
-.formation-card .f-place{font-size:13px;color:hsl(var(--muted));margin-bottom:16px}
-.tag-list{display:flex;flex-wrap:wrap;gap:6px;list-style:none}
-.tag-list li{padding:4px 12px;background:hsl(var(--stroke)/.5);border-radius:9999px;font-size:11px;color:hsl(var(--text)/.6);font-weight:500;transition:all .3s}
-.formation-card:hover .tag-list li{background:rgba(137,170,204,.1);color:var(--accent-1)}
+footer{background:var(--lt-bg);border-top:1px solid var(--lt-stroke);text-align:center;padding:28px 24px;color:var(--lt-text-dim);font-size:11px;letter-spacing:.3px}
 
-/* ===== CONTACT ===== */
-.contact-section{position:relative;overflow:hidden}
-.contact-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transform:scaleY(-1)}
-.contact-overlay{position:absolute;inset:0;background:rgba(0,0,0,.7);z-index:1}
+.btt{position:fixed;bottom:28px;right:28px;z-index:999;width:42px;height:42px;border-radius:50%;background:var(--lt-surface);border:1px solid var(--lt-stroke);display:grid;place-items:center;color:var(--lt-text);opacity:0;transform:translateY(16px);pointer-events:none;transition:all .35s var(--ease);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.btt:hover{background:var(--accent);color:#fff;border-color:var(--accent);transform:translateY(-3px)}
+.btt svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none}
 
-.contact-inner{position:relative;z-index:10;max-width:1100px;margin:0 auto;padding:140px 24px;text-align:center}
-.contact-inner .section-title{margin:0 auto 20px}
-.contact-inner .section-desc{margin:0 auto 56px;text-align:center}
-
-.contact-grid{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:48px}
-
-.contact-card{
-  background:hsl(var(--surface)/.6);border:1px solid hsl(var(--stroke));
-  border-radius:20px;padding:24px 36px;
-  text-decoration:none;color:hsl(var(--text));
-  transition:all .4s var(--transition);
-  display:flex;align-items:center;gap:14px;
-  backdrop-filter:blur(10px);
-}
-.contact-card:hover{transform:translateY(-4px);border-color:rgba(137,170,204,.2);box-shadow:0 16px 48px rgba(0,0,0,.3)}
-
-.c-icon{width:48px;height:48px;border-radius:14px;background:rgba(137,170,204,.1);display:flex;align-items:center;justify-content:center;font-size:22px}
-.contact-card span{font-size:14px;font-weight:500}
-
-.contact-cv{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:16px 40px;border-radius:9999px;
-  background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
-  color:hsl(var(--bg));font-weight:600;font-size:15px;
-  text-decoration:none;transition:all .4s;
-  box-shadow:0 8px 32px rgba(137,170,204,.3);
-}
-.contact-cv:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(137,170,204,.4)}
-
-/* ===== FOOTER ===== */
-footer{
-  background:hsl(var(--bg));
-  border-top:1px solid hsl(var(--stroke));
-  text-align:center;padding:32px 24px;
-  color:hsl(var(--muted));font-size:12px;
-}
-footer a{color:var(--accent-1);text-decoration:none}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:1024px){
-  .bento{grid-template-columns:repeat(6,1fr)}
-  .b8{grid-column:span 6}.b4{grid-column:span 6}.b6{grid-column:span 6}
-}
+/* Responsive */
+@media(max-width:1024px){.bento{grid-template-columns:repeat(6,1fr)}.c8,.c4,.c6{grid-column:span 6}}
 @media(max-width:768px){
-  .nav-links,.nav-sep,.nav-cta{display:none}
-  .nav-toggle{display:block}
-  .section,.exp-inner,.contact-inner{padding:100px 20px}
-  .bento{grid-template-columns:1fr}
-  .b8,.b4,.b6{grid-column:span 1}
-  .skills-grid{grid-template-columns:1fr}
-  .formation-cards{grid-template-columns:1fr}
-  .hero-content{padding:140px 20px 80px}
-  .contact-grid{flex-direction:column;align-items:center}
-  .hero h1{letter-spacing:-2px}
-  .marquee-section{padding:20px 0}
+  .nav-items,.nav-sep,.nav-contact{display:none}.nav-menu-btn{display:block}
+  .section-light,.section-dark{padding:80px 20px}.contact-inner{padding:80px 20px}
+  .bento{grid-template-columns:1fr}.c8,.c4,.c6{grid-column:span 1}
+  .skills{grid-template-columns:1fr}.edu{grid-template-columns:1fr}
+  .loisirs-grid{grid-template-columns:1fr}
+  .plus-grid{grid-template-columns:1fr}
+  .hero-title{letter-spacing:-1px}
+  .contact-links{flex-direction:column;align-items:center}
+  .cv-actions{flex-direction:column;align-items:center}
 }
-@media(max-width:480px){
-  .hero h1{font-size:42px}
-  .stat-big{font-size:56px}
+@media(max-width:480px){.hero-title{font-size:38px}.stat{font-size:48px}}
+@media print{.nav,.preloader,.progress,.scroll-cue,.marquee,.btt,.mobile-menu{display:none!important}.hero{min-height:auto}.section-light,.section-dark{padding:40px 20px}}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}
+  .marquee-track{animation:none}
+  .reveal{opacity:1;transform:none}
+  .orb{animation:none}
 }
-@media print{nav,.scroll-indicator,.progress-bar,.marquee-section,.mobile-menu{display:none!important}.hero{min-height:auto}.section{padding:40px 20px}}
 </style>
 </head>
 <body>
 
-<!-- Progress bar -->
-<div class="progress-bar" id="progressBar"></div>
+<a href="#parcours" class="skip-link">Aller au contenu</a>
 
-<!-- NAV -->
-<nav id="navbar">
-  <div class="nav-pill">
-    <div class="nav-logo">SA</div>
+<div class="preloader" id="preloader">
+  <div class="preloader-logo"><img src="logo.png" alt="SA"></div>
+  <div class="preloader-bar"></div>
+</div>
+
+<div class="progress" id="progress"></div>
+
+<nav class="nav" id="nav">
+  <div class="nav-bar">
+    <a href="#" class="nav-brand"><img src="logo.png" alt="Shalom Alonyo"></a>
     <div class="nav-sep"></div>
-    <ul class="nav-links">
-      <li><a href="#parcours" class="nav-link active">Parcours</a></li>
-      <li><a href="#experience" class="nav-link">Experience</a></li>
-      <li><a href="#competences" class="nav-link">Competences</a></li>
-      <li><a href="#formation" class="nav-link">Formation</a></li>
-      <li><a href="#plus" class="nav-link">Plus</a></li>
-    </ul>
+    <div class="nav-items">
+      <a href="#parcours" class="nav-item on">Parcours</a>
+      <a href="#experience" class="nav-item">Experience</a>
+      <a href="#competences" class="nav-item">Competences</a>
+      <a href="#formation" class="nav-item">Formation</a>
+      <a href="#plus" class="nav-item">Plus</a>
+    </div>
     <div class="nav-sep"></div>
-    <a href="#contact" class="nav-cta liquid-glass">Me contacter&nbsp;&nearr;</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
+    <a href="#contact" class="nav-contact">Contact&nbsp;&nearr;</a>
+    <button class="nav-menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">&#9776;</button>
   </div>
 </nav>
 
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" id="mobileClose" aria-label="Fermer">&times;</button>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu de navigation">
+  <button class="mobile-menu-close" id="menuClose" aria-label="Fermer">&times;</button>
   <a href="#parcours">Parcours</a>
   <a href="#experience">Experience</a>
   <a href="#competences">Competences</a>
@@ -508,418 +376,263 @@ footer a{color:var(--accent-1);text-decoration:none}
   <a href="#contact">Contact</a>
 </div>
 
-<!-- HERO -->
+<!-- Hero -->
 <section class="hero">
-  <video class="hero-video" autoplay loop muted playsinline>
-    <source src="https://assets.mixkit.co/videos/34352/34352-720.mp4" type="video/mp4">
-  </video>
-  <div class="hero-overlay" style="background:rgba(0,0,0,.55)"></div>
-  <div class="hero-fade-bottom" style="position:absolute;bottom:0;left:0;right:0;height:300px;background:linear-gradient(to bottom,transparent,hsl(0 0% 4%));z-index:2;pointer-events:none"></div>
-
+  <div class="hero-bg"><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div><div class="orb orb-4"></div><div class="hero-grid"></div></div>
+  <div class="hero-fade"></div>
   <div class="hero-content">
-    <div class="hero-badge liquid-glass anim-fade" style="border-radius:9999px">
-      <span class="hero-badge-dot">Disponible</span>
+    <div class="hero-tag">
+      <span class="hero-tag-badge"><span class="tag-dot"></span>Disponible</span>
       Alternance BTS Production &mdash; Rentree 2026
     </div>
-
-    <h1 class="anim-fade anim-d2">
-      L'industrie de <em>demain</em> se construit <em>aujourd'hui.</em>
-    </h1>
-
-    <p class="hero-sub anim-fade anim-d3">
-      Titulaire d'un Bac&nbsp;STI2D ITEC et d'un parcours en BTS&nbsp;Batiment. Actuellement agent logistique au CH de Rodez, je gere et depanne au quotidien des AGV&nbsp;Swisslog. Je recherche une alternance en BTS&nbsp;Production pour evoluer vers l'industrialisation et les systemes automatises.
-    </p>
-
-    <div class="hero-buttons anim-fade anim-d4">
-      <a href="#contact" class="btn-solid">Me contacter&nbsp;&nbsp;&nearr;</a>
-      <a href="#parcours" class="btn-glass liquid-glass-strong">Decouvrir&nbsp;&nbsp;&darr;</a>
+    <h1 class="hero-title">L'industrie de <span class="dim">demain</span> se construit <span class="glow">aujourd'hui.</span></h1>
+    <p class="hero-desc">Bac&nbsp;STI2D ITEC, parcours en BTS&nbsp;Batiment, actuellement agent logistique au CH&nbsp;de&nbsp;Rodez ou je gere 6&nbsp;AGV&nbsp;Swisslog au quotidien. Je recherche une alternance en BTS&nbsp;Production.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary"><span>Me contacter&nbsp;&nbsp;&nearr;</span></a>
+      <a href="#parcours" class="btn-outline">Decouvrir&nbsp;&nbsp;&darr;</a>
     </div>
   </div>
-
-  <div class="scroll-indicator anim-fade anim-d6">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
+  <div class="scroll-cue"><span>Scroll</span><div class="scroll-cue-line"></div></div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee-section">
+<!-- Marquee -->
+<div class="marquee">
   <div class="marquee-track">
-    <span>SolidWorks <i class="marquee-dot"></i></span>
-    <span>AGV Swisslog <i class="marquee-dot"></i></span>
-    <span>AutoCAD <i class="marquee-dot"></i></span>
-    <span>Maintenance <i class="marquee-dot"></i></span>
-    <span>Revit <i class="marquee-dot"></i></span>
-    <span>Deep Learning <i class="marquee-dot"></i></span>
-    <span>Cybersecurite <i class="marquee-dot"></i></span>
-    <span>Arduino <i class="marquee-dot"></i></span>
-    <span>Impression 3D <i class="marquee-dot"></i></span>
-    <span>Excel <i class="marquee-dot"></i></span>
-    <span>GanttProject <i class="marquee-dot"></i></span>
-    <span>Diagnostic <i class="marquee-dot"></i></span>
-    <span>SolidWorks <i class="marquee-dot"></i></span>
-    <span>AGV Swisslog <i class="marquee-dot"></i></span>
-    <span>AutoCAD <i class="marquee-dot"></i></span>
-    <span>Maintenance <i class="marquee-dot"></i></span>
-    <span>Revit <i class="marquee-dot"></i></span>
-    <span>Deep Learning <i class="marquee-dot"></i></span>
-    <span>Cybersecurite <i class="marquee-dot"></i></span>
-    <span>Arduino <i class="marquee-dot"></i></span>
-    <span>Impression 3D <i class="marquee-dot"></i></span>
-    <span>Excel <i class="marquee-dot"></i></span>
-    <span>GanttProject <i class="marquee-dot"></i></span>
-    <span>Diagnostic <i class="marquee-dot"></i></span>
+    <span>SolidWorks <i class="m-dot"></i></span><span>AGV Swisslog <i class="m-dot"></i></span><span>AutoCAD <i class="m-dot"></i></span><span>Maintenance <i class="m-dot"></i></span><span>Revit <i class="m-dot"></i></span><span>Deep Learning <i class="m-dot"></i></span><span>Cybersecurite <i class="m-dot"></i></span><span>Arduino <i class="m-dot"></i></span><span>Impression 3D <i class="m-dot"></i></span><span>Excel <i class="m-dot"></i></span><span>GanttProject <i class="m-dot"></i></span><span>Diagnostic <i class="m-dot"></i></span>
+    <span>SolidWorks <i class="m-dot"></i></span><span>AGV Swisslog <i class="m-dot"></i></span><span>AutoCAD <i class="m-dot"></i></span><span>Maintenance <i class="m-dot"></i></span><span>Revit <i class="m-dot"></i></span><span>Deep Learning <i class="m-dot"></i></span><span>Cybersecurite <i class="m-dot"></i></span><span>Arduino <i class="m-dot"></i></span><span>Impression 3D <i class="m-dot"></i></span><span>Excel <i class="m-dot"></i></span><span>GanttProject <i class="m-dot"></i></span><span>Diagnostic <i class="m-dot"></i></span>
   </div>
 </div>
 
-<!-- PARCOURS - BENTO -->
-<div class="section" id="parcours">
-  <div class="reveal">
-    <span class="section-eyebrow">A propos</span>
-    <h2 class="section-title">Mon <em>parcours</em> en un coup d'oeil</h2>
-    <p class="section-desc">De la conception technique au depannage de systemes automatises, chaque etape m'a rapproche de l'industrie.</p>
-  </div>
-
-  <div class="bento">
-    <div class="bento-card b8 reveal">
-      <div class="bento-icon">&#9881;</div>
-      <h3>Agent logistique &mdash; CH Rodez</h3>
-      <p>Je supervise 6 AGV Swisslog qui approvisionnent tous les services hospitaliers du sous-sol au 5e etage : repas, linge, dechets. Quand un AGV tombe en panne, j'identifie le probleme et je le regle en autonomie. Pour les pannes majeures, je redige la main courante et je coordonne avec le technicien de maintenance. 2 a 4 interventions par jour.</p>
-    </div>
-
-    <div class="bento-card b4 reveal" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
-      <div class="stat-big">6</div>
-      <div class="stat-label">AGV Swisslog supervises</div>
-    </div>
-
-    <div class="bento-card b4 reveal">
-      <div class="bento-icon">&#9997;</div>
-      <h3>Bac STI2D ITEC</h3>
-      <p>SolidWorks, impression 3D, Arduino, analyse fonctionnelle, eco-conception. La base de ma culture technique.</p>
-    </div>
-
-    <div class="bento-card b4 reveal">
-      <div class="bento-icon">&#9978;</div>
-      <h3>BTS Batiment</h3>
-      <p>2 ans completes. Lecture de plans, metres, chiffrage, AutoCAD, Revit, RDM, GanttProject. Stage chez Rey Massol BTP.</p>
-    </div>
-
-    <div class="bento-card b4 reveal" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
-      <div class="stat-big">3</div>
-      <div class="stat-label">Certifications en cours</div>
-    </div>
-  </div>
-</div>
-
-<!-- EXPERIENCE -->
-<div class="exp-section section-full" id="experience">
-  <div class="exp-inner">
+<!-- Parcours -->
+<div class="section-light" id="parcours">
+  <div class="section-inner">
     <div class="reveal">
-      <span class="section-eyebrow">Experience</span>
-      <h2 class="section-title">Ce que j'ai fait <em>concretement</em></h2>
-      <p class="section-desc">Du terrain au diagnostic, chaque poste m'a donne des competences directement transferables a l'industrie.</p>
+      <span class="label">A propos</span>
+      <h2 class="heading">Mon <span class="dim">parcours</span> en un coup d'oeil</h2>
+      <p class="subtext">De la conception technique au depannage de systemes automatises, chaque etape m'a rapproche de l'industrie.</p>
     </div>
+    <div class="bento">
+      <div class="card-lt c8 reveal"><div class="card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><h3>Agent logistique &mdash; CH Rodez</h3><p>Je supervise 6 AGV Swisslog qui approvisionnent tous les services hospitaliers du sous-sol au 5e etage : repas, linge, dechets. Quand un AGV tombe en panne, j'identifie le probleme et je le regle en autonomie. Pour les pannes majeures, je redige la main courante et je coordonne avec le technicien de maintenance. 2 a 4 interventions par jour.</p></div>
+      <div class="card-lt c4 reveal" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center"><div class="stat">6</div><div class="stat-label">AGV Swisslog supervises</div></div>
+      <div class="card-lt c4 reveal"><div class="card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></div><h3>Bac STI2D ITEC</h3><p>SolidWorks, impression 3D, Arduino, analyse fonctionnelle, eco-conception. La base de ma culture technique.</p></div>
+      <div class="card-lt c4 reveal"><div class="card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h3>BTS Batiment</h3><p>2 ans completes. Lecture de plans, metres, chiffrage, AutoCAD, Revit, RDM, GanttProject. Stage chez Rey Massol BTP.</p></div>
+      <div class="card-lt c4 reveal" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center"><div class="stat">3</div><div class="stat-label">Certifications en cours</div></div>
+    </div>
+  </div>
+</div>
 
+<!-- Experience -->
+<div class="section-dark" id="experience">
+  <div class="exp-glow"></div><div class="exp-glow-2"></div>
+  <div class="section-inner">
+    <div class="reveal"><span class="label">Experience</span><h2 class="heading">Ce que j'ai fait <span class="dim">concretement</span></h2><p class="subtext">Du terrain au diagnostic, chaque poste m'a donne des competences directement transferables a l'industrie.</p></div>
     <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-date">Mars 2026 &mdash; Aujourd'hui</div>
-          <div class="tl-title">Agent logistique</div>
-          <div class="tl-place">Centre Hospitalier de Rodez</div>
-          <div class="tl-desc">Supervision de 6 AGV Swisslog assurant l'approvisionnement de l'ensemble des services. Identification et resolution des pannes mineures en autonomie. Redaction de main courante et coordination avec la maintenance pour les pannes majeures. 2 a 4 interventions par jour.</div>
+      <div class="tl-entry"><div class="tl-marker"></div><div class="tl-card"><div class="tl-when">Mars 2026 &mdash; Aujourd'hui</div><div class="tl-what">Agent logistique</div><div class="tl-where">Centre Hospitalier de Rodez</div><div class="tl-how">Supervision de 6 AGV Swisslog assurant l'approvisionnement de l'ensemble des services. Identification et resolution des pannes mineures en autonomie. Redaction de main courante et coordination avec la maintenance pour les pannes majeures. 2 a 4 interventions par jour.</div></div></div>
+      <div class="tl-entry"><div class="tl-marker"></div><div class="tl-card"><div class="tl-when">Aout 2025 &mdash; Fevrier 2026</div><div class="tl-what">Agent des Services Hospitaliers</div><div class="tl-where">Centre Hospitalier de Rodez</div><div class="tl-how">Bionettoyage et desinfection de 8 chambres par jour. Distribution des repas, gestion du linge, entretien des espaces de soins. Application stricte des protocoles d'hygiene hospitaliere.</div></div></div>
+      <div class="tl-entry"><div class="tl-marker"></div><div class="tl-card"><div class="tl-when">2024</div><div class="tl-what">Stage Ouvrier</div><div class="tl-where">Rey Massol BTP</div><div class="tl-how">Metres et chiffrage sur chantier : releves terrain, saisie des quantites. Participation aux etudes de prix et aux dossiers d'appels d'offres. Planification des travaux en lien avec le conducteur de travaux.</div></div></div>
+      <div class="tl-entry"><div class="tl-marker"></div><div class="tl-card"><div class="tl-when">2022</div><div class="tl-what">Employe mise en rayon et caisse</div><div class="tl-where">Intersport</div><div class="tl-how">Mise en rayon, gestion du stock, encaissement.</div></div></div>
+      <div class="tl-entry"><div class="tl-marker"></div><div class="tl-card"><div class="tl-when">2019</div><div class="tl-what">Stage d'observation</div><div class="tl-where">College Saint Joseph &mdash; Restauration Collective</div><div class="tl-how">Decouverte de la gestion des stocks et de l'approvisionnement en restauration.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Competences -->
+<div class="section-light" id="competences">
+  <div class="section-inner">
+    <div class="reveal"><span class="label">Competences</span><h2 class="heading">Ce que je <span class="dim">sais faire</span></h2><p class="subtext">Technique, outils, methode. Tout ce que j'ai accumule et qui sert au quotidien.</p></div>
+    <div class="skills">
+      <div class="skill-lt reveal">
+        <h3><span class="sk-i"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span> Systemes industriels</h3>
+        <div class="tags">
+          <span class="tag-lt">AGV Swisslog</span>
+          <span class="tag-lt">Diagnostic de pannes</span>
+          <span class="tag-lt">Remise en service</span>
+          <span class="tag-lt">Maintenance</span>
+          <span class="tag-lt">Automatisme</span>
         </div>
       </div>
-
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-date">Aout 2025 &mdash; Fevrier 2026</div>
-          <div class="tl-title">Agent des Services Hospitaliers</div>
-          <div class="tl-place">Centre Hospitalier de Rodez</div>
-          <div class="tl-desc">Bionettoyage et desinfection de 8 chambres par jour. Distribution des repas, gestion du linge, entretien des espaces de soins. Application stricte des protocoles d'hygiene hospitaliere.</div>
+      <div class="skill-lt reveal">
+        <h3><span class="sk-i"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></span> CAO / Conception</h3>
+        <div class="tags">
+          <span class="tag-lt"><img src="https://cdn.simpleicons.org/dassaultsystemes/E2231A" alt="SolidWorks">SolidWorks</span>
+          <span class="tag-lt"><img src="https://cdn.simpleicons.org/autodesk/0696D7" alt="AutoCAD">AutoCAD</span>
+          <span class="tag-lt"><img src="https://cdn.simpleicons.org/autodesk/0696D7" alt="Revit">Revit</span>
+          <span class="tag-lt">RDM</span>
+          <span class="tag-lt">Impression 3D</span>
         </div>
       </div>
-
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-date">2024</div>
-          <div class="tl-title">Stage Ouvrier</div>
-          <div class="tl-place">Rey Massol BTP</div>
-          <div class="tl-desc">Metres et chiffrage sur chantier : releves terrain, saisie des quantites. Participation aux etudes de prix et aux dossiers d'appels d'offres. Planification des travaux en lien avec le conducteur de travaux.</div>
+      <div class="skill-lt reveal">
+        <h3><span class="sk-i"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span> Outils & Logiciels</h3>
+        <div class="tags">
+          <span class="tag-lt"><img src="https://cdn.simpleicons.org/microsoftexcel/217346" alt="Excel">Excel</span>
+          <span class="tag-lt"><img src="https://cdn.simpleicons.org/microsoftword/2B579A" alt="Word">Word</span>
+          <span class="tag-lt"><img src="https://cdn.simpleicons.org/microsoftteams/6264A7" alt="Teams">Teams</span>
+          <span class="tag-lt">GanttProject</span>
+          <span class="tag-lt"><img src="https://cdn.simpleicons.org/arduino/00979D" alt="Arduino">Arduino</span>
         </div>
       </div>
-
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-date">2022</div>
-          <div class="tl-title">Employe mise en rayon et caisse</div>
-          <div class="tl-place">Intersport</div>
-          <div class="tl-desc">Mise en rayon, gestion du stock, encaissement.</div>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-date">2019</div>
-          <div class="tl-title">Stage d'observation</div>
-          <div class="tl-place">College Saint Joseph &mdash; Restauration Collective</div>
-          <div class="tl-desc">Decouverte de la gestion des stocks et de l'approvisionnement en restauration.</div>
+      <div class="skill-lt reveal">
+        <h3><span class="sk-i"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg></span> IA & Cybersecurite</h3>
+        <div class="tags">
+          <span class="tag-lt">Deep Learning</span>
+          <span class="tag-lt">Reseaux de neurones</span>
+          <span class="tag-lt">Cybersecurite</span>
+          <span class="tag-lt">SIEM</span>
+          <span class="tag-lt">Securite reseau</span>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- COMPETENCES -->
-<div class="section" id="competences">
-  <div class="reveal">
-    <span class="section-eyebrow">Competences</span>
-    <h2 class="section-title">Ce que je <em>sais faire</em></h2>
-    <p class="section-desc">Technique, outils, methode. Tout ce que j'ai accumule et qui sert au quotidien.</p>
+<!-- Certifications -->
+<div class="section-dark" id="certifications">
+  <div class="section-inner">
+    <div class="reveal"><span class="label">Certifications</span><h2 class="heading">Formations <span class="dim">en ligne</span></h2><p class="subtext">Je me forme en parallele de mon travail. Par curiosite et par envie d'avancer.</p></div>
+    <div class="certs">
+      <a href="https://www.coursera.org/specializations/deep-learning" target="_blank" rel="noopener noreferrer" class="cert-dk reveal">
+        <div class="cert-i"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a9 9 0 0 0-9 9c0 3.9 3.2 8.1 5.5 10.3a5.4 5.4 0 0 0 7 0C17.8 19.1 21 14.9 21 11a9 9 0 0 0-9-9z"/><path d="M12 2v4"/><path d="M9 8.5 12 6l3 2.5"/><circle cx="12" cy="13" r="3"/></svg></div>
+        <div><h3>Deep Learning Specialization</h3><p>DeepLearning.AI / Coursera &mdash; Andrew Ng</p><div class="cert-badge badge-wip">&#9711; En cours</div><div class="cert-link">Voir le programme &nearr;</div></div>
+      </a>
+      <a href="https://training.fortinet.com/" target="_blank" rel="noopener noreferrer" class="cert-dk reveal">
+        <div class="cert-i"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><h3>Fortinet Cybersecurity</h3><p>Fortinet Training Institute</p><div class="cert-badge badge-wip">&#9711; En cours</div><div class="cert-link">Voir le programme &nearr;</div></div>
+      </a>
+      <a href="https://www.coursera.org/professional-certificates/google-cybersecurity" target="_blank" rel="noopener noreferrer" class="cert-dk reveal">
+        <div class="cert-i"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <div><h3>Google Cybersecurity Certificate</h3><p>Google / Coursera</p><div class="cert-badge badge-wip">&#9711; En cours</div><div class="cert-link">Voir le programme &nearr;</div></div>
+      </a>
+      <a href="https://pix.fr/" target="_blank" rel="noopener noreferrer" class="cert-dk reveal">
+        <div class="cert-i"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div><h3>Certification Pix</h3><p>Competences numeriques</p><div class="cert-badge badge-ok">&#10003; Obtenue</div><div class="cert-link">Voir Pix.fr &nearr;</div></div>
+      </a>
+    </div>
   </div>
+</div>
 
-  <div class="skills-grid">
-    <div class="skill-card reveal">
-      <h3><span class="sk-icon">&#9881;</span> Systemes industriels</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">AGV Swisslog</span>
-        <span class="skill-tag">Diagnostic de pannes</span>
-        <span class="skill-tag">Remise en service</span>
-        <span class="skill-tag">Maintenance</span>
-        <span class="skill-tag">Automatisme</span>
-      </div>
+<!-- Formation -->
+<div class="section-light" id="formation">
+  <div class="section-inner">
+    <div class="reveal"><span class="label">Formation</span><h2 class="heading">Parcours <span class="dim">academique</span></h2></div>
+    <div class="edu">
+      <div class="edu-lt reveal"><span class="edu-year">2023 &mdash; 2025</span><h3>Parcours en BTS Batiment</h3><div class="edu-place">Lycee Louis Vicat</div><ul class="edu-tags"><li>AutoCAD</li><li>Revit</li><li>RDM</li><li>Metres</li><li>Chiffrage</li><li>GanttProject</li><li>Topographie</li></ul></div>
+      <div class="edu-lt reveal"><span class="edu-year">2022 &mdash; 2023</span><h3>Bac STI2D &mdash; ITEC</h3><div class="edu-place">Lycee Alexis Monteil, Rodez</div><ul class="edu-tags"><li>SolidWorks</li><li>Impression 3D</li><li>Arduino</li><li>Analyse fonctionnelle</li><li>Eco-conception</li></ul></div>
+      <div class="edu-lt reveal"><span class="edu-year">2019 &mdash; 2020</span><h3>Brevet du College</h3><div class="edu-place">College Saint Joseph</div><ul class="edu-tags"><li>Obtenu</li></ul></div>
     </div>
+  </div>
+</div>
 
-    <div class="skill-card reveal">
-      <h3><span class="sk-icon">&#9999;</span> CAO / Conception</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">SolidWorks</span>
-        <span class="skill-tag">AutoCAD</span>
-        <span class="skill-tag">Revit</span>
-        <span class="skill-tag">RDM</span>
-        <span class="skill-tag">Impression 3D</span>
+<!-- Langues & Loisirs -->
+<div class="section-dark" id="plus">
+  <div class="section-inner">
+    <div class="reveal"><span class="label">En plus</span><h2 class="heading">Langues & <span class="dim">centres d'interet</span></h2></div>
+
+    <div class="plus-grid">
+      <!-- Langues -->
+      <div class="langues-card reveal">
+        <h3><span class="sk-i"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span> Langues</h3>
+        <div class="lang-items">
+          <span class="lang-item primary">Francais &mdash; Langue maternelle</span>
+          <span class="lang-item">Anglais &mdash; C1</span>
+          <span class="lang-item">Espagnol &mdash; B1</span>
+        </div>
       </div>
-    </div>
 
-    <div class="skill-card reveal">
-      <h3><span class="sk-icon">&#128187;</span> Outils & Logiciels</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">Excel</span>
-        <span class="skill-tag">Word</span>
-        <span class="skill-tag">Teams</span>
-        <span class="skill-tag">GanttProject</span>
-        <span class="skill-tag">Arduino</span>
-      </div>
-    </div>
-
-    <div class="skill-card reveal">
-      <h3><span class="sk-icon">&#129302;</span> IA & Cybersecurite</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">Deep Learning</span>
-        <span class="skill-tag">Reseaux de neurones</span>
-        <span class="skill-tag">Cybersecurite</span>
-        <span class="skill-tag">SIEM</span>
-        <span class="skill-tag">Securite reseau</span>
+      <!-- Loisirs -->
+      <div class="loisir-card reveal">
+        <h3><span class="sk-i"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span> Loisirs</h3>
+        <div class="loisir-items">
+          <a href="https://unsplash.com/s/photos/gym-weightlifting" target="_blank" rel="noopener noreferrer" class="loisir-item sport">
+            <span class="li-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></span> Musculation & Football
+          </a>
+          <a href="https://unsplash.com/s/photos/travel-adventure" target="_blank" rel="noopener noreferrer" class="loisir-item voyage">
+            <span class="li-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></span> Voyage
+          </a>
+          <a href="https://unsplash.com/s/photos/photography-camera" target="_blank" rel="noopener noreferrer" class="loisir-item photo">
+            <span class="li-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></span> Photographie
+          </a>
+          <a href="https://unsplash.com/s/photos/artificial-intelligence" target="_blank" rel="noopener noreferrer" class="loisir-item ia">
+            <span class="li-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg></span> Intelligence Artificielle
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- CERTIFICATIONS -->
-<div class="section" id="certifications" style="border-top:1px solid hsl(var(--stroke))">
-  <div class="reveal">
-    <span class="section-eyebrow">Certifications</span>
-    <h2 class="section-title">Formations <em>en ligne</em></h2>
-    <p class="section-desc">Je me forme en parallele de mon travail. Par curiosite et par envie d'avancer.</p>
-  </div>
-
-  <div class="certs-grid">
-    <div class="cert-card reveal">
-      <div class="cert-icon">&#129504;</div>
-      <div>
-        <h3>Deep Learning Specialization</h3>
-        <p>DeepLearning.AI / Coursera &mdash; Andrew Ng</p>
-        <div class="cert-status status-progress">&#9711; En cours</div>
-      </div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">&#128737;</div>
-      <div>
-        <h3>Fortinet Cybersecurity</h3>
-        <p>Fortinet Training Institute</p>
-        <div class="cert-status status-progress">&#9711; En cours</div>
-      </div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">&#128272;</div>
-      <div>
-        <h3>Google Cybersecurity Certificate</h3>
-        <p>Google / Coursera</p>
-        <div class="cert-status status-progress">&#9711; En cours</div>
-      </div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">&#9989;</div>
-      <div>
-        <h3>Certification Pix</h3>
-        <p>Competences numeriques</p>
-        <div class="cert-status status-done">&#10003; Obtenue</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- FORMATION -->
-<div class="section" id="formation">
-  <div class="reveal">
-    <span class="section-eyebrow">Formation</span>
-    <h2 class="section-title">Parcours <em>academique</em></h2>
-  </div>
-
-  <div class="formation-cards">
-    <div class="formation-card reveal">
-      <span class="f-year">2023 &mdash; 2025</span>
-      <h3>Parcours en BTS Batiment</h3>
-      <div class="f-place">Lycee Louis Vicat</div>
-      <ul class="tag-list">
-        <li>AutoCAD</li><li>Revit</li><li>RDM</li><li>Metres</li><li>Chiffrage</li><li>GanttProject</li><li>Topographie</li>
-      </ul>
-    </div>
-    <div class="formation-card reveal">
-      <span class="f-year">2022 &mdash; 2023</span>
-      <h3>Bac STI2D &mdash; ITEC</h3>
-      <div class="f-place">Lycee Alexis Monteil, Rodez</div>
-      <ul class="tag-list">
-        <li>SolidWorks</li><li>Impression 3D</li><li>Arduino</li><li>Analyse fonctionnelle</li><li>Eco-conception</li>
-      </ul>
-    </div>
-    <div class="formation-card reveal">
-      <span class="f-year">2019 &mdash; 2020</span>
-      <h3>Brevet du College</h3>
-      <div class="f-place">College Saint Joseph</div>
-      <ul class="tag-list">
-        <li>Obtenu</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- LANGUES & LOISIRS -->
-<div class="section" id="plus" style="border-top:1px solid hsl(var(--stroke))">
-  <div class="reveal">
-    <span class="section-eyebrow">En plus</span>
-    <h2 class="section-title">Langues & <em>centres d'interet</em></h2>
-  </div>
-
-  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
-    <div class="skill-card reveal">
-      <h3><span class="sk-icon">&#127760;</span> Langues</h3>
-      <div class="skill-tags">
-        <span class="skill-tag" style="background:rgba(137,170,204,.15);border-color:rgba(137,170,204,.3);color:var(--accent-1)">Francais &mdash; Langue maternelle</span>
-        <span class="skill-tag">Anglais &mdash; C1</span>
-        <span class="skill-tag">Espagnol &mdash; B1</span>
-      </div>
-    </div>
-
-    <div class="skill-card reveal">
-      <h3><span class="sk-icon">&#127919;</span> Loisirs</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">Sport</span>
-        <span class="skill-tag">Voyage</span>
-        <span class="skill-tag">Photographie</span>
-        <span class="skill-tag">Intelligence Artificielle</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT -->
-<div class="contact-section section-full" id="contact">
-  <div class="hero-mesh" style="opacity:.5">
-    <div class="mesh-grad mesh-1"></div>
-    <div class="mesh-grad mesh-2"></div>
-  </div>
-  <div class="hero-noise"></div>
-
+<!-- Contact -->
+<div class="contact" id="contact">
+  <div class="contact-bg"><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div></div>
   <div class="contact-inner">
     <div class="reveal">
-      <span class="section-eyebrow" style="color:var(--accent-1)">Contact</span>
-      <h2 class="section-title" style="max-width:520px;margin:0 auto 20px;">On travaille <em>ensemble</em> ?</h2>
-      <p class="section-desc">
-        Je cherche une alternance en BTS Production pour la rentree 2026.
-        Disponible, motive, permis B et vehicule.
-      </p>
+      <span class="label" style="color:var(--accent-soft)">Contact</span>
+      <h2 class="heading" style="max-width:480px;margin:0 auto 16px">On travaille <span class="dim">ensemble</span> ?</h2>
+      <p class="subtext" style="margin:0 auto 48px;text-align:center">Je cherche une alternance en BTS Production pour la rentree 2026.<br>Disponible, motive, permis B et vehicule.</p>
     </div>
 
-    <div class="contact-grid">
-      <a href="mailto:shalomalonyo24@gmail.com" class="contact-card reveal">
-        <div class="c-icon">&#9993;</div>
-        <span>shalomalonyo24@gmail.com</span>
+    <div class="contact-links">
+      <a href="mailto:shalomalonyo24@gmail.com" class="contact-pill reveal" rel="noopener">
+        <div class="cp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><span>shalomalonyo24@gmail.com</span>
       </a>
-      <a href="tel:+33633123226" class="contact-card reveal">
-        <div class="c-icon">&#128222;</div>
-        <span>06 33 12 32 26</span>
+      <a href="tel:+33633123226" class="contact-pill reveal" rel="noopener">
+        <div class="cp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><span>06 33 12 32 26</span>
       </a>
-      <div class="contact-card reveal">
-        <div class="c-icon">&#128205;</div>
-        <span>Rodez (12) &mdash; Mobile</span>
-      </div>
+      <a href="https://www.google.com/maps/dir//H%C3%B4pital+Jacques+Puel,+Avenue+de+l%27H%C3%B4pital,+12000+Rodez/@44.3555,2.5734,15z/" target="_blank" rel="noopener noreferrer" class="contact-pill map-link reveal">
+        <div class="cp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><span>Rodez (12) &mdash; CH Jacques Puel</span><span class="map-hint">Itineraire &nearr;</span>
+      </a>
     </div>
 
-    <a href="cv.pdf" class="contact-cv reveal" download>&#128196;&nbsp;&nbsp;Telecharger mon CV</a>
+    <div class="cv-actions reveal">
+      <a href="Shalom%20Alonyo%20-%20CV.pdf" class="cv-btn cv-download" download><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>&nbsp;&nbsp;Telecharger mon CV</a>
+      <a href="Shalom%20Alonyo%20-%20CV.pdf" class="cv-btn cv-view" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>&nbsp;&nbsp;Visualiser le CV</a>
+    </div>
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer>
-  <p>&copy; 2026 Shalom Alonyo &mdash; Fait avec determination.</p>
-</footer>
+<footer><p>&copy; 2026 Shalom Alonyo &mdash; Fait avec determination.</p></footer>
+
+<button class="btt" id="btt" aria-label="Retour en haut"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
 
 <script>
-// Progress bar
-const pBar=document.getElementById('progressBar');
-window.addEventListener('scroll',()=>{const h=document.documentElement;pBar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('preloader').classList.add('done'),600));
 
-// Nav scroll
-const nav=document.getElementById('navbar');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>80));
+const prog=document.getElementById('progress');
+window.addEventListener('scroll',()=>{const d=document.documentElement;prog.style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight))*100+'%'},{passive:true});
 
-// Active nav link
-const sections=document.querySelectorAll('[id]');
-const navLinks=document.querySelectorAll('.nav-link');
-window.addEventListener('scroll',()=>{
-  let current='';
-  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-200)current=s.id});
-  navLinks.forEach(l=>{l.classList.toggle('active',l.getAttribute('href')==='#'+current)});
-});
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
 
-// Mobile menu
-const toggle=document.getElementById('navToggle');
+const navItems=document.querySelectorAll('.nav-item');
+const secs=document.querySelectorAll('[id]');
+window.addEventListener('scroll',()=>{let cur='';secs.forEach(s=>{if(scrollY>=s.offsetTop-200)cur=s.id});navItems.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+cur))},{passive:true});
+
 const mm=document.getElementById('mobileMenu');
-const mc=document.getElementById('mobileClose');
-toggle.addEventListener('click',()=>mm.classList.add('active'));
-mc.addEventListener('click',()=>mm.classList.remove('active'));
-mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('active')));
+const menuBtn=document.getElementById('menuBtn');
+menuBtn.addEventListener('click',()=>{mm.classList.add('open');menuBtn.setAttribute('aria-expanded','true')});
+document.getElementById('menuClose').addEventListener('click',()=>{mm.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));
 
-// Reveal on scroll
-const rObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');rObs.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal,.tl-item').forEach(el=>rObs.observe(el));
+const rObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');rObs.unobserve(e.target)}})},{threshold:.06,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal,.tl-entry').forEach(el=>rObs.observe(el));
 
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})}));
 
-// Counter animation
-document.querySelectorAll('.stat-big').forEach(el=>{
-  const cObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const target=parseInt(el.textContent);let c=0;const t=setInterval(()=>{c++;el.textContent=c;if(c>=target)clearInterval(t)},50);cObs.unobserve(el)}})},{threshold:.5});
-  cObs.observe(el);
-});
+document.querySelectorAll('.stat').forEach(el=>{
+  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const target=parseInt(el.textContent),dur=1e3,start=performance.now();!function step(now){const p=Math.min((now-start)/dur,1);el.textContent=Math.round(target*(1-Math.pow(1-p,4)));p<1&&requestAnimationFrame(step)}(start);obs.unobserve(el)}})},{threshold:.5});
+  obs.observe(el)});
 
-// Stagger cards
-document.querySelectorAll('.bento-card,.skill-card,.cert-card,.formation-card,.contact-card').forEach((el,i)=>{el.style.transitionDelay=(i%4)*.08+'s'});
+document.querySelectorAll('.card-lt,.skill-lt,.cert-dk,.edu-lt,.contact-pill,.loisir-card,.langues-card').forEach((el,i)=>{el.style.transitionDelay=(i%4)*.06+'s'});
+
+const btt=document.getElementById('btt');
+window.addEventListener('scroll',()=>btt.classList.toggle('show',scrollY>500),{passive:true});
+btt.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+
+if(matchMedia('(min-width:769px) and (hover:hover)').matches){
+  document.querySelectorAll('.card-lt').forEach(c=>{
+    c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(600px) rotateY(${x*5}deg) rotateX(${-y*5}deg) translateY(-4px)`});
+    c.addEventListener('mouseleave',()=>c.style.transform='');
+  });
+}
 </script>
 
 </body>
