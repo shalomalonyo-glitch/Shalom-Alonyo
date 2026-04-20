@@ -330,48 +330,15 @@ footer{background:var(--lt-bg);border-top:1px solid var(--lt-stroke);text-align:
 .about-name{font-family:var(--font-display);font-style:italic;font-size:28px;line-height:1.1;margin-bottom:8px;color:var(--lt-text);letter-spacing:-.5px}
 .about-bio{font-size:13.5px;color:var(--lt-text-soft);line-height:1.75;font-weight:300}
 
-/* Projets */
-.projects-section{position:relative;overflow:hidden}
-.projects-bg{position:absolute;inset:0;pointer-events:none;opacity:.35;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%234A8EC9' stroke-width='.5' opacity='.25'%3E%3Cpath d='M0 50h200M0 100h200M0 150h200M50 0v200M100 0v200M150 0v200'/%3E%3Ccircle cx='100' cy='100' r='40'/%3E%3Cpath d='M60 100h80M100 60v80'/%3E%3Crect x='20' y='20' width='30' height='30'/%3E%3Crect x='150' y='150' width='30' height='30'/%3E%3C/g%3E%3C/svg%3E");background-size:220px;mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black 20%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black 20%,transparent 80%)}
-
-.projects-wrap{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;position:relative;z-index:1}
-.project-card{grid-column:span 6;background:var(--dk-surface);border:1px solid var(--dk-stroke);border-radius:var(--radius-lg);overflow:hidden;position:relative;transition:transform .5s var(--ease),border-color .5s var(--ease),box-shadow .5s var(--ease);isolation:isolate}
-.project-card:hover{transform:translateY(-6px);border-color:rgba(126,180,226,.22);box-shadow:0 24px 64px rgba(0,0,0,.4)}
-.project-card.wide{grid-column:span 12}
-.project-card.wide .project-visual{aspect-ratio:21/6}
-
-.project-visual{position:relative;aspect-ratio:16/9;overflow:hidden;background:linear-gradient(135deg,#0c0f14 0%,#141820 50%,#0c0f14 100%)}
-.project-visual::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(74,142,201,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(74,142,201,.1) 1px,transparent 1px);background-size:32px 32px;mask-image:radial-gradient(ellipse 75% 75% at 50% 50%,black 30%,transparent 85%);-webkit-mask-image:radial-gradient(ellipse 75% 75% at 50% 50%,black 30%,transparent 85%);opacity:.55;transition:opacity .6s}
-.project-card:hover .project-visual::before{opacity:1}
-.project-art{position:absolute;inset:0;display:grid;place-items:center;transition:transform .7s var(--ease);color:var(--accent-soft)}
-.project-card:hover .project-art{transform:scale(1.08)}
-.project-art svg{width:58%;max-width:260px;height:auto;filter:drop-shadow(0 4px 24px rgba(74,142,201,.2))}
-.project-art .accent{stroke:var(--warm-soft)}
-
-.project-spot{position:absolute;inset:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(74,142,201,.22),transparent 60%);opacity:0;transition:opacity .35s;pointer-events:none;z-index:1}
-.project-card:hover .project-spot{opacity:1}
-
-.project-body{padding:26px 28px 28px;position:relative;z-index:2}
-.project-year{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-soft);margin-bottom:10px}
-.project-year::before{content:'';width:14px;height:1px;background:var(--accent-soft);display:inline-block}
-.project-title{font-family:var(--font-display);font-style:italic;font-size:22px;line-height:1.2;margin-bottom:10px;color:var(--dk-text)}
-.project-desc{font-size:13px;color:var(--dk-text-soft);line-height:1.75;font-weight:300;margin-bottom:18px}
-.project-meta{display:flex;flex-wrap:wrap;gap:6px}
-.project-chip{padding:4px 12px;border-radius:9999px;font-size:10.5px;font-weight:500;background:rgba(255,255,255,.03);border:1px solid var(--dk-stroke);color:var(--dk-text-soft);transition:all .3s}
-.project-card:hover .project-chip{border-color:rgba(126,180,226,.18);color:var(--accent-soft)}
-
-/* Project photo (real photo inside visual) */
-.project-photo{position:absolute;inset:0;overflow:hidden}
-.project-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s var(--ease);filter:saturate(1.05)}
-.project-card:hover .project-photo img{transform:scale(1.05)}
-.project-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,9,11,.75) 0%,rgba(8,9,11,.15) 40%,transparent 70%);pointer-events:none;z-index:1}
-.project-photo::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(74,142,201,.06),transparent 50%);pointer-events:none;z-index:1;opacity:0;transition:opacity .5s}
-.project-card:hover .project-photo::before{opacity:1}
-
-.project-thumb{position:absolute;bottom:14px;right:14px;width:110px;height:74px;border-radius:10px;overflow:hidden;border:1.5px solid rgba(255,255,255,.18);box-shadow:0 8px 24px rgba(0,0,0,.4);z-index:2;transition:transform .4s var(--ease)}
-.project-thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.project-card:hover .project-thumb{transform:translateY(-4px) scale(1.03)}
-.project-thumb-label{position:absolute;top:6px;left:8px;font-size:8.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.8);z-index:2}
+/* Timeline media (photos on experience cards) */
+.tl-media{position:relative;margin:-28px -28px 20px;aspect-ratio:16/7;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;isolation:isolate}
+.tl-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease);filter:saturate(1.05)}
+.tl-card:hover .tl-media img{transform:scale(1.04)}
+.tl-media::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,9,11,.55) 0%,rgba(8,9,11,.1) 40%,transparent 70%);pointer-events:none;z-index:1}
+.tl-thumb{position:absolute;bottom:12px;right:12px;width:96px;height:64px;border-radius:8px;overflow:hidden;border:1.5px solid rgba(255,255,255,.2);box-shadow:0 8px 20px rgba(0,0,0,.4);z-index:2;transition:transform .4s var(--ease)}
+.tl-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.tl-card:hover .tl-thumb{transform:translateY(-3px) scale(1.03)}
+.tl-thumb-label{position:absolute;top:8px;left:10px;font-size:8.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.85);z-index:2}
 
 /* Contact cinematic background */
 .contact-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
@@ -390,13 +357,11 @@ footer{background:var(--lt-bg);border-top:1px solid var(--lt-stroke);text-align:
   .skills{grid-template-columns:1fr}.edu{grid-template-columns:1fr}
   .loisirs-grid{grid-template-columns:1fr}
   .plus-grid{grid-template-columns:1fr}
-  .projects-wrap{grid-template-columns:1fr}
-  .project-card,.project-card.wide{grid-column:span 1}
-  .project-card.wide .project-visual{aspect-ratio:16/9}
   .about-card{grid-template-columns:1fr;grid-column:span 1}
   .about-photo{aspect-ratio:16/10}
   .about-body{padding:24px 26px}
-  .project-thumb{width:80px;height:54px;bottom:10px;right:10px}
+  .tl-media{aspect-ratio:16/9}
+  .tl-thumb{width:76px;height:52px;bottom:10px;right:10px}
   .hero-title{letter-spacing:-1px}
   .contact-links{flex-direction:column;align-items:center}
   .cv-actions{flex-direction:column;align-items:center}
@@ -430,7 +395,6 @@ footer{background:var(--lt-bg);border-top:1px solid var(--lt-stroke);text-align:
     <div class="nav-items">
       <a href="#parcours" class="nav-item on">Parcours</a>
       <a href="#experience" class="nav-item">Experience</a>
-      <a href="#projets" class="nav-item">Projets</a>
       <a href="#competences" class="nav-item">Competences</a>
       <a href="#formation" class="nav-item">Formation</a>
       <a href="#plus" class="nav-item">Plus</a>
@@ -445,7 +409,6 @@ footer{background:var(--lt-bg);border-top:1px solid var(--lt-stroke);text-align:
   <button class="mobile-menu-close" id="menuClose" aria-label="Fermer">&times;</button>
   <a href="#parcours">Parcours</a>
   <a href="#experience">Experience</a>
-  <a href="#projets">Projets</a>
   <a href="#competences">Competences</a>
   <a href="#certifications">Certifications</a>
   <a href="#formation">Formation</a>
@@ -513,132 +476,11 @@ footer{background:var(--lt-bg);border-top:1px solid var(--lt-stroke);text-align:
   <div class="section-inner">
     <div class="reveal"><span class="label">Experience</span><h2 class="heading">Ce que j'ai fait <span class="dim">concretement</span></h2><p class="subtext">Du terrain au diagnostic, chaque poste m'a donne des competences directement transferables a l'industrie.</p></div>
     <div class="timeline">
-      <div class="tl-entry"><div class="tl-marker"></div><div class="tl-card"><div class="tl-when">Mars 2026 &mdash; Aujourd'hui</div><div class="tl-what">Agent logistique</div><div class="tl-where">Centre Hospitalier de Rodez</div><div class="tl-how">Supervision de 6 AGV Swisslog assurant l'approvisionnement de l'ensemble des services. Identification et resolution des pannes mineures en autonomie. Redaction de main courante et coordination avec la maintenance pour les pannes majeures. 2 a 4 interventions par jour.</div></div></div>
+      <div class="tl-entry"><div class="tl-marker"></div><div class="tl-card"><div class="tl-media"><img src="agv-swisslog.jpg" alt="Les 6 AGV Swisslog au poste de charge du CH Rodez" loading="lazy"><span class="tl-thumb-label">Poste de supervision</span><div class="tl-thumb"><img src="agv-supervision.jpg" alt="Poste de supervision des AGV" loading="lazy"></div></div><div class="tl-when">Mars 2026 &mdash; Aujourd'hui</div><div class="tl-what">Agent logistique</div><div class="tl-where">Centre Hospitalier de Rodez</div><div class="tl-how">Supervision de 6 AGV Swisslog assurant l'approvisionnement de l'ensemble des services. Identification et resolution des pannes mineures en autonomie. Redaction de main courante et coordination avec la maintenance pour les pannes majeures. 2 a 4 interventions par jour.</div></div></div>
       <div class="tl-entry"><div class="tl-marker"></div><div class="tl-card"><div class="tl-when">Aout 2025 &mdash; Fevrier 2026</div><div class="tl-what">Agent des Services Hospitaliers</div><div class="tl-where">Centre Hospitalier de Rodez</div><div class="tl-how">Bionettoyage et desinfection de 8 chambres par jour. Distribution des repas, gestion du linge, entretien des espaces de soins. Application stricte des protocoles d'hygiene hospitaliere.</div></div></div>
       <div class="tl-entry"><div class="tl-marker"></div><div class="tl-card"><div class="tl-when">2024</div><div class="tl-what">Stage Ouvrier</div><div class="tl-where">Rey Massol BTP</div><div class="tl-how">Metres et chiffrage sur chantier : releves terrain, saisie des quantites. Participation aux etudes de prix et aux dossiers d'appels d'offres. Planification des travaux en lien avec le conducteur de travaux.</div></div></div>
       <div class="tl-entry"><div class="tl-marker"></div><div class="tl-card"><div class="tl-when">2022</div><div class="tl-what">Employe mise en rayon et caisse</div><div class="tl-where">Intersport</div><div class="tl-how">Mise en rayon, gestion du stock, encaissement.</div></div></div>
       <div class="tl-entry"><div class="tl-marker"></div><div class="tl-card"><div class="tl-when">2019</div><div class="tl-what">Stage d'observation</div><div class="tl-where">College Saint Joseph &mdash; Restauration Collective</div><div class="tl-how">Decouverte de la gestion des stocks et de l'approvisionnement en restauration.</div></div></div>
-    </div>
-  </div>
-</div>
-
-<!-- Projets -->
-<div class="section-dark projects-section" id="projets">
-  <div class="projects-bg"></div>
-  <div class="exp-glow"></div><div class="exp-glow-2"></div>
-  <div class="section-inner">
-    <div class="reveal">
-      <span class="label">Projets</span>
-      <h2 class="heading">Ce que j'ai <span class="dim">fabrique</span></h2>
-      <p class="subtext">De la CAO au deep learning, chaque projet est une piece en plus a mon arc.</p>
-    </div>
-    <div class="projects-wrap">
-
-      <article class="project-card wide reveal">
-        <div class="project-visual">
-          <div class="project-photo">
-            <img src="agv-swisslog.jpg" alt="Les 6 AGV Swisslog au poste de charge du CH Rodez" loading="lazy">
-          </div>
-          <div class="project-thumb" title="Poste de supervision">
-            <img src="agv-supervision.jpg" alt="Poste de supervision des AGV" loading="lazy">
-          </div>
-          <span class="project-thumb-label">Poste de supervision</span>
-          <div class="project-spot"></div>
-        </div>
-        <div class="project-body">
-          <span class="project-year">2026 &middot; Professionnel</span>
-          <h3 class="project-title">Supervision de 6 AGV Swisslog</h3>
-          <p class="project-desc">Suivi quotidien et diagnostic de 6 robots autonomes (LAMCAR-iMat) qui approvisionnent tous les services du CH Rodez. Identification des pannes en autonomie, redemarrage, main courante et coordination avec la maintenance. Manuel de maintenance maitrise, 2 a 4 interventions par jour.</p>
-          <div class="project-meta">
-            <span class="project-chip">AGV Swisslog</span>
-            <span class="project-chip">LAMCAR-iMat</span>
-            <span class="project-chip">Diagnostic</span>
-            <span class="project-chip">Automatisme</span>
-            <span class="project-chip">Logistique hospitaliere</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="project-card reveal">
-        <div class="project-visual">
-          <div class="project-spot"></div>
-          <div class="project-art">
-            <svg viewBox="0 0 200 120" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M100 20 L150 45 L150 95 L100 120 L50 95 L50 45 Z"/>
-              <path d="M100 20 L100 70 M100 70 L50 45 M100 70 L150 45" class="accent"/>
-              <path d="M100 70 L100 120" stroke-dasharray="3 4"/>
-              <circle cx="100" cy="20" r="3" class="accent"/>
-              <circle cx="150" cy="45" r="3"/>
-              <circle cx="50" cy="45" r="3"/>
-              <circle cx="100" cy="70" r="3" class="accent"/>
-            </svg>
-          </div>
-        </div>
-        <div class="project-body">
-          <span class="project-year">2022 &middot; Bac STI2D</span>
-          <h3 class="project-title">Conception CAO & Impression 3D</h3>
-          <p class="project-desc">Modelisation SolidWorks d'une piece mecanique fonctionnelle, analyse fonctionnelle et fabrication par impression 3D. Eco-conception et optimisation matiere au programme.</p>
-          <div class="project-meta">
-            <span class="project-chip">SolidWorks</span>
-            <span class="project-chip">Impression 3D</span>
-            <span class="project-chip">Eco-conception</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="project-card reveal">
-        <div class="project-visual">
-          <div class="project-spot"></div>
-          <div class="project-art">
-            <svg viewBox="0 0 200 120" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="30" cy="30" r="6"/><circle cx="30" cy="60" r="6"/><circle cx="30" cy="90" r="6"/>
-              <circle cx="100" cy="25" r="6" class="accent"/><circle cx="100" cy="60" r="6" class="accent"/><circle cx="100" cy="95" r="6" class="accent"/>
-              <circle cx="170" cy="45" r="6"/><circle cx="170" cy="75" r="6"/>
-              <path d="M36 30 L94 25 M36 30 L94 60 M36 30 L94 95 M36 60 L94 25 M36 60 L94 60 M36 60 L94 95 M36 90 L94 25 M36 90 L94 60 M36 90 L94 95" opacity=".5"/>
-              <path d="M106 25 L164 45 M106 25 L164 75 M106 60 L164 45 M106 60 L164 75 M106 95 L164 45 M106 95 L164 75" opacity=".5"/>
-            </svg>
-          </div>
-        </div>
-        <div class="project-body">
-          <span class="project-year">2026 &middot; Certification</span>
-          <h3 class="project-title">Deep Learning Specialization</h3>
-          <p class="project-desc">Formation Coursera d'Andrew Ng : reseaux de neurones, backpropagation, CNN, RNN. Notebooks Python pour la reconnaissance d'images et la classification de sequences.</p>
-          <div class="project-meta">
-            <span class="project-chip">Python</span>
-            <span class="project-chip">TensorFlow</span>
-            <span class="project-chip">Reseaux de neurones</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="project-card reveal">
-        <div class="project-visual">
-          <div class="project-spot"></div>
-          <div class="project-art">
-            <svg viewBox="0 0 200 120" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M30 100 L30 40 L100 15 L170 40 L170 100 Z"/>
-              <path d="M30 100 L170 100" class="accent" stroke-width="2"/>
-              <rect x="50" y="55" width="20" height="28"/>
-              <rect x="90" y="50" width="20" height="33"/>
-              <rect x="130" y="55" width="20" height="28"/>
-              <path d="M30 40 L100 65 L170 40" opacity=".6"/>
-              <path d="M100 15 L100 65" opacity=".6" stroke-dasharray="2 3"/>
-            </svg>
-          </div>
-        </div>
-        <div class="project-body">
-          <span class="project-year">2024 &middot; Stage BTS</span>
-          <h3 class="project-title">Etudes & Metres &mdash; Rey Massol BTP</h3>
-          <p class="project-desc">Releves terrain, saisie des quantites, participation aux etudes de prix et dossiers d'appels d'offres. Planification sur GanttProject en lien avec le conducteur de travaux.</p>
-          <div class="project-meta">
-            <span class="project-chip">AutoCAD</span>
-            <span class="project-chip">Revit</span>
-            <span class="project-chip">Metres</span>
-            <span class="project-chip">Chiffrage</span>
-          </div>
-        </div>
-      </article>
-
     </div>
   </div>
 </div>
