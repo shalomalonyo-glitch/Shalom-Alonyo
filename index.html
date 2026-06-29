@@ -8,11 +8,11 @@
 <link rel="canonical" href="https://shalomalonyo-glitch.github.io/Shalom-Alonyo/" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Shalom Alonyo — Technicien de maintenance" />
-<meta property="og:description" content="Portfolio premium d'un futur technicien de maintenance industrielle en alternance — diagnostic, automatisme, AGV." />
+<meta property="og:description" content="Portfolio d'un futur technicien de maintenance industrielle en alternance — diagnostic, automatisme, AGV." />
 <meta property="og:url" content="https://shalomalonyo-glitch.github.io/Shalom-Alonyo/" />
 <meta property="og:image" content="https://shalomalonyo-glitch.github.io/Shalom-Alonyo/assets/og-card.jpg" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Shalom Alonyo","jobTitle":"Technicien de maintenance en alternance","email":"mailto:shalomalonyo24@gmail.com","telephone":"+33633123326","url":"https://shalomalonyo-glitch.github.io/Shalom-Alonyo/","sameAs":["https://www.linkedin.com/in/shalom-alonyo/","https://github.com/shalomalonyo-glitch"],"address":{"@type":"PostalAddress","addressLocality":"Blagnac","postalCode":"31700","addressCountry":"FR"},"alumniOf":"Pôle Formation UIMM Occitanie","knowsAbout":["Maintenance industrielle","Automatisme","Électrotechnique","Diagnostic de pannes","AGV Swisslog","GMAO"]}
+{"@context":"https://schema.org","@type":"Person","name":"Shalom Alonyo","jobTitle":"Technicien de maintenance en alternance","email":"mailto:shalomalonyo24@gmail.com","telephone":"+33633123326","url":"https://shalomalonyo-glitch.github.io/Shalom-Alonyo/","sameAs":["https://www.linkedin.com/in/shalom-alonyo/"],"address":{"@type":"PostalAddress","addressLocality":"Blagnac","postalCode":"31700","addressCountry":"FR"},"alumniOf":"Pôle Formation UIMM Occitanie","knowsAbout":["Maintenance industrielle","Automatisme","Électrotechnique","Diagnostic de pannes","AGV Swisslog","GMAO"]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,8 +24,7 @@
   --ink:#eef1f5; --ink2:#c4ccd6; --mut:#8b94a3;
   --amber:#ffb020; --cyan:#46e6d6; --steel:#6f93b8; --red:#ff5b40;
   --disp:'Bebas Neue',sans-serif; --head:'Archivo',sans-serif; --sans:'Sora',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace;
-  --gut:clamp(20px,5vw,96px);
-  --ease:cubic-bezier(.2,.7,.2,1);
+  --gut:clamp(20px,5vw,96px); --ease:cubic-bezier(.2,.7,.2,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -33,22 +32,19 @@ body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 ::selection{background:var(--amber);color:#000}
-/* progress */
 #prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--amber),var(--cyan));z-index:200}
-/* grain + steel ambience */
 body::before{content:"";position:fixed;inset:0;z-index:-2;background:
-  radial-gradient(1100px 700px at 78% -10%, rgba(111,147,184,.18), transparent 60%),
-  radial-gradient(900px 600px at 0% 100%, rgba(70,230,214,.06), transparent 55%),
+  radial-gradient(1100px 700px at 78% -10%, rgba(111,147,184,.16), transparent 60%),
+  radial-gradient(900px 600px at 0% 100%, rgba(70,230,214,.05), transparent 55%),
   linear-gradient(180deg,#0a0b0e,#0c0e13 60%,#0a0b0e);}
-body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.05;pointer-events:none;
+body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.045;pointer-events:none;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
-/* nav */
 nav{position:fixed;top:0;left:0;right:0;z-index:120;transition:background .3s,border-color .3s}
 nav.scrolled{background:rgba(10,11,14,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 nav .wrap{max-width:1400px;margin:0 auto;padding:16px var(--gut);display:flex;align-items:center;justify-content:space-between;gap:20px}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--head);font-weight:800;letter-spacing:.04em;font-size:15px}
 .brand i{width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 12px var(--amber);display:inline-block}
-.navlinks{display:flex;gap:26px;align-items:center}
+.navlinks{display:flex;gap:24px;align-items:center}
 .navlinks a{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;color:var(--ink2);text-transform:uppercase;transition:color .2s}
 .navlinks a:hover{color:var(--amber)}
 .navtools{display:flex;align-items:center;gap:14px}
@@ -64,145 +60,134 @@ nav.open .burger:before{transform:translateY(5px) rotate(45deg)}
 nav.open .burger i{opacity:0}
 nav.open .burger:after{transform:translateY(-5px) rotate(-45deg)}
 .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;letter-spacing:.04em;text-transform:uppercase;padding:14px 22px;border-radius:999px;transition:.25s var(--ease);cursor:pointer;border:1px solid transparent}
-.btn .ar{transition:transform .25s}
-.btn:hover .ar{transform:translateX(4px)}
+.btn .ar{transition:transform .25s}.btn:hover .ar{transform:translateX(4px)}
 .btn-a{background:var(--amber);color:#0a0b0e;font-weight:600;box-shadow:0 10px 30px -10px rgba(255,176,32,.5)}
 .btn-a:hover{transform:translateY(-2px)}
-.btn-o{border-color:var(--line2);color:var(--ink)}
-.btn-o:hover{border-color:var(--cyan);color:var(--cyan)}
-.tag{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
+.btn-o{border-color:var(--line2);color:var(--ink)}.btn-o:hover{border-color:var(--cyan);color:var(--cyan)}
 .sec-k{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:10px}
 .sec-k::before{content:"";width:26px;height:1px;background:var(--amber)}
-.h2{font-family:var(--head);font-weight:800;font-size:clamp(30px,5vw,62px);line-height:1.02;letter-spacing:-.02em;margin-top:14px}
-.blk{padding:clamp(70px,11vw,150px) var(--gut);max-width:1400px;margin:0 auto;position:relative}
-/* reveal */
+.h2{font-family:var(--head);font-weight:800;font-size:clamp(30px,5vw,60px);line-height:1.03;letter-spacing:-.02em;margin-top:14px}
+.blk{padding:clamp(64px,10vw,140px) var(--gut);max-width:1400px;margin:0 auto;position:relative}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .reveal.in{opacity:1;transform:none}
-/* ===== HERO ===== */
+.lead{font-size:clamp(17px,2vw,22px);line-height:1.6;color:var(--ink2);font-weight:300}
+.lead b{font-weight:600;color:#fff}.lead em{font-style:italic;color:var(--amber)}
+/* HERO */
 .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;padding:0 var(--gut) clamp(40px,6vw,80px)}
 .hero-bg{position:absolute;inset:0;z-index:0;background:url('assets/blueprint-agv.jpg') center/cover no-repeat;opacity:.22;mix-blend-mode:luminosity}
 .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,11,14,.65),rgba(10,11,14,.2) 40%,rgba(10,11,14,.95))}
 .hero-grid{position:relative;z-index:2;max-width:1400px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.15fr .85fr;align-items:end;gap:10px}
-.hero-word{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(150px,26vw,330px);z-index:1;font-family:var(--disp);font-weight:400;letter-spacing:.01em;line-height:.8;font-size:clamp(74px,20vw,310px);color:transparent;-webkit-text-stroke:1.4px rgba(255,255,255,.16);pointer-events:none;white-space:nowrap}
-.hero-word b{color:var(--ink);-webkit-text-stroke:0;background:linear-gradient(180deg,#eef1f5,#7f8a99);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-word{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(150px,26vw,330px);z-index:1;font-family:var(--disp);line-height:.8;font-size:clamp(74px,20vw,310px);color:transparent;-webkit-text-stroke:1.4px rgba(255,255,255,.16);pointer-events:none;white-space:nowrap}
+.hero-word b{-webkit-text-stroke:0;background:linear-gradient(180deg,#eef1f5,#7f8a99);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .hero-photo{position:absolute;right:clamp(0px,4vw,90px);bottom:0;z-index:2;height:clamp(380px,76vh,860px);filter:drop-shadow(0 30px 60px rgba(0,0,0,.6))}
 .hero-photo img{height:100%;width:auto;object-fit:contain;-webkit-mask-image:linear-gradient(180deg,#000 88%,transparent);mask-image:linear-gradient(180deg,#000 88%,transparent)}
-.hero-left{position:relative;z-index:3;max-width:560px;padding-bottom:6px}
+.hero-left{position:relative;z-index:3;max-width:580px;padding-bottom:6px}
 .hpill{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);border:1px solid var(--line2);border-radius:999px;padding:8px 15px;background:rgba(20,24,31,.5);backdrop-filter:blur(6px)}
 .hpill .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 .hero-name{font-family:var(--head);font-weight:900;font-size:clamp(34px,6vw,76px);line-height:.95;letter-spacing:-.02em;margin:18px 0 6px}
 .hero-role{font-family:var(--mono);font-size:clamp(12px,1.3vw,15px);letter-spacing:.04em;color:var(--amber);text-transform:uppercase}
-.hero-sub{color:var(--ink2);font-size:clamp(15px,1.5vw,18px);max-width:440px;margin:18px 0 26px;font-weight:300}
+.hero-sub{color:var(--ink2);font-size:clamp(15px,1.5vw,18px);max-width:480px;margin:18px 0 26px;font-weight:300}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
 .scrollcue{position:absolute;left:var(--gut);bottom:22px;z-index:3;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);display:flex;align-items:center;gap:10px}
 .scrollcue .ln{width:46px;height:1px;background:var(--mut);position:relative;overflow:hidden}
 .scrollcue .ln::after{content:"";position:absolute;inset:0;background:var(--amber);transform:translateX(-100%);animation:slide 2.4s infinite}
 @keyframes slide{50%{transform:translateX(0)}100%{transform:translateX(100%)}}
-/* marquee */
 .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(14,17,23,.5);overflow:hidden;white-space:nowrap;padding:16px 0}
-.marquee .track{display:inline-flex;gap:42px;animation:mq 28s linear infinite;will-change:transform}
-.marquee span{font-family:var(--head);font-weight:800;font-size:15px;letter-spacing:.02em;color:var(--ink2);text-transform:uppercase;display:inline-flex;align-items:center;gap:42px}
+.marquee .track{display:inline-flex;gap:42px;animation:mq 30s linear infinite;will-change:transform}
+.marquee span{font-family:var(--head);font-weight:800;font-size:15px;color:var(--ink2);text-transform:uppercase;display:inline-flex;align-items:center;gap:42px}
 .marquee span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--amber)}
 @keyframes mq{to{transform:translateX(-50%)}}
-/* about */
+/* ABOUT */
 .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,72px);align-items:center;margin-top:40px}
 .about-photo{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--panel)}
 .about-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
-.about-photo .cap{position:absolute;left:14px;bottom:14px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink);background:rgba(10,11,14,.55);backdrop-filter:blur(6px);border:1px solid var(--line2);padding:6px 11px;border-radius:8px}
-.lead{font-size:clamp(17px,2vw,23px);line-height:1.55;color:var(--ink);font-weight:300}
-.lead b{font-weight:600;color:#fff}
-.lead em{font-style:italic;color:var(--amber)}
-.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:30px}
-.fact{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--panel)}
-.fact .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--mut);text-transform:uppercase}
-.fact .v{font-family:var(--head);font-weight:700;font-size:16px;margin-top:6px}
-.fact .v.a{color:var(--amber)}
-/* competences */
-.comp{position:relative}
-.comp-bg{position:absolute;inset:0;z-index:0;background:url('assets/blueprint-agv.jpg') center/cover;opacity:.1}
-.cgrid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:42px}
+.about-photo .cap{position:absolute;left:14px;bottom:14px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink);background:rgba(10,11,14,.55);backdrop-filter:blur(6px);border:1px solid var(--line2);padding:6px 11px;border-radius:8px}
+/* PARCOURS */
+.parcours{background:linear-gradient(180deg,rgba(111,147,184,.06),transparent)}
+.timeline{margin-top:42px;border-left:1px solid var(--line2);display:flex;flex-direction:column;gap:6px}
+.tl{position:relative;padding:22px 0 22px 30px}
+.tl::before{content:"";position:absolute;left:-6px;top:28px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--amber)}
+.tl .yr{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--cyan)}
+.tl h3{font-family:var(--head);font-weight:700;font-size:clamp(18px,2.2vw,24px);margin:6px 0 4px}
+.tl .where{font-size:13.5px;color:var(--amber);font-family:var(--mono);letter-spacing:.02em}
+.tl p{color:var(--mut);font-size:14.5px;font-weight:300;margin-top:8px;max-width:640px;line-height:1.55}
+/* COMPÉTENCES */
+.comp{position:relative;background:radial-gradient(900px 500px at 85% 0%,rgba(111,147,184,.12),transparent 60%)}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:42px}
 .ccard{border:1px solid var(--line);border-radius:18px;padding:26px 24px;background:linear-gradient(180deg,rgba(23,28,38,.7),rgba(15,17,23,.7));backdrop-filter:blur(8px);transition:.3s var(--ease)}
 .ccard:hover{transform:translateY(-5px);border-color:var(--line2);box-shadow:0 20px 50px -25px rgba(0,0,0,.8)}
 .ccard .no{font-family:var(--mono);font-size:12px;color:var(--cyan)}
 .ccard h3{font-family:var(--head);font-weight:700;font-size:20px;margin:12px 0 10px}
 .ccard p{color:var(--mut);font-size:14.5px;font-weight:300;line-height:1.55}
 .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
-.chip{font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--ink2);border:1px solid var(--line);border-radius:7px;padding:5px 9px}
-/* terrain */
-.terrain{position:relative;border-radius:24px;overflow:hidden;margin:0 var(--gut);max-width:1400px}
-@media(min-width:1500px){.terrain{margin:0 auto}}
-.terrain-img{position:relative}
-.terrain-img img{width:100%;display:block;background:#eceef1}
-.terrain-cap{padding:clamp(26px,4vw,46px);background:var(--panel);border:1px solid var(--line);border-top:0}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
-.stat .n{font-family:var(--disp);font-size:clamp(44px,7vw,84px);line-height:.9;color:var(--ink);display:flex;align-items:flex-start;gap:4px}
-.stat .n .u{font-family:var(--head);font-size:.3em;color:var(--amber);margin-top:.3em}
+.chip{font-family:var(--mono);font-size:11px;color:var(--ink2);border:1px solid var(--line);border-radius:7px;padding:5px 9px}
+/* TERRAIN */
+.terrain-hero{margin-top:36px;border-radius:22px;overflow:hidden;border:1px solid var(--line);position:relative}
+.terrain-hero img{width:100%;display:block;aspect-ratio:21/9;object-fit:cover}
+.terrain-hero .ov{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,11,14,.85),rgba(10,11,14,.1));display:flex;align-items:flex-end;padding:clamp(22px,4vw,46px)}
+.terrain-hero .ov p{max-width:520px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.step{border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--panel)}
+.step .n{font-family:var(--mono);font-size:11px;color:var(--cyan)}
+.step h4{font-family:var(--head);font-weight:700;font-size:15.5px;margin:8px 0 6px}
+.step p{color:var(--mut);font-size:13px;font-weight:300;line-height:1.5}
+.t-duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.t-duo figure{border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative;background:var(--panel)}
+.t-duo img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10}
+.t-duo figcaption{position:absolute;left:12px;bottom:12px;font-family:var(--mono);font-size:11px;color:var(--ink);background:rgba(10,11,14,.6);border:1px solid var(--line2);padding:5px 10px;border-radius:8px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.stat .n{font-family:var(--disp);font-size:clamp(44px,7vw,80px);line-height:.9;color:var(--ink);display:flex;align-items:flex-start;gap:4px}
+.stat .n .u{font-family:var(--head);font-size:.3em;color:var(--amber);margin-top:.4em}
 .stat .l{color:var(--mut);font-size:13.5px;margin-top:8px;max-width:200px}
-/* interventions cards */
-.igrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:42px}
-.icard{border:1px solid var(--line);border-radius:18px;padding:28px;background:var(--panel);position:relative;overflow:hidden;transition:.3s var(--ease)}
-.icard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--amber),var(--cyan));opacity:0;transition:.3s}
-.icard:hover{transform:translateY(-4px);border-color:var(--line2)}
-.icard:hover::before{opacity:1}
-.icard .no{font-family:var(--disp);font-size:40px;color:rgba(255,255,255,.14);line-height:1}
-.icard h3{font-family:var(--head);font-weight:700;font-size:19px;margin:8px 0 10px}
-.icard p{color:var(--mut);font-size:14.5px;font-weight:300;line-height:1.55}
-/* objectif */
-.obj{border:1px solid var(--line);border-radius:22px;padding:clamp(28px,5vw,56px);background:
-  radial-gradient(700px 300px at 90% 0%,rgba(255,176,32,.1),transparent 60%),var(--panel);margin-top:30px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
-.obj h3{font-family:var(--head);font-weight:800;font-size:clamp(24px,3.4vw,40px);line-height:1.05}
-.obj h3 em{color:var(--amber);font-style:italic}
-.obj p{color:var(--ink2);font-weight:300;margin-top:16px;line-height:1.6}
-.obj .meta{display:flex;flex-direction:column;gap:12px}
-.obj .row{display:flex;justify-content:space-between;gap:14px;border-bottom:1px solid var(--line);padding-bottom:11px}
-.obj .row span:first-child{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
-.obj .row span:last-child{font-weight:600;text-align:right;font-size:14px}
-/* ===== CONTACT iPhone ===== */
+/* EN BREF */
+.brief{background:linear-gradient(180deg,rgba(111,147,184,.06),transparent)}
+.bgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}
+.bcard{border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--panel)}
+.bcard .k{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase}
+.bcard .v{font-family:var(--head);font-weight:700;font-size:15px;margin-top:7px}
+.bcard .v.a{color:var(--amber)}
+/* CONTACT */
 .contact{text-align:center}
-.phone-wrap{display:flex;justify-content:center;margin-top:46px;perspective:1400px}
-.phone{width:330px;max-width:86vw;aspect-ratio:9/19.5;border-radius:54px;background:linear-gradient(160deg,#23262d,#0c0e12);padding:13px;box-shadow:0 40px 90px -30px rgba(0,0,0,.9),inset 0 0 0 2px rgba(255,255,255,.06);position:relative;transition:transform .5s var(--ease)}
-.phone:hover{transform:rotateY(-6deg) rotateX(3deg)}
-.phone .screen{position:relative;width:100%;height:100%;border-radius:43px;overflow:hidden;background:
-  radial-gradient(120% 80% at 50% -10%,rgba(111,147,184,.4),transparent 55%),linear-gradient(180deg,#0e1117,#0a0b0e);
-  border:1px solid rgba(255,255,255,.05);display:flex;flex-direction:column;padding:54px 18px 22px}
-.notch{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:110px;height:26px;background:#000;border-radius:14px;z-index:3}
-.screen.off .ui{opacity:0;transform:translateY(14px)}
+.phone-wrap{display:flex;justify-content:center;margin-top:46px}
+.phone{width:332px;max-width:88vw;aspect-ratio:9/19.5;border-radius:54px;background:linear-gradient(160deg,#262a31,#0b0d11);padding:12px;box-shadow:0 40px 90px -30px rgba(0,0,0,.9),inset 0 0 0 2px rgba(255,255,255,.06)}
+.phone .screen{position:relative;width:100%;height:100%;border-radius:44px;overflow:hidden;background:
+  radial-gradient(130% 90% at 50% -10%,rgba(111,147,184,.32),transparent 55%),linear-gradient(180deg,#10141b,#0a0b0e);
+  border:1px solid rgba(255,255,255,.05);display:flex;flex-direction:column;padding:50px 16px 20px}
+.notch{position:absolute;top:13px;left:50%;transform:translateX(-50%);width:104px;height:25px;background:#000;border-radius:14px;z-index:3}
+.statusbar{position:absolute;top:16px;left:20px;right:20px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--ink2);z-index:2}
+.screen.off .ui{opacity:0;transform:translateY(12px)}
 .screen .ui{transition:opacity .6s ease,transform .6s var(--ease)}
-.c-ava{width:74px;height:74px;border-radius:50%;margin:0 auto;overflow:hidden;border:2px solid var(--amber);box-shadow:0 0 22px -4px var(--amber)}
+.c-ava{width:72px;height:72px;border-radius:50%;margin:0 auto;overflow:hidden;border:2px solid var(--amber);box-shadow:0 0 22px -6px var(--amber)}
 .c-ava img{width:100%;height:100%;object-fit:cover}
-.c-name{font-family:var(--head);font-weight:800;font-size:21px;margin-top:14px}
-.c-role{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--cyan);text-transform:uppercase;margin-top:4px}
-.c-list{display:flex;flex-direction:column;gap:9px;margin-top:20px;text-align:left}
-.c-row{display:flex;align-items:center;gap:13px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:14px;padding:12px 14px;transition:.2s;backdrop-filter:blur(4px)}
-.c-row:hover{background:rgba(255,255,255,.1);transform:translateX(3px);border-color:var(--line2)}
-.c-ic{width:34px;height:34px;flex:none;border-radius:10px;display:grid;place-items:center;background:rgba(255,176,32,.14);color:var(--amber);font-family:var(--mono);font-weight:600;font-size:13px}
-.c-ic.cy{background:rgba(70,230,214,.14);color:var(--cyan)}
-.c-tx{min-width:0}
-.c-tx .t{font-size:9.5px;font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
-.c-tx .d{font-size:13.5px;font-weight:500;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.c-dl{margin-top:14px;display:block;background:var(--amber);color:#0a0b0e;font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;text-align:center;padding:13px;border-radius:14px;transition:.2s}
-.c-dl:hover{filter:brightness(1.08)}
-.contact-side{max-width:440px;margin:46px auto 0;color:var(--mut);font-weight:300}
-footer{border-top:1px solid var(--line);padding:30px var(--gut);max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:var(--mut);font-family:var(--mono);font-size:12px;letter-spacing:.03em}
+.c-name{font-family:var(--head);font-weight:800;font-size:20px;margin-top:12px}
+.c-role{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--cyan);text-transform:uppercase;margin-top:4px}
+.c-list{display:flex;flex-direction:column;gap:9px;margin-top:18px;text-align:left}
+.c-row{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:14px;padding:11px 13px;transition:.2s}
+.c-row:hover{background:rgba(255,255,255,.1);border-color:var(--line2)}
+.c-ic{width:34px;height:34px;flex:none;border-radius:9px;display:grid;place-items:center;background:rgba(255,255,255,.06)}
+.c-ic svg{width:18px;height:18px}
+.c-ic.mail svg{color:var(--amber)}.c-ic.tel svg{color:var(--cyan)}.c-ic.li{background:#0a66c2}.c-ic.li svg{color:#fff}
+.c-tx{min-width:0}.c-tx .t{font-size:9.5px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+.c-tx .d{font-size:13px;font-weight:500;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.c-dl{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--amber);color:#0a0b0e;font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;padding:13px;border-radius:14px;transition:.2s;margin-top:16px}
+.c-dl:hover{filter:brightness(1.08)}.c-dl svg{width:15px;height:15px}
+.contact-side{max-width:440px;margin:42px auto 0;color:var(--mut);font-weight:300}
+footer{border-top:1px solid var(--line);padding:30px var(--gut);max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:var(--mut);font-family:var(--mono);font-size:12px}
 footer a:hover{color:var(--amber)}
 .totop{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;border:1px solid var(--line2);background:rgba(14,17,23,.8);backdrop-filter:blur(8px);color:var(--ink);cursor:pointer;z-index:90;opacity:0;transform:translateY(10px);transition:.3s;font-size:18px}
 .totop.show{opacity:1;transform:none}
-/* ===== responsive ===== */
 @media(max-width:960px){
   .navlinks{position:fixed;inset:64px 0 auto 0;flex-direction:column;align-items:stretch;background:rgba(10,11,14,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:14px var(--gut);transform:translateY(-130%);transition:transform .35s var(--ease)}
-  .navlinks.open{transform:none}
-  .navlinks a{padding:14px 2px;font-size:14px}
+  .navlinks.open{transform:none}.navlinks a{padding:14px 2px;font-size:14px}
   .navcv{display:none}.burger{display:block}
   .hero-grid{grid-template-columns:1fr}
-  .hero-word{bottom:auto;top:clamp(90px,20vw,150px);font-size:clamp(58px,17vw,120px);opacity:.5}
+  .hero-word{bottom:auto;top:clamp(90px,20vw,150px);font-size:clamp(56px,17vw,120px);opacity:.5}
   .hero-photo{position:relative;right:auto;height:auto;width:min(78%,360px);margin:90px auto -2px;opacity:.95}
-  .hero{align-items:flex-start;padding-top:0}
-  .hero-left{order:2;max-width:none;margin-top:-30px}
-  .about-grid,.obj{grid-template-columns:1fr}
-  .cgrid{grid-template-columns:1fr}
-  .igrid{grid-template-columns:1fr}
-  .stats{grid-template-columns:1fr}
+  .hero{align-items:flex-start}.hero-left{order:2;max-width:none;margin-top:-30px}
+  .about-grid{grid-template-columns:1fr}
+  .cgrid{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.t-duo{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr}.bgrid{grid-template-columns:1fr 1fr}
   .scrollcue{display:none}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
@@ -215,10 +200,9 @@ footer a:hover{color:var(--amber)}
   <a class="brand" href="#top"><i></i><span>Shalom Alonyo</span></a>
   <div class="navlinks" id="menu">
     <a href="#apropos" data-i18n="nav.about">À propos</a>
+    <a href="#parcours" data-i18n="nav.path">Parcours</a>
     <a href="#competences" data-i18n="nav.skills">Compétences</a>
     <a href="#terrain" data-i18n="nav.field">Terrain</a>
-    <a href="#interventions" data-i18n="nav.work">Interventions</a>
-    <a href="#objectif" data-i18n="nav.goal">Objectif</a>
     <a href="#contact" data-i18n="nav.contact">Contact</a>
   </div>
   <div class="navtools">
@@ -238,7 +222,7 @@ footer a:hover{color:var(--amber)}
       <span class="hpill"><span class="dot"></span><span data-i18n="hero.pill">Disponible · Alternance rentrée 2026</span></span>
       <h1 class="hero-name">Shalom<br>Alonyo</h1>
       <p class="hero-role" data-i18n="hero.role">Futur technicien de maintenance · Systèmes automatisés</p>
-      <p class="hero-sub" data-i18n="hero.sub">Je garde les machines automatisées en marche : diagnostic, remise en service, supervision d'AGV. En recherche d'alternance BTS Maintenance des Systèmes, secteur Toulouse.</p>
+      <p class="hero-sub" data-i18n="hero.sub">Je cherche l'entreprise qui me formera au métier de technicien de maintenance, en alternance à la rentrée 2026. Installé à Blagnac, mobile et véhiculé.</p>
       <div class="hero-cta">
         <a class="btn btn-a" href="Shalom_Alonyo_CV.pdf" target="_blank" rel="noopener"><span data-i18n="hero.cta1">Voir mon CV</span><span class="ar">↗</span></a>
         <a class="btn btn-o" href="#contact"><span data-i18n="hero.cta2">Me contacter</span><span class="ar">→</span></a>
@@ -253,119 +237,115 @@ footer a:hover{color:var(--amber)}
   <span>Maintenance industrielle</span><span>Automatisme</span><span>Électrotechnique</span><span>Diagnostic de pannes</span><span>AGV Swisslog</span><span>GMAO</span><span>Mécanique</span>
 </div></div>
 
-<!-- À PROPOS -->
+<!-- À PROPOS : narratif -->
 <section class="blk" id="apropos">
-  <p class="sec-k reveal" data-i18n="ab.k">À propos</p>
-  <h2 class="h2 reveal" data-i18n-html="ab.h">Concentré, méthodique,<br>déjà sur le terrain.</h2>
+  <p class="sec-k reveal" data-i18n="ab.k">Profil</p>
+  <h2 class="h2 reveal" data-i18n="ab.h">Comprendre les machines, les réparer.</h2>
   <div class="about-grid">
-    <figure class="about-photo reveal" data-par="0.04">
-      <img src="assets/technicien-profil.jpg" alt="Shalom Alonyo en environnement industriel" loading="lazy" />
+    <figure class="about-photo reveal" data-par="0.03">
+      <img src="assets/portrait-ai.jpg" alt="Shalom Alonyo" loading="lazy" />
       <figcaption class="cap">Shalom Alonyo · 21 ans · Blagnac (31)</figcaption>
     </figure>
     <div>
-      <p class="lead reveal" data-i18n-html="ab.p">Aujourd'hui <b>agent logistique au Centre Hospitalier de Rodez</b>, je supervise une flotte de <b>6 AGV Swisslog</b> : surveillance du flux, <em>diagnostic des pannes</em>, remise en service et traçabilité des interventions. C'est ce poste qui a confirmé ma voie : la <b>maintenance des systèmes automatisés</b>. Bac STI2D orienté industrie, deux ans de BTS Bâtiment pour les bases techniques, et aujourd'hui une seule direction : devenir technicien de maintenance.</p>
-      <div class="facts">
-        <div class="fact reveal"><div class="k" data-i18n="ab.f1k">Formation visée</div><div class="v a" data-i18n="ab.f1v">BTS Maintenance des Systèmes</div></div>
-        <div class="fact reveal"><div class="k" data-i18n="ab.f2k">Rythme</div><div class="v" data-i18n="ab.f2v">2 sem. entreprise / 2 sem. centre</div></div>
-        <div class="fact reveal"><div class="k" data-i18n="ab.f3k">Mobilité</div><div class="v" data-i18n="ab.f3v">Permis B · véhiculé · Toulouse</div></div>
-        <div class="fact reveal"><div class="k" data-i18n="ab.f4k">Langues</div><div class="v" data-i18n="ab.f4v">FR natif · EN B2 · ES B1</div></div>
-      </div>
+      <p class="lead reveal" data-i18n-html="ab.p">J'ai 21 ans et une idée fixe : comprendre comment fonctionne une machine, et la remettre en marche quand elle s'arrête. Mon poste actuel m'a mis les mains dans l'<b>automatisme</b> au quotidien et a transformé cet intérêt en projet clair : devenir <b>technicien de maintenance</b>. Je suis du genre <em>méthodique, curieux et fiable</em>, et j'avance vite quand on me laisse apprendre sur le terrain. Je m'installe à Blagnac pour me rapprocher du tissu industriel toulousain.</p>
     </div>
+  </div>
+</section>
+
+<!-- PARCOURS / FORMATIONS -->
+<section class="blk parcours" id="parcours">
+  <p class="sec-k reveal" data-i18n="pa.k">Parcours</p>
+  <h2 class="h2 reveal" data-i18n="pa.h">Un parcours technique, assumé.</h2>
+  <div class="timeline">
+    <div class="tl reveal"><div class="yr">2026 – 2028</div><h3 data-i18n="pa.1h">BTS Maintenance des Systèmes</h3><div class="where" data-i18n="pa.1w">Pôle Formation UIMM Occitanie · Beauzelle · en alternance</div><p data-i18n="pa.1p">Option Systèmes de Production : maintenance corrective et préventive, automatisme, génie électrique, mécanique. C'est ma formation cible, pour laquelle je cherche une entreprise d'accueil.</p></div>
+    <div class="tl reveal"><div class="yr">2023 – 2025</div><h3 data-i18n="pa.2h">BTS Bâtiment</h3><div class="where" data-i18n="pa.2w">Lycée Louis Vicat</div><p data-i18n="pa.2p">Lecture de plans, RDM, métrés, CAO/DAO (AutoCAD, Revit). Deux années qui m'ont donné des bases techniques solides et le sens de la rigueur, que je remets aujourd'hui au service de l'industrie.</p></div>
+    <div class="tl reveal"><div class="yr">2023</div><h3 data-i18n="pa.3h">Baccalauréat STI2D — spécialité ITEC</h3><div class="where" data-i18n="pa.3w">Lycée Alexis Monteil · Rodez</div><p data-i18n="pa.3p">Sciences et technologies de l'industrie : conception SolidWorks, analyse fonctionnelle, Arduino, impression 3D, simulation mécanique.</p></div>
   </div>
 </section>
 
 <!-- COMPÉTENCES -->
 <section class="blk comp" id="competences">
-  <div class="comp-bg" data-par="0.06"></div>
   <p class="sec-k reveal" data-i18n="sk.k">Compétences</p>
   <h2 class="h2 reveal" data-i18n="sk.h">Ce que je sais faire</h2>
   <div class="cgrid">
-    <div class="ccard reveal"><div class="no">01</div><h3 data-i18n="sk.1h">Diagnostic & dépannage</h3><p data-i18n="sk.1p">Identifier la panne, intervenir, remettre en service. Capteurs, défauts de détection, 1er niveau en autonomie.</p>
-      <div class="chips"><span class="chip">Diagnostic</span><span class="chip">Capteurs</span><span class="chip">Multimètre</span><span class="chip">Remise en service</span></div></div>
-    <div class="ccard reveal"><div class="no">02</div><h3 data-i18n="sk.2h">Automatisme & systèmes</h3><p data-i18n="sk.2p">Supervision de systèmes automatisés et d'AGV, lecture du comportement machine, gestion des flux.</p>
-      <div class="chips"><span class="chip">AGV Swisslog</span><span class="chip">Automatisme</span><span class="chip">Supervision</span></div></div>
-    <div class="ccard reveal"><div class="no">03</div><h3 data-i18n="sk.3h">Électrotechnique & méca</h3><p data-i18n="sk.3p">Bases solides en électricité, mécanique et lecture de plans et de schémas.</p>
-      <div class="chips"><span class="chip">Électrotechnique</span><span class="chip">Mécanique</span><span class="chip">Lecture de plans</span></div></div>
-    <div class="ccard reveal"><div class="no">04</div><h3 data-i18n="sk.4h">Maintenance préventive</h3><p data-i18n="sk.4p">Application des préconisations, contrôle, prévention pour limiter les arrêts et fiabiliser les équipements.</p>
-      <div class="chips"><span class="chip">Préventif</span><span class="chip">Correctif</span><span class="chip">GMAO</span></div></div>
-    <div class="ccard reveal"><div class="no">05</div><h3 data-i18n="sk.5h">CAO / DAO</h3><p data-i18n="sk.5p">Conception et lecture sur SolidWorks, AutoCAD et Revit, héritées de mon parcours technique.</p>
-      <div class="chips"><span class="chip">SolidWorks</span><span class="chip">AutoCAD</span><span class="chip">Revit</span></div></div>
-    <div class="ccard reveal"><div class="no">06</div><h3 data-i18n="sk.6h">Traçabilité & rigueur</h3><p data-i18n="sk.6p">Main courante, reporting à l'équipe maintenance, respect des règles de sécurité et qualité.</p>
-      <div class="chips"><span class="chip">Main courante</span><span class="chip">Sécurité</span><span class="chip">Reporting</span></div></div>
+    <div class="ccard reveal"><div class="no">01</div><h3 data-i18n="sk.1h">Diagnostic & dépannage</h3><p data-i18n="sk.1p">Identifier la panne, intervenir, remettre en service. Capteurs, défauts de détection, 1er niveau en autonomie.</p><div class="chips"><span class="chip">Diagnostic</span><span class="chip">Capteurs</span><span class="chip">Multimètre</span></div></div>
+    <div class="ccard reveal"><div class="no">02</div><h3 data-i18n="sk.2h">Automatisme & systèmes</h3><p data-i18n="sk.2p">Supervision de systèmes automatisés et d'AGV, lecture du comportement machine, gestion des flux.</p><div class="chips"><span class="chip">AGV Swisslog</span><span class="chip">Automatisme</span><span class="chip">Supervision</span></div></div>
+    <div class="ccard reveal"><div class="no">03</div><h3 data-i18n="sk.3h">Électrotechnique & méca</h3><p data-i18n="sk.3p">Bases solides en électricité, mécanique et lecture de plans et de schémas.</p><div class="chips"><span class="chip">Électrotechnique</span><span class="chip">Mécanique</span><span class="chip">Plans</span></div></div>
+    <div class="ccard reveal"><div class="no">04</div><h3 data-i18n="sk.4h">Maintenance préventive</h3><p data-i18n="sk.4p">Contrôles, préconisations et prévention pour limiter les arrêts et fiabiliser les équipements.</p><div class="chips"><span class="chip">Préventif</span><span class="chip">Correctif</span><span class="chip">GMAO</span></div></div>
+    <div class="ccard reveal"><div class="no">05</div><h3 data-i18n="sk.5h">CAO / DAO</h3><p data-i18n="sk.5p">Conception et lecture sur SolidWorks, AutoCAD et Revit, héritées de mon parcours technique.</p><div class="chips"><span class="chip">SolidWorks</span><span class="chip">AutoCAD</span><span class="chip">Revit</span></div></div>
+    <div class="ccard reveal"><div class="no">06</div><h3 data-i18n="sk.6h">Sécurité & traçabilité</h3><p data-i18n="sk.6p">Respect des règles de sécurité et qualité, main courante et reporting clair à l'équipe maintenance.</p><div class="chips"><span class="chip">Sécurité</span><span class="chip">Main courante</span><span class="chip">Reporting</span></div></div>
   </div>
 </section>
 
-<!-- TERRAIN -->
-<section class="blk" id="terrain" style="padding-left:0;padding-right:0">
-  <div style="padding:0 var(--gut)">
-    <p class="sec-k reveal" data-i18n="tr.k">Expérience terrain</p>
-    <h2 class="h2 reveal" data-i18n-html="tr.h">6 robots. Une disponibilité<br>de chaque instant.</h2>
+<!-- TERRAIN AGV (visuels réels + process) -->
+<section class="blk" id="terrain">
+  <p class="sec-k reveal" data-i18n="tr.k">Expérience terrain</p>
+  <h2 class="h2 reveal" data-i18n-html="tr.h">6 robots. Une disponibilité<br>de chaque instant.</h2>
+  <div class="terrain-hero reveal">
+    <img src="assets/agv-fleet.jpg" alt="Flotte de 6 AGV Swisslog au CH de Rodez" loading="lazy" />
+    <div class="ov"><p class="lead" data-i18n="tr.p">Au Centre Hospitalier de Rodez, je supervise une flotte de 6 AGV Swisslog qui approvisionnent tout l'hôpital : repas, linge, déchets, pharmacie. Mon rôle, chaque jour : qu'elle ne s'arrête jamais.</p></div>
   </div>
-  <div class="terrain reveal" style="margin-top:34px">
-    <div class="terrain-img"><img src="assets/eclate-agv.jpg" alt="Vue éclatée d'un AGV Swisslog" loading="lazy" /></div>
-    <div class="terrain-cap">
-      <p class="lead" data-i18n="tr.p">Au CH de Rodez, la flotte d'AGV Swisslog approvisionne tout l'hôpital : repas, linge, déchets, pharmacie. Mon rôle : qu'elle ne s'arrête jamais. Je connais ces machines de l'intérieur.</p>
-      <div class="stats">
-        <div class="stat reveal"><div class="n" data-count="6">0</div><div class="l" data-i18n="tr.s1">AGV supervisés au quotidien</div></div>
-        <div class="stat reveal"><div class="n" data-count="4"><span class="u">+</span>0</div><div class="l" data-i18n="tr.s2">interventions de 1er niveau / jour</div></div>
-        <div class="stat reveal"><div class="n" data-count="2"><span class="u">/2</span>0</div><div class="l" data-i18n="tr.s3">le rythme d'alternance visé</div></div>
-      </div>
-    </div>
+  <div class="steps">
+    <div class="step reveal"><div class="n">01</div><h4 data-i18n="tr.1h">Surveillance</h4><p data-i18n="tr.1p">Je suis les déplacements des AGV depuis le poste de supervision.</p></div>
+    <div class="step reveal"><div class="n">02</div><h4 data-i18n="tr.2h">Diagnostic</h4><p data-i18n="tr.2p">Robot à l'arrêt : j'identifie la cause (obstacle, capteur, défaut).</p></div>
+    <div class="step reveal"><div class="n">03</div><h4 data-i18n="tr.3h">Remise en service</h4><p data-i18n="tr.3p">Je traite ce qui relève de mon périmètre et relance l'équipement.</p></div>
+    <div class="step reveal"><div class="n">04</div><h4 data-i18n="tr.4h">Traçabilité</h4><p data-i18n="tr.4p">Je trace en main courante et passe le relais à la maintenance si besoin.</p></div>
   </div>
-</section>
-
-<!-- INTERVENTIONS -->
-<section class="blk" id="interventions">
-  <p class="sec-k reveal" data-i18n="iv.k">Interventions types</p>
-  <h2 class="h2 reveal" data-i18n="iv.h">Mon quotidien, concrètement</h2>
-  <div class="igrid">
-    <div class="icard reveal"><div class="no">01</div><h3 data-i18n="iv.1h">Surveillance du flux</h3><p data-i18n="iv.1p">Je suis les déplacements des AGV depuis le poste de supervision et repère toute anomalie en temps réel.</p></div>
-    <div class="icard reveal"><div class="no">02</div><h3 data-i18n="iv.2h">Diagnostic de panne</h3><p data-i18n="iv.2p">Robot à l'arrêt : j'identifie la cause (obstacle, capteur, défaut) et je traite ce qui relève de mon périmètre.</p></div>
-    <div class="icard reveal"><div class="no">03</div><h3 data-i18n="iv.3h">Remise en service</h3><p data-i18n="iv.3p">Je relance l'équipement, vérifie le bon fonctionnement et la reprise du flux logistique.</p></div>
-    <div class="icard reveal"><div class="no">04</div><h3 data-i18n="iv.4h">Traçabilité & relais</h3><p data-i18n="iv.4p">Je trace l'incident en main courante et passe le relais à l'équipe maintenance quand ça dépasse mon niveau.</p></div>
+  <div class="t-duo">
+    <figure class="reveal"><img src="assets/agv-supervision.jpg" alt="Poste de supervision des AGV" loading="lazy" /><figcaption data-i18n="tr.c1">Poste de supervision</figcaption></figure>
+    <figure class="reveal"><img src="assets/agv-controller-hand.jpg" alt="Contrôleur MCD8 en main" loading="lazy" /><figcaption data-i18n="tr.c2">Contrôleur MCD8</figcaption></figure>
+  </div>
+  <div class="stats">
+    <div class="stat reveal"><div class="n" data-count="6">0</div><div class="l" data-i18n="tr.s1">AGV supervisés au quotidien</div></div>
+    <div class="stat reveal"><div class="n" data-count="4"><span class="u">+</span>0</div><div class="l" data-i18n="tr.s2">interventions de 1er niveau / jour</div></div>
+    <div class="stat reveal"><div class="n" data-count="2"><span class="u">/2</span>0</div><div class="l" data-i18n="tr.s3">le rythme d'alternance visé</div></div>
   </div>
 </section>
 
-<!-- OBJECTIF -->
-<section class="blk" id="objectif">
-  <p class="sec-k reveal" data-i18n="ob.k">Objectif alternance</p>
-  <div class="obj reveal">
-    <div>
-      <h3 data-i18n-html="ob.h">Je cherche l'entreprise qui me formera au métier de <em>technicien de maintenance.</em></h3>
-      <p data-i18n="ob.p">Admis en BTS Maintenance des Systèmes au Pôle Formation UIMM Occitanie (Beauzelle), je m'installe à Blagnac à la rentrée 2026. Je cherche un site industriel prêt à former quelqu'un de fiable, motivé et déjà à l'aise sur des systèmes automatisés.</p>
-    </div>
-    <div class="meta">
-      <div class="row"><span data-i18n="ob.r1">Statut</span><span data-i18n="ob.r1v">Admis en BTS, en recherche</span></div>
-      <div class="row"><span data-i18n="ob.r2">Centre</span><span>Pôle Formation UIMM · Beauzelle</span></div>
-      <div class="row"><span data-i18n="ob.r3">Démarrage</span><span data-i18n="ob.r3v">Flexible · rentrée 2026</span></div>
-      <div class="row"><span data-i18n="ob.r4">Zone</span><span>Toulouse · Blagnac · Occitanie</span></div>
-    </div>
+<!-- EN BREF (faits, une seule fois) -->
+<section class="blk brief" id="enbref">
+  <p class="sec-k reveal" data-i18n="br.k">En bref</p>
+  <h2 class="h2 reveal" data-i18n="br.h">L'essentiel, en un coup d'œil</h2>
+  <div class="bgrid">
+    <div class="bcard reveal"><div class="k" data-i18n="br.1k">Statut</div><div class="v a" data-i18n="br.1v">Admis en BTS · en recherche</div></div>
+    <div class="bcard reveal"><div class="k" data-i18n="br.2k">Formation</div><div class="v" data-i18n="br.2v">BTS Maintenance des Systèmes</div></div>
+    <div class="bcard reveal"><div class="k" data-i18n="br.3k">Centre</div><div class="v" data-i18n="br.3v">Pôle Formation UIMM · Beauzelle</div></div>
+    <div class="bcard reveal"><div class="k" data-i18n="br.4k">Démarrage</div><div class="v" data-i18n="br.4v">Flexible · rentrée 2026</div></div>
+    <div class="bcard reveal"><div class="k" data-i18n="br.5k">Rythme</div><div class="v" data-i18n="br.5v">2 sem. entreprise / 2 sem. centre</div></div>
+    <div class="bcard reveal"><div class="k" data-i18n="br.6k">Zone</div><div class="v" data-i18n="br.6v">Toulouse · Blagnac · Occitanie</div></div>
+    <div class="bcard reveal"><div class="k" data-i18n="br.7k">Mobilité</div><div class="v" data-i18n="br.7v">Permis B · véhiculé</div></div>
+    <div class="bcard reveal"><div class="k" data-i18n="br.8k">Langues</div><div class="v" data-i18n="br.8v">FR natif · EN B2 · ES B1</div></div>
   </div>
 </section>
 
-<!-- CONTACT iPhone -->
+<!-- CONTACT iPhone premium -->
 <section class="blk contact" id="contact">
   <p class="sec-k reveal" style="justify-content:center" data-i18n="co.k">Contact</p>
   <h2 class="h2 reveal" data-i18n="co.h">On échange ?</h2>
   <div class="phone-wrap reveal">
     <div class="phone"><div class="screen off" id="screen">
       <div class="notch"></div>
+      <div class="statusbar"><span>9:41</span><span>5G ▮▮▮</span></div>
       <div class="ui">
         <div class="c-ava"><img src="assets/technicien.jpg" alt="Shalom Alonyo" loading="lazy" /></div>
         <div class="c-name">Shalom Alonyo</div>
         <div class="c-role" data-i18n="co.role">Technicien de maintenance · Alternance</div>
         <div class="c-list">
-          <a class="c-row" href="mailto:shalomalonyo24@gmail.com"><span class="c-ic">@</span><span class="c-tx"><span class="t">Email</span><span class="d">shalomalonyo24@gmail.com</span></span></a>
-          <a class="c-row" href="tel:+33633123326"><span class="c-ic">☎</span><span class="c-tx"><span class="t" data-i18n="co.tel">Téléphone</span><span class="d">06 33 12 33 26</span></span></a>
-          <a class="c-row" href="https://www.linkedin.com/in/shalom-alonyo/" target="_blank" rel="noopener"><span class="c-ic cy">in</span><span class="c-tx"><span class="t">LinkedIn</span><span class="d">in/shalom-alonyo</span></span></a>
-          <a class="c-row" href="https://github.com/shalomalonyo-glitch" target="_blank" rel="noopener"><span class="c-ic cy">&lt;/&gt;</span><span class="c-tx"><span class="t">GitHub</span><span class="d">shalomalonyo-glitch</span></span></a>
-          <a class="c-row" href="#" id="locrow"><span class="c-ic">⌖</span><span class="c-tx"><span class="t" data-i18n="co.loc">Localisation</span><span class="d">Blagnac (31) · Toulouse</span></span></a>
+          <a class="c-row" href="mailto:shalomalonyo24@gmail.com">
+            <span class="c-ic mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+            <span class="c-tx"><span class="t">Email</span><span class="d">shalomalonyo24@gmail.com</span></span></a>
+          <a class="c-row" href="tel:+33633123326">
+            <span class="c-ic tel"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .7-.2 1l-2.3 2.2z"/></svg></span>
+            <span class="c-tx"><span class="t" data-i18n="co.tel">Téléphone</span><span class="d">06 33 12 33 26</span></span></a>
+          <a class="c-row" href="https://www.linkedin.com/in/shalom-alonyo/" target="_blank" rel="noopener">
+            <span class="c-ic li"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></span>
+            <span class="c-tx"><span class="t">LinkedIn</span><span class="d">in/shalom-alonyo</span></span></a>
         </div>
-        <a class="c-dl" href="Shalom_Alonyo_CV.pdf" target="_blank" rel="noopener" data-i18n="co.cv">Télécharger mon CV</a>
+        <a class="c-dl" href="Shalom_Alonyo_CV.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg><span data-i18n="co.cv">Télécharger mon CV</span></a>
       </div>
     </div></div>
   </div>
-  <p class="contact-side reveal" data-i18n="co.side">Je recherche une alternance en maintenance industrielle, automatisme ou systèmes automatisés pour la rentrée 2026. Installé à Blagnac, mobile et véhiculé.</p>
+  <p class="contact-side reveal" data-i18n="co.side">Une entreprise, une question, une opportunité d'alternance ? Écrivez-moi, je réponds vite.</p>
 </section>
 
 <footer>
@@ -376,65 +356,43 @@ footer a:hover{color:var(--amber)}
 <button class="totop" id="totop" aria-label="Haut">↑</button>
 
 <script>
-/* progress + nav state + totop */
 const nav=document.getElementById('nav'),prog=document.getElementById('prog'),totop=document.getElementById('totop');
-addEventListener('scroll',()=>{
-  const h=document.documentElement,sc=h.scrollTop,mx=h.scrollHeight-h.clientHeight;
-  prog.style.width=(mx>0?sc/mx*100:0)+'%';
-  nav.classList.toggle('scrolled',sc>30);
-  totop.classList.toggle('show',sc>600);
-},{passive:true});
+addEventListener('scroll',()=>{const h=document.documentElement,sc=h.scrollTop,mx=h.scrollHeight-h.clientHeight;prog.style.width=(mx>0?sc/mx*100:0)+'%';nav.classList.toggle('scrolled',sc>30);totop.classList.toggle('show',sc>600);},{passive:true});
 totop.onclick=()=>scrollTo({top:0,behavior:'smooth'});
-/* burger */
 const burger=document.getElementById('burger'),menu=document.getElementById('menu');
 burger.onclick=()=>{menu.classList.toggle('open');nav.classList.toggle('open')};
 menu.querySelectorAll('a').forEach(a=>a.onclick=()=>{menu.classList.remove('open');nav.classList.remove('open')});
-/* reveal */
 const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-/* parallax */
 const par=[...document.querySelectorAll('[data-par]')];
 addEventListener('scroll',()=>{const y=scrollY;par.forEach(el=>{const s=parseFloat(el.dataset.par);el.style.transform=`translateY(${y*s*-1}px)`})},{passive:true});
-/* count up */
-const cio=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){const el=e.target,to=+el.dataset.count;let n=0;const u=el.querySelector('.u');const step=()=>{n++;el.childNodes.forEach(c=>{if(c.nodeType===3)c.textContent=n});if(n<to)setTimeout(step,90);};el.lastChild&&(el.lastChild.textContent=0);step();cio.unobserve(el)}}),{threshold:.5});
+const cio=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){const el=e.target,to=+el.dataset.count;let n=0;const step=()=>{n++;el.childNodes.forEach(c=>{if(c.nodeType===3)c.textContent=n});if(n<to)setTimeout(step,90)};el.lastChild&&(el.lastChild.textContent=0);step();cio.unobserve(el)}}),{threshold:.5});
 document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
-/* phone power-on */
 const screen=document.getElementById('screen');
-new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){setTimeout(()=>screen.classList.remove('off'),250);}}),{threshold:.4}).observe(screen);
-document.getElementById('locrow').onclick=(e)=>{e.preventDefault();open('https://www.google.com/maps/search/Blagnac','_blank')};
-/* hero photo subtle magnetic */
+new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)setTimeout(()=>screen.classList.remove('off'),250)}),{threshold:.4}).observe(screen);
 const hp=document.querySelector('.hero-photo');
-addEventListener('mousemove',(e)=>{if(innerWidth<960)return;const x=(e.clientX/innerWidth-.5),y=(e.clientY/innerHeight-.5);hp.style.transform=`translate(${x*-14}px,${y*-10}px)`},{passive:true});
+addEventListener('mousemove',(e)=>{if(innerWidth<960)return;const x=(e.clientX/innerWidth-.5),y=(e.clientY/innerHeight-.5);hp.style.transform=`translate(${x*-12}px,${y*-8}px)`},{passive:true});
 document.getElementById('yr').textContent=new Date().getFullYear();
-/* i18n */
 const DICT={fr:{
-'nav.about':'À propos','nav.skills':'Compétences','nav.field':'Terrain','nav.work':'Interventions','nav.goal':'Objectif','nav.contact':'Contact',
-'hero.pill':'Disponible · Alternance rentrée 2026','hero.role':'Futur technicien de maintenance · Systèmes automatisés','hero.sub':"Je garde les machines automatisées en marche : diagnostic, remise en service, supervision d'AGV. En recherche d'alternance BTS Maintenance des Systèmes, secteur Toulouse.",'hero.cta1':'Voir mon CV','hero.cta2':'Me contacter','hero.scroll':'Défiler',
-'ab.k':'À propos','ab.h':'Concentré, méthodique,<br>déjà sur le terrain.','ab.p':"Aujourd'hui <b>agent logistique au Centre Hospitalier de Rodez</b>, je supervise une flotte de <b>6 AGV Swisslog</b> : surveillance du flux, <em>diagnostic des pannes</em>, remise en service et traçabilité des interventions. C'est ce poste qui a confirmé ma voie : la <b>maintenance des systèmes automatisés</b>. Bac STI2D orienté industrie, deux ans de BTS Bâtiment pour les bases techniques, et aujourd'hui une seule direction : devenir technicien de maintenance.",
-'ab.f1k':'Formation visée','ab.f1v':'BTS Maintenance des Systèmes','ab.f2k':'Rythme','ab.f2v':'2 sem. entreprise / 2 sem. centre','ab.f3k':'Mobilité','ab.f3v':'Permis B · véhiculé · Toulouse','ab.f4k':'Langues','ab.f4v':'FR natif · EN B2 · ES B1',
-'sk.k':'Compétences','sk.h':'Ce que je sais faire','sk.1h':'Diagnostic & dépannage','sk.1p':"Identifier la panne, intervenir, remettre en service. Capteurs, défauts de détection, 1er niveau en autonomie.",'sk.2h':'Automatisme & systèmes','sk.2p':"Supervision de systèmes automatisés et d'AGV, lecture du comportement machine, gestion des flux.",'sk.3h':'Électrotechnique & méca','sk.3p':'Bases solides en électricité, mécanique et lecture de plans et de schémas.','sk.4h':'Maintenance préventive','sk.4p':'Application des préconisations, contrôle, prévention pour limiter les arrêts et fiabiliser les équipements.','sk.5h':'CAO / DAO','sk.5p':'Conception et lecture sur SolidWorks, AutoCAD et Revit, héritées de mon parcours technique.','sk.6h':'Traçabilité & rigueur','sk.6p':"Main courante, reporting à l'équipe maintenance, respect des règles de sécurité et qualité.",
-'tr.k':'Expérience terrain','tr.h':'6 robots. Une disponibilité<br>de chaque instant.','tr.p':"Au CH de Rodez, la flotte d'AGV Swisslog approvisionne tout l'hôpital : repas, linge, déchets, pharmacie. Mon rôle : qu'elle ne s'arrête jamais. Je connais ces machines de l'intérieur.",'tr.s1':'AGV supervisés au quotidien','tr.s2':'interventions de 1er niveau / jour','tr.s3':"le rythme d'alternance visé",
-'iv.k':'Interventions types','iv.h':'Mon quotidien, concrètement','iv.1h':'Surveillance du flux','iv.1p':'Je suis les déplacements des AGV depuis le poste de supervision et repère toute anomalie en temps réel.','iv.2h':'Diagnostic de panne','iv.2p':"Robot à l'arrêt : j'identifie la cause (obstacle, capteur, défaut) et je traite ce qui relève de mon périmètre.",'iv.3h':'Remise en service','iv.3p':'Je relance l\'équipement, vérifie le bon fonctionnement et la reprise du flux logistique.','iv.4h':'Traçabilité & relais','iv.4p':"Je trace l'incident en main courante et passe le relais à l'équipe maintenance quand ça dépasse mon niveau.",
-'ob.k':'Objectif alternance','ob.h':'Je cherche l\'entreprise qui me formera au métier de <em>technicien de maintenance.</em>','ob.p':'Admis en BTS Maintenance des Systèmes au Pôle Formation UIMM Occitanie (Beauzelle), je m\'installe à Blagnac à la rentrée 2026. Je cherche un site industriel prêt à former quelqu\'un de fiable, motivé et déjà à l\'aise sur des systèmes automatisés.','ob.r1':'Statut','ob.r1v':'Admis en BTS, en recherche','ob.r2':'Centre','ob.r3':'Démarrage','ob.r3v':'Flexible · rentrée 2026','ob.r4':'Zone',
-'co.k':'Contact','co.h':'On échange ?','co.role':'Technicien de maintenance · Alternance','co.tel':'Téléphone','co.loc':'Localisation','co.cv':'Télécharger mon CV','co.side':"Je recherche une alternance en maintenance industrielle, automatisme ou systèmes automatisés pour la rentrée 2026. Installé à Blagnac, mobile et véhiculé.",'foot.r':'Technicien de maintenance · Alternance 2026'
+'nav.about':'À propos','nav.path':'Parcours','nav.skills':'Compétences','nav.field':'Terrain','nav.contact':'Contact',
+'hero.pill':'Disponible · Alternance rentrée 2026','hero.role':'Futur technicien de maintenance · Systèmes automatisés','hero.sub':"Je cherche l'entreprise qui me formera au métier de technicien de maintenance, en alternance à la rentrée 2026. Installé à Blagnac, mobile et véhiculé.",'hero.cta1':'Voir mon CV','hero.cta2':'Me contacter','hero.scroll':'Défiler',
+'ab.k':'Profil','ab.h':'Comprendre les machines, les réparer.','ab.p':"J'ai 21 ans et une idée fixe : comprendre comment fonctionne une machine, et la remettre en marche quand elle s'arrête. Mon poste actuel m'a mis les mains dans l'<b>automatisme</b> au quotidien et a transformé cet intérêt en projet clair : devenir <b>technicien de maintenance</b>. Je suis du genre <em>méthodique, curieux et fiable</em>, et j'avance vite quand on me laisse apprendre sur le terrain. Je m'installe à Blagnac pour me rapprocher du tissu industriel toulousain.",
+'pa.k':'Parcours','pa.h':'Un parcours technique, assumé.','pa.1h':'BTS Maintenance des Systèmes','pa.1w':'Pôle Formation UIMM Occitanie · Beauzelle · en alternance','pa.1p':"Option Systèmes de Production : maintenance corrective et préventive, automatisme, génie électrique, mécanique. C'est ma formation cible, pour laquelle je cherche une entreprise d'accueil.",'pa.2h':'BTS Bâtiment','pa.2w':'Lycée Louis Vicat','pa.2p':"Lecture de plans, RDM, métrés, CAO/DAO (AutoCAD, Revit). Deux années qui m'ont donné des bases techniques solides et le sens de la rigueur, que je remets aujourd'hui au service de l'industrie.",'pa.3h':'Baccalauréat STI2D — spécialité ITEC','pa.3w':'Lycée Alexis Monteil · Rodez','pa.3p':"Sciences et technologies de l'industrie : conception SolidWorks, analyse fonctionnelle, Arduino, impression 3D, simulation mécanique.",
+'sk.k':'Compétences','sk.h':'Ce que je sais faire','sk.1h':'Diagnostic & dépannage','sk.1p':'Identifier la panne, intervenir, remettre en service. Capteurs, défauts de détection, 1er niveau en autonomie.','sk.2h':'Automatisme & systèmes','sk.2p':"Supervision de systèmes automatisés et d'AGV, lecture du comportement machine, gestion des flux.",'sk.3h':'Électrotechnique & méca','sk.3p':'Bases solides en électricité, mécanique et lecture de plans et de schémas.','sk.4h':'Maintenance préventive','sk.4p':'Contrôles, préconisations et prévention pour limiter les arrêts et fiabiliser les équipements.','sk.5h':'CAO / DAO','sk.5p':'Conception et lecture sur SolidWorks, AutoCAD et Revit, héritées de mon parcours technique.','sk.6h':'Sécurité & traçabilité','sk.6p':"Respect des règles de sécurité et qualité, main courante et reporting clair à l'équipe maintenance.",
+'tr.k':'Expérience terrain','tr.h':'6 robots. Une disponibilité<br>de chaque instant.','tr.p':"Au Centre Hospitalier de Rodez, je supervise une flotte de 6 AGV Swisslog qui approvisionnent tout l'hôpital : repas, linge, déchets, pharmacie. Mon rôle, chaque jour : qu'elle ne s'arrête jamais.",'tr.1h':'Surveillance','tr.1p':'Je suis les déplacements des AGV depuis le poste de supervision.','tr.2h':'Diagnostic','tr.2p':"Robot à l'arrêt : j'identifie la cause (obstacle, capteur, défaut).",'tr.3h':'Remise en service','tr.3p':"Je traite ce qui relève de mon périmètre et relance l'équipement.",'tr.4h':'Traçabilité','tr.4p':'Je trace en main courante et passe le relais à la maintenance si besoin.','tr.c1':'Poste de supervision','tr.c2':'Contrôleur MCD8','tr.s1':'AGV supervisés au quotidien','tr.s2':'interventions de 1er niveau / jour','tr.s3':"le rythme d'alternance visé",
+'br.k':'En bref','br.h':"L'essentiel, en un coup d'œil",'br.1k':'Statut','br.1v':'Admis en BTS · en recherche','br.2k':'Formation','br.2v':'BTS Maintenance des Systèmes','br.3k':'Centre','br.3v':'Pôle Formation UIMM · Beauzelle','br.4k':'Démarrage','br.4v':'Flexible · rentrée 2026','br.5k':'Rythme','br.5v':'2 sem. entreprise / 2 sem. centre','br.6k':'Zone','br.6v':'Toulouse · Blagnac · Occitanie','br.7k':'Mobilité','br.7v':'Permis B · véhiculé','br.8k':'Langues','br.8v':'FR natif · EN B2 · ES B1',
+'co.k':'Contact','co.h':'On échange ?','co.role':'Technicien de maintenance · Alternance','co.tel':'Téléphone','co.cv':'Télécharger mon CV','co.side':"Une entreprise, une question, une opportunité d'alternance ? Écrivez-moi, je réponds vite.",'foot.r':'Technicien de maintenance · Alternance 2026'
 },en:{
-'nav.about':'About','nav.skills':'Skills','nav.field':'Field','nav.work':'Work','nav.goal':'Goal','nav.contact':'Contact',
-'hero.pill':'Available · Apprenticeship autumn 2026','hero.role':'Future maintenance technician · Automated systems','hero.sub':'I keep automated machines running: fault diagnosis, restart, AGV supervision. Looking for a BTS Maintenance apprenticeship, Toulouse area.','hero.cta1':'View my CV','hero.cta2':'Contact me','hero.scroll':'Scroll',
-'ab.k':'About','ab.h':'Focused, methodical,<br>already in the field.','ab.p':"Currently a <b>logistics operator at Rodez Hospital</b>, I supervise a fleet of <b>6 Swisslog AGVs</b>: monitoring the flow, <em>diagnosing faults</em>, restarting equipment and logging interventions. This job confirmed my path: <b>maintenance of automated systems</b>. An industry-focused STI2D baccalaureate, two years of construction BTS for the technical basics, and now one clear direction: becoming a maintenance technician.",
-'ab.f1k':'Target diploma','ab.f1v':'BTS Maintenance of Systems','ab.f2k':'Rhythm','ab.f2v':'2 wks company / 2 wks school','ab.f3k':'Mobility','ab.f3v':'Driving licence · car · Toulouse','ab.f4k':'Languages','ab.f4v':'FR native · EN B2 · ES B1',
-'sk.k':'Skills','sk.h':'What I can do','sk.1h':'Diagnosis & repair','sk.1p':'Find the fault, act, restart. Sensors, detection faults, first-level fixes in autonomy.','sk.2h':'Automation & systems','sk.2p':'Supervising automated systems and AGVs, reading machine behaviour, managing flows.','sk.3h':'Electrical & mechanical','sk.3p':'Solid basics in electricity, mechanics and reading plans and schematics.','sk.4h':'Preventive maintenance','sk.4p':'Applying guidelines, checks and prevention to reduce downtime and keep equipment reliable.','sk.5h':'CAD','sk.5p':'Design and reading in SolidWorks, AutoCAD and Revit, from my technical background.','sk.6h':'Traceability & rigour','sk.6p':'Logbook, reporting to the maintenance team, following safety and quality rules.',
-'tr.k':'Field experience','tr.h':'6 robots. Available<br>at every moment.','tr.p':'At Rodez Hospital, the Swisslog AGV fleet supplies the whole hospital: meals, linen, waste, pharmacy. My job: keep it running. I know these machines inside out.','tr.s1':'AGVs supervised daily','tr.s2':'first-level interventions / day','tr.s3':'the apprenticeship rhythm',
-'iv.k':'Typical interventions','iv.h':'My day, concretely','iv.1h':'Flow monitoring','iv.1p':'I track the AGVs from the supervision desk and spot any anomaly in real time.','iv.2h':'Fault diagnosis','iv.2p':'Robot stopped: I find the cause (obstacle, sensor, fault) and handle what is within my scope.','iv.3h':'Restart','iv.3p':'I restart the equipment, check it runs properly and the logistics flow resumes.','iv.4h':'Logging & handover','iv.4p':'I log the incident and hand over to the maintenance team when it exceeds my level.',
-'ob.k':'Apprenticeship goal','ob.h':'I am looking for the company that will train me as a <em>maintenance technician.</em>','ob.p':'Admitted to the BTS Maintenance of Systems at Pôle Formation UIMM Occitanie (Beauzelle), I am moving to Blagnac for autumn 2026. I am looking for an industrial site ready to train someone reliable, motivated and already comfortable with automated systems.','ob.r1':'Status','ob.r1v':'Admitted, searching','ob.r2':'School','ob.r3':'Start','ob.r3v':'Flexible · autumn 2026','ob.r4':'Area',
-'co.k':'Contact','co.h':"Let's talk?",'co.role':'Maintenance technician · Apprenticeship','co.tel':'Phone','co.loc':'Location','co.cv':'Download my CV','co.side':'I am looking for an apprenticeship in industrial maintenance, automation or automated systems for autumn 2026. Based in Blagnac, mobile with a car.','foot.r':'Maintenance technician · Apprenticeship 2026'
+'nav.about':'About','nav.path':'Background','nav.skills':'Skills','nav.field':'Field','nav.contact':'Contact',
+'hero.pill':'Available · Apprenticeship autumn 2026','hero.role':'Future maintenance technician · Automated systems','hero.sub':'I am looking for the company that will train me as a maintenance technician, on a work-study basis from autumn 2026. Based in Blagnac, mobile with a car.','hero.cta1':'View my CV','hero.cta2':'Contact me','hero.scroll':'Scroll',
+'ab.k':'Profile','ab.h':'Understand machines, fix them.','ab.p':"I am 21 and have one fixation: understanding how a machine works, and getting it running again when it stops. My current job put my hands on <b>automation</b> every day and turned that interest into a clear plan: becoming a <b>maintenance technician</b>. I am <em>methodical, curious and reliable</em>, and I learn fast on the field. I am moving to Blagnac to be close to the Toulouse industrial area.",
+'pa.k':'Background','pa.h':'A technical path, fully owned.','pa.1h':'BTS Maintenance of Systems','pa.1w':'Pôle Formation UIMM Occitanie · Beauzelle · work-study','pa.1p':'Production Systems option: corrective and preventive maintenance, automation, electrical engineering, mechanics. This is my target programme, for which I am looking for a host company.','pa.2h':'BTS Construction','pa.2w':'Lycée Louis Vicat','pa.2p':'Reading plans, strength of materials, quantity surveying, CAD (AutoCAD, Revit). Two years that gave me solid technical basics and rigour, which I now bring to industry.','pa.3h':'STI2D Baccalaureate — ITEC','pa.3w':'Lycée Alexis Monteil · Rodez','pa.3p':'Industrial sciences and technology: SolidWorks design, functional analysis, Arduino, 3D printing, mechanical simulation.',
+'sk.k':'Skills','sk.h':'What I can do','sk.1h':'Diagnosis & repair','sk.1p':'Find the fault, act, restart. Sensors, detection faults, first-level fixes in autonomy.','sk.2h':'Automation & systems','sk.2p':'Supervising automated systems and AGVs, reading machine behaviour, managing flows.','sk.3h':'Electrical & mechanical','sk.3p':'Solid basics in electricity, mechanics and reading plans and schematics.','sk.4h':'Preventive maintenance','sk.4p':'Checks, guidelines and prevention to reduce downtime and keep equipment reliable.','sk.5h':'CAD','sk.5p':'Design and reading in SolidWorks, AutoCAD and Revit, from my technical background.','sk.6h':'Safety & traceability','sk.6p':'Following safety and quality rules, logbook and clear reporting to the maintenance team.',
+'tr.k':'Field experience','tr.h':'6 robots. Available<br>at every moment.','tr.p':'At Rodez Hospital, I supervise a fleet of 6 Swisslog AGVs that supply the whole hospital: meals, linen, waste, pharmacy. My job, every day: keep it running.','tr.1h':'Monitoring','tr.1p':'I track the AGVs from the supervision desk.','tr.2h':'Diagnosis','tr.2p':'Robot stopped: I find the cause (obstacle, sensor, fault).','tr.3h':'Restart','tr.3p':'I handle what is within my scope and restart the equipment.','tr.4h':'Traceability','tr.4p':'I log it and hand over to maintenance when needed.','tr.c1':'Supervision desk','tr.c2':'MCD8 controller','tr.s1':'AGVs supervised daily','tr.s2':'first-level interventions / day','tr.s3':'the apprenticeship rhythm',
+'br.k':'At a glance','br.h':'The essentials, at a glance','br.1k':'Status','br.1v':'Admitted · searching','br.2k':'Programme','br.2v':'BTS Maintenance of Systems','br.3k':'School','br.3v':'Pôle Formation UIMM · Beauzelle','br.4k':'Start','br.4v':'Flexible · autumn 2026','br.5k':'Rhythm','br.5v':'2 wks company / 2 wks school','br.6k':'Area','br.6v':'Toulouse · Blagnac · Occitanie','br.7k':'Mobility','br.7v':'Driving licence · car','br.8k':'Languages','br.8v':'FR native · EN B2 · ES B1',
+'co.k':'Contact','co.h':"Let's talk?",'co.role':'Maintenance technician · Apprenticeship','co.tel':'Phone','co.cv':'Download my CV','co.side':'A company, a question, an apprenticeship opportunity? Write to me, I reply fast.','foot.r':'Maintenance technician · Apprenticeship 2026'
 }};
-function applyLang(l){
-  document.documentElement.lang=l;
-  document.querySelectorAll('[data-i18n]').forEach(e=>{const v=DICT[l][e.getAttribute('data-i18n')];if(v!=null)e.textContent=v});
-  document.querySelectorAll('[data-i18n-html]').forEach(e=>{const v=DICT[l][e.getAttribute('data-i18n-html')];if(v!=null)e.innerHTML=v});
-  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
-  try{localStorage.setItem('sa-lang',l)}catch(e){}
-}
+function applyLang(l){document.documentElement.lang=l;document.querySelectorAll('[data-i18n]').forEach(e=>{const v=DICT[l][e.getAttribute('data-i18n')];if(v!=null)e.textContent=v});document.querySelectorAll('[data-i18n-html]').forEach(e=>{const v=DICT[l][e.getAttribute('data-i18n-html')];if(v!=null)e.innerHTML=v});document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));try{localStorage.setItem('sa-lang',l)}catch(e){}}
 document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>applyLang(b.dataset.lang));
 applyLang((()=>{try{return localStorage.getItem('sa-lang')||'fr'}catch(e){return 'fr'}})());
 </script>
