@@ -86,29 +86,62 @@ h2{font-weight:700;font-size:clamp(32px,5.2vw,64px);line-height:1.02;letter-spac
 .hz{height:12px;background:repeating-linear-gradient(-45deg,var(--mark) 0 12px,#0D0D0E 12px 24px)}
 
 /* la grue */
-.rig{margin-top:clamp(22px,3vw,40px);display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:clamp(12px,2.4vw,34px);align-items:start}
+.rig{margin-top:clamp(22px,3vw,40px);display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(10px,2.4vw,34px);align-items:start}
 .stage{background:#121213;border-radius:18px;overflow:hidden;position:relative}
-.stage svg{display:block;width:100%;height:auto;touch-action:pan-y}
+.view{position:relative;aspect-ratio:4/3}
+.view canvas,.view svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.view canvas{touch-action:pan-y;cursor:grab;opacity:0;transition:opacity .5s ease-out}
+.view canvas:active{cursor:grabbing}
+.stage.live canvas{opacity:1}
+.stage.live svg{display:none}
 .read{position:absolute;left:clamp(12px,1.6vw,20px);top:clamp(10px,1.4vw,18px);display:grid;gap:8px;max-width:24%;pointer-events:none}
 .read span{display:block;font-size:12.5px;line-height:1.2;color:var(--mut)}
 .read b{display:block;font-family:var(--d);font-size:clamp(20px,2.6vw,30px);line-height:1.1;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.spin{position:absolute;right:14px;top:12px;font-size:12.5px;color:var(--mut);pointer-events:none;opacity:0;transition:opacity .4s ease-out}
+.stage.live .spin{opacity:1}
+.stage.live .spin.off{opacity:0}
 .bar{height:6px;background:rgba(255,255,255,.12)}
 .bar i{display:block;height:100%;width:0;background:var(--ok);transition:width .2s ease-out,background-color .2s ease-out}
-.ctl{display:grid;gap:2px}
-.lev{display:grid;grid-template-columns:minmax(0,1fr);gap:2px;padding:10px 0 8px;border-bottom:1px solid var(--line)}
-.lev label{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;font-size:17px}
-.lev label small{font-weight:500;font-size:14px;color:var(--mut)}
-input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;cursor:pointer;touch-action:pan-y}
-input[type=range]::-webkit-slider-runnable-track{height:8px;border-radius:8px;background:linear-gradient(90deg,var(--acc) var(--p,0%),rgba(255,255,255,.16) var(--p,0%))}
-input[type=range]::-moz-range-track{height:8px;border-radius:8px;background:rgba(255,255,255,.16)}
-input[type=range]::-moz-range-progress{height:8px;border-radius:8px;background:var(--acc)}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:var(--tx);margin-top:-11px;box-shadow:0 2px 10px rgba(0,0,0,.5);transition:transform .16s ease-out}
-input[type=range]::-moz-range-thumb{width:30px;height:30px;border:0;border-radius:50%;background:var(--tx)}
-input[type=range]:active::-webkit-slider-thumb{transform:scale(1.12)}
-.tell{background:var(--card);border-radius:14px;padding:13px 16px 14px;min-height:7.3em;font-size:16px;line-height:1.45;color:#D4D3CE;margin-bottom:6px}
+.tell{background:var(--card);border-radius:14px;padding:13px 16px 14px;min-height:7.3em;font-size:16px;line-height:1.45;color:#D4D3CE}
 .tell b{display:block;font-family:var(--d);font-size:18px;color:var(--tx);margin-bottom:2px}
 .tell.warn b{color:var(--acc)}
 .again{margin-top:6px;min-height:44px;font-weight:600;font-size:15px;color:var(--mut);text-decoration:underline;text-decoration-color:var(--line2);text-underline-offset:4px}
+/* la télécommande */
+.rc{--trv:30px;margin-top:10px;border-radius:24px;padding:14px 14px 12px;background:linear-gradient(180deg,#303136,#1a1b1e 62%);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),inset 0 -2px 0 rgba(0,0,0,.5),0 14px 34px rgba(0,0,0,.45);user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.rc-top{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.lv{display:grid;gap:6px;justify-items:center;font-size:13.5px;font-weight:700;color:#E9E8E4}
+.trk{position:relative;width:100%;max-width:78px;height:96px;border-radius:14px;background:#0A0A0B;box-shadow:inset 0 2px 7px #000,inset 0 0 0 1px rgba(255,255,255,.06);touch-action:none;cursor:ns-resize}
+.trk::before{content:"";position:absolute;left:50%;top:10px;bottom:10px;width:4px;margin-left:-2px;border-radius:4px;background:#1E1E21}
+.trk::after{content:"";position:absolute;left:24%;right:24%;top:50%;height:2px;margin-top:-1px;background:rgba(255,255,255,.16)}
+.cap{position:absolute;left:10%;right:10%;top:50%;height:30px;margin-top:-15px;border-radius:9px;background:linear-gradient(180deg,#FFFFFF,#D3D2CE 30%,#9C9B97 62%,#C4C3BF);box-shadow:0 4px 9px rgba(0,0,0,.65),inset 0 1px 0 #fff,inset 0 -1px 0 rgba(0,0,0,.35);transform:translateY(calc(var(--v,0) * -1 * var(--trv)));z-index:1}
+.cap::after{content:"";position:absolute;left:18%;right:18%;top:50%;height:3px;margin-top:-1.5px;border-radius:3px;background:var(--acc)}
+.lv.rel .cap{transition:transform .18s var(--out)}
+.trk:focus-visible{outline:2px solid var(--tx);outline-offset:2px}
+.rc-bot{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:14px;align-items:center;margin-top:12px;padding:12px 4px 0;border-top:1px solid rgba(255,255,255,.08)}
+.stb{display:flex;align-items:center;gap:10px;min-height:48px;padding:0 14px;border-radius:12px;background:#101012;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);font-weight:700;font-size:14.5px;text-align:left;transition:transform .16s ease-out}
+.stb:active{transform:scale(.97)}
+.stb .led{width:10px;height:10px;border-radius:50%;background:#3A3A3D;flex:none;transition:background-color .2s ease-out}
+.stb[aria-pressed=true] .led{background:var(--ok)}
+.leds{display:flex;gap:5px}
+.leds i{width:9px;height:22px;border-radius:3px;background:#2A2A2D;transition:background-color .15s ease-out}
+.leds i.g{background:var(--ok)}
+.leds i.y{background:var(--mark)}
+.leds i.r{background:var(--acc)}
+.stop{width:52px;height:52px;margin:5px;border-radius:50%;background:radial-gradient(circle at 35% 28%,#FF8A78,#E2231A 58%,#9E120C);box-shadow:0 0 0 5px var(--mark),0 5px 10px rgba(0,0,0,.6);transition:transform .12s ease-out,filter .12s ease-out}
+.stop:active{transform:scale(.94)}
+.stop[aria-pressed=true]{transform:scale(.9);filter:brightness(.72)}
+.pic img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:12px}
+.pic[data-zoom]{cursor:zoom-in}
+.scr .sheet{position:absolute;left:8px;right:8px;bottom:8px;z-index:3;display:grid;gap:8px;padding:16px 14px 10px;border-radius:26px;background:#F4F3F0;color:#0D0D0E}
+.scr .sheet[hidden]{display:none}
+.sheet b{font-family:var(--d);font-size:19px}
+.addr{font-size:14px;color:#3A3A3D;word-break:break-all;margin:-6px 0 2px}
+.opt{display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:12px;background:#0D0D0E;color:#F4F3F0;font-weight:700;font-size:15px;text-align:center;transition:transform .16s ease-out}
+.opt:active{transform:scale(.97)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.two .opt{background:#E2E0DA;color:#0D0D0E}
+.okm{min-height:1.3em;font-size:13.5px;color:#3A3A3D;text-align:center}
+.opt.cls{background:none;color:#3A3A3D;min-height:40px}
 
 /* moi */
 .me{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:clamp(26px,6vw,90px);align-items:center}
@@ -118,7 +151,7 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.12)}
 .me p strong{color:var(--tx);font-weight:700}
 
 /* travail */
-.jobs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,44px);margin-top:clamp(26px,3.4vw,46px)}
+.jobs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(18px,3vw,44px);margin-top:clamp(26px,3.4vw,46px)}
 .jobs h3{font-size:clamp(24px,2.6vw,34px);font-weight:700;letter-spacing:-.01em}
 .jobs p{color:var(--mut);margin-top:6px;max-width:36ch}
 .reel{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 var(--pad);margin-top:clamp(28px,4vw,52px);scrollbar-width:none}
@@ -130,7 +163,7 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.12)}
 
 /* parcours */
 .path{margin-top:clamp(22px,3vw,40px);border-top:1px solid var(--line)}
-.step{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 28px;padding:22px 0;border-bottom:1px solid var(--line)}
+.step{display:grid;grid-template-columns:150px minmax(0,1fr) 230px;align-items:start;gap:8px 28px;padding:22px 0;border-bottom:1px solid var(--line)}
 .step .y{font-family:var(--d);font-weight:700;font-size:17px;color:var(--acc);padding-top:4px;font-variant-numeric:tabular-nums}
 .step h3{font-size:clamp(21px,2.2vw,28px);font-weight:700;line-height:1.15}
 .step .w{color:var(--mut);margin-top:3px}
@@ -141,7 +174,7 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.12)}
 .cgrid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(26px,6vw,90px);align-items:center}
 .ct h2{font-size:clamp(44px,8vw,104px);line-height:.96}
 .phone{width:min(330px,86vw);margin:0 auto;border-radius:46px;padding:11px;background:#232325;box-shadow:0 0 0 2px #38383B,0 28px 70px rgba(0,0,0,.55)}
-.scr{position:relative;border-radius:36px;overflow:hidden;aspect-ratio:9/18.4;background:#0D0D0E url(assets/hero.webp) 30% 20%/cover;display:flex;flex-direction:column}
+.scr{position:relative;border-radius:36px;overflow:hidden;aspect-ratio:9/18.4;background:#0D0D0E url(assets/cour.webp) 58% 30%/cover;display:flex;flex-direction:column}
 .scr::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,14,.35),rgba(13,13,14,.62) 55%,rgba(13,13,14,.86))}
 .scr>*{position:relative}
 .sb{display:flex;justify-content:space-between;align-items:center;padding:13px 24px 0;font-weight:700;font-size:15px}
@@ -175,6 +208,7 @@ dialog[open]{display:grid;place-items:center}
 #lb p{margin-top:10px;color:var(--mut);text-align:center;font-size:15px}
 .x{position:fixed;right:14px;top:14px;width:46px;height:46px;border-radius:50%;background:#232325;display:grid;place-items:center}
 
+@media (max-width:1100px){.jobs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:900px){
   .links{display:none}.lang{margin-left:auto}
   .rig{grid-template-columns:minmax(0,1fr)}
@@ -185,10 +219,14 @@ dialog[open]{display:grid;place-items:center}
   .cgrid{grid-template-columns:minmax(0,1fr)}
   .hero .bg{object-position:24% 40%}
   .fab{display:flex}
-  .ctl{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 20px}
-  .lev{border-bottom:0;padding:6px 0 0}
-  .lev label small{display:none}
-  .tell{min-height:7.9em;font-size:15.5px;margin-bottom:2px}
+  .view{aspect-ratio:1.45}
+  .rc{--trv:19px;margin-top:8px;padding:11px 12px 9px}
+  .trk{height:72px}
+  .cap{height:26px;margin-top:-13px}
+  .rc-bot{margin-top:9px;padding-top:9px}
+  .tell{min-height:7.5em;font-size:15px;padding:11px 14px 12px}
+  .pic{margin-top:12px}
+  .pic img{aspect-ratio:16/9}
 }
 @media (max-width:560px){
   .kicker i{display:none}
@@ -237,10 +275,10 @@ dialog[open]{display:grid;place-items:center}
 <section id="grue">
   <div class="wrap">
     <h2 class="rv" data-en="Take the controls.">Prenez les commandes.</h2>
-    <p class="lead rv" data-en="This is the kind of crane I work on every day. Move the levers: I'll tell you what is happening inside.">C'est le genre de grue sur lequel je travaille tous les jours. Bougez les leviers : je vous dis ce qui se passe à l'intérieur.</p>
+    <p class="lead rv" data-en="This is the kind of crane I work on every day. Push the levers on the remote: I'll tell you what is happening inside.">C'est le genre de grue sur lequel je travaille tous les jours. Poussez les leviers de la télécommande : je vous dis ce qui se passe à l'intérieur.</p>
     <div class="rig rv">
-      <div class="stage">
-        <svg viewBox="0 -52 660 522" role="img" aria-label="Une grue hydraulique sur un camion, pilotée par les quatre leviers">
+      <div class="stage" id="stage"><div class="view"><canvas id="g3" aria-hidden="true"></canvas>
+        <svg viewBox="0 -90 660 560" role="img" aria-label="Une grue hydraulique sur un camion, pilotée par les quatre leviers">
           <rect x="0" y="410" width="660" height="60" fill="#18181A"/>
           <path d="M0 410H660" stroke="#3A3A3D" stroke-width="2"/>
           <!-- camion -->
@@ -279,7 +317,8 @@ dialog[open]{display:grid;place-items:center}
           <!-- portée -->
           <g id="dim" opacity=".9"><line id="dl" y1="436" y2="436" stroke="#8E8D88" stroke-width="2" stroke-dasharray="5 6"/><line id="dv" stroke="#8E8D88" stroke-width="2" stroke-dasharray="5 6"/><circle id="dc" cy="436" r="4" fill="#8E8D88"/><circle cx="182" cy="436" r="4" fill="#8E8D88"/></g>
           <style>.hose{stroke:rgba(255,255,255,.22);stroke-width:2.5}.hose.on{stroke:#FF5330;stroke-width:4;stroke-dasharray:9 9;animation:oil .5s linear infinite}@keyframes oil{to{stroke-dashoffset:-18}}</style>
-        </svg>
+        </svg></div>
+        <p class="spin" data-en="Drag to look around">Glissez pour tourner autour</p>
         <div class="bar" aria-hidden="true"><i id="mbar"></i></div>
         <div class="read">
           <div><span data-en="Reach">Portée</span><b id="rReach">0,0 m</b></div>
@@ -288,11 +327,18 @@ dialog[open]{display:grid;place-items:center}
       </div>
       <div>
         <p class="tell" id="tell" aria-live="polite"></p>
-        <div class="ctl">
-          <div class="lev"><label for="s0"><span data-en="Stabilisers">Stabilisateurs</span><small data-en="always first">toujours en premier</small></label><input type="range" id="s0" min="0" max="100" value="0"></div>
-          <div class="lev"><label for="s1"><span data-en="Lift">Lever</span><small data-en="main boom">bras principal</small></label><input type="range" id="s1" min="0" max="100" value="0"></div>
-          <div class="lev"><label for="s2"><span data-en="Unfold">Déplier</span><small data-en="second boom">deuxième bras</small></label><input type="range" id="s2" min="0" max="100" value="0"></div>
-          <div class="lev"><label for="s3"><span data-en="Extend">Allonger</span><small data-en="extensions">rallonges</small></label><input type="range" id="s3" min="0" max="100" value="0"></div>
+        <div class="rc" role="group" aria-label="Télécommande de la grue">
+          <div class="rc-top">
+            <div class="lv rel" data-k="slew"><div class="trk" role="slider" tabindex="0" aria-label="Rotation" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0"><i class="cap"></i></div><span>Rotation</span></div>
+            <div class="lv rel" data-k="a1"><div class="trk" role="slider" tabindex="0" aria-label="Lever" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0"><i class="cap"></i></div><span data-en="Lift">Lever</span></div>
+            <div class="lv rel" data-k="f"><div class="trk" role="slider" tabindex="0" aria-label="Déplier" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0"><i class="cap"></i></div><span data-en="Unfold">Déplier</span></div>
+            <div class="lv rel" data-k="e"><div class="trk" role="slider" tabindex="0" aria-label="Allonger" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0"><i class="cap"></i></div><span data-en="Extend">Allonger</span></div>
+          </div>
+          <div class="rc-bot">
+            <button type="button" class="stb" id="bStab" aria-pressed="false"><i class="led"></i><span data-en="Stabilisers">Stabilisateurs</span></button>
+            <div class="leds" id="leds" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+            <button type="button" class="stop" id="bStop" aria-pressed="false" aria-label="Arrêt d'urgence"></button>
+          </div>
         </div>
         <button type="button" class="again" id="again" data-en="Replay the demo">Rejouer la démonstration</button>
       </div>
@@ -307,7 +353,7 @@ dialog[open]{display:grid;place-items:center}
     <figure class="rv"><img src="assets/moi.webp" width="928" height="1152" loading="lazy" alt="Shalom Alonyo en tenue de travail"></figure>
     <div>
       <h2 class="rv" data-en="I like knowing how things work. Even more when they don't.">J'aime comprendre comment ça marche. Encore plus quand ça ne marche plus.</h2>
-      <p class="rv" data-en="I'm Shalom, 22. What I like about maintenance is the moment you find the cause: the machine runs again, and you know why.">Moi, c'est Shalom, 22 ans. Ce qui me plaît dans la maintenance, c'est le moment où on trouve la cause : la machine repart, et on sait pourquoi.</p>
+      <p class="rv" data-en="I'm Shalom, 22. When a machine runs again, I still want to know why it stopped. That is what keeps it from coming back to the workshop a week later.">Moi, c'est Shalom, 22 ans. Quand une machine repart, je veux encore savoir pourquoi elle s'était arrêtée. C'est ce qui évite de la revoir à l'atelier une semaine plus tard.</p>
       <p class="rv" data-en="I'm doing a BTS in maintenance on a work-study contract with <strong>Serignac Services</strong>, in Toulouse. My daily work: truck-mounted hydraulic cranes, to repair and to keep running.">Je prépare un BTS Maintenance des Systèmes en alternance chez <strong>Serignac Services</strong>, à Toulouse. Mon quotidien : des grues hydrauliques montées sur camion, à dépanner et à entretenir.</p>
     </div>
   </div>
@@ -320,14 +366,15 @@ dialog[open]{display:grid;place-items:center}
       <div><h3 data-en="Repair">Dépanner</h3><p data-en="Find where the fault comes from, then fix it. It can be a leaking hose or a sensor that has stopped answering.">Trouver d'où vient la panne, puis réparer. Ça peut être un flexible qui fuit ou un capteur qui ne répond plus.</p></div>
       <div><h3 data-en="Maintain">Entretenir</h3><p data-en="Carry out the services planned by the manufacturer, so the breakdown never happens.">Faire les révisions prévues par le constructeur, pour que la panne n'arrive pas.</p></div>
       <div><h3 data-en="Improve">Améliorer</h3><p data-en="Modify or equip a machine so it serves the people who use it better.">Modifier ou équiper une machine pour qu'elle serve mieux ceux qui l'utilisent.</p></div>
+      <div><h3 data-en="Check">Contrôler</h3><p data-en="Test the machine under load before it goes back to the customer.">Essayer la machine en charge avant de la rendre au client.</p></div>
     </div>
     <p class="lead rv" style="margin-top:clamp(34px,5vw,60px)" data-en="These cranes deliver, lift and collect all day long. When one of them stops, it comes here.">Ces grues livrent, lèvent et collectent toute la journée. Quand l'une d'elles s'arrête, elle vient ici.</p>
   </div>
   <div class="reel rv" id="reel">
     <figure data-zoom="camions"><img src="assets/camions.webp" width="1800" height="540" loading="lazy" alt="Une rangée de camions équipés de grues, dans la cour de l'atelier"><figcaption data-en="The yard: trucks waiting their turn">La cour : les camions attendent leur tour</figcaption></figure>
-    <figure data-zoom="travee"><img src="assets/travee.webp" width="1500" height="1035" loading="lazy" alt="Un camion-grue dans une travée de l'atelier, stabilisateur sorti"><figcaption data-en="In the bay, stabiliser out">Dans la travée, stabilisateur sorti</figcaption></figure>
-    <figure data-zoom="cour"><img src="assets/cour.webp" width="1600" height="936" loading="lazy" alt="Une grue lève une masse d'essai dans la cour"><figcaption data-en="Load test before the crane goes back">Essai en charge avant de rendre la grue</figcaption></figure>
-    <figure data-zoom="atelier"><img src="assets/atelier.webp" width="1800" height="1350" loading="lazy" alt="L'atelier vu d'en haut"><figcaption data-en="The workshop, seen from above">L'atelier, vu d'en haut</figcaption></figure>
+    <figure data-zoom="travee"><img src="assets/travee.webp" width="1500" height="1035" loading="lazy" alt="Un camion-grue dans une travée de l'atelier, stabilisateur sorti"><figcaption data-en="At work">En intervention</figcaption></figure>
+    <figure data-zoom="cour"><img src="assets/cour.webp" width="1600" height="936" loading="lazy" alt="Une grue lève une masse d'essai dans la cour"><figcaption data-en="Load test">Essai en charge</figcaption></figure>
+    <figure data-zoom="atelier"><img src="assets/atelier.webp" width="1800" height="1350" loading="lazy" alt="L'atelier vu d'en haut"><figcaption data-en="The workshop">L'atelier</figcaption></figure>
   </div>
   <div class="wrap"><p class="hint" data-en="Swipe to see more. Photos: Shalom Alonyo.">Faites défiler pour voir la suite. Photos : Shalom Alonyo.</p></div>
 </section>
@@ -336,11 +383,12 @@ dialog[open]{display:grid;place-items:center}
   <div class="wrap">
     <h2 class="rv" data-en="Background">Parcours</h2>
     <div class="path rv">
-      <div class="step"><div class="y">2026 – 2028</div><div><h3 data-en="BTS Maintenance des Systèmes, work-study">BTS Maintenance des Systèmes, en alternance</h3><p class="w">Serignac Services · Pôle Formation UIMM Occitanie, Toulouse</p><p data-en="Corrective, preventive and improvement maintenance. Hydraulics, electrical engineering, automation, mechanics.">Maintenance corrective, préventive et améliorative. Hydraulique, électrotechnique, automatismes, mécanique.</p></div></div>
-      <div class="step"><div class="y">2025 – 2026</div><div><h3 data-en="Logistics agent, AGV supervision">Agent logistique, supervision d'AGV</h3><p class="w" data-en="Rodez hospital">Centre Hospitalier de Rodez</p><p data-en="Six transport robots supply the whole hospital. I watched over them and got them going again when they stopped.">Six robots de transport ravitaillent tout l'hôpital. Je les surveillais et je les remettais en route quand ils se bloquaient.</p></div></div>
-      <div class="step"><div class="y">2023 – 2025</div><div><h3>BTS Bâtiment</h3><p class="w">Lycée Louis Vicat, Rodez</p><p data-en="Reading drawings, and drafting in AutoCAD and Revit.">Lecture de plans et dessin sur AutoCAD et Revit.</p></div></div>
-      <div class="step"><div class="y">2023</div><div><h3 data-en="Baccalauréat STI2D, ITEC option">Baccalauréat STI2D, spécialité ITEC</h3><p class="w">Lycée Alexis Monteil, Rodez</p><p data-en="Mechanical design in SolidWorks and 3D-printed prototypes.">Conception mécanique sur SolidWorks et prototypes imprimés en 3D.</p></div></div>
+      <div class="step"><div class="y">2026 – 2028</div><div><h3 data-en="BTS Maintenance des Systèmes, work-study">BTS Maintenance des Systèmes, en alternance</h3><p class="w">Serignac Services · Pôle Formation UIMM Occitanie, Toulouse</p><p data-en="Corrective, preventive and improvement maintenance. Hydraulics, electrical engineering, automation, mechanics.">Maintenance corrective, préventive et améliorative. Hydraulique, électrotechnique, automatismes, mécanique.</p></div><figure class="pic"><img src="assets/ms.webp" width="1100" height="739" loading="lazy" alt="Vérin hydraulique et flexibles"></figure></div>
+      <div class="step"><div class="y">2025 – 2026</div><div><h3 data-en="Logistics agent, AGV supervision">Agent logistique, supervision d'AGV</h3><p class="w" data-en="Rodez hospital">Centre Hospitalier de Rodez</p><p data-en="Six transport robots supply the whole hospital. I watched over them and got them going again when they stopped.">Six robots de transport ravitaillent tout l'hôpital. Je les surveillais et je les remettais en route quand ils se bloquaient.</p></div><figure class="pic" data-zoom="agv"><img src="assets/agv.webp" width="1400" height="1050" loading="lazy" alt="Les six robots de transport de l'hôpital, alignés à leur poste de charge"></figure></div>
+      <div class="step"><div class="y">2023 – 2025</div><div><h3>BTS Bâtiment</h3><p class="w">Lycée Louis Vicat, Rodez</p><p data-en="Reading drawings, and drafting in AutoCAD and Revit.">Lecture de plans et dessin sur AutoCAD et Revit.</p></div><figure class="pic"><img src="assets/bat.webp" width="1100" height="739" loading="lazy" alt="Deux ouvriers étudient un plan devant un bâtiment en construction"></figure></div>
+      <div class="step"><div class="y">2023</div><div><h3 data-en="Baccalauréat STI2D, ITEC option">Baccalauréat STI2D, spécialité ITEC</h3><p class="w">Lycée Alexis Monteil, Rodez</p><p data-en="Mechanical design in SolidWorks and 3D-printed prototypes.">Conception mécanique sur SolidWorks et prototypes imprimés en 3D.</p></div><figure class="pic"><img src="assets/sti.webp" width="1100" height="739" loading="lazy" alt="Un modèle 3D à l'écran et la pièce imprimée à côté"></figure></div>
     </div>
+    <p class="hint" data-en="Illustrations, except the photo of the robots, taken at the hospital.">Images d'illustration, sauf la photo des robots, prise à l'hôpital.</p>
   </div>
 </section>
 
@@ -359,12 +407,25 @@ dialog[open]{display:grid;place-items:center}
         <div class="apps">
           <a class="app" href="tel:+33633123326"><i style="background:#22C55E"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.3.2 2.5.57 3.6a1 1 0 0 1-.25 1z"/></svg></i><span data-en="Call">Appeler</span></a>
           <a class="app" href="sms:+33633123326"><i style="background:#16A34A"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c5 0 9 3.4 9 7.6s-4 7.6-9 7.6c-.9 0-1.8-.1-2.6-.3L5 20.5l.9-3.6C4.1 15.500 3 13.700 3 10.6 3 6.400 7 3 12 3z"/></svg></i><span>Message</span></a>
-          <a class="app" href="mailto:shalomalonyo24@gmail.com"><i style="background:#2563EB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.500" width="18" height="13" rx="2.500"/><path d="m4 7.500 8 6 8-6"/></svg></i><span>E-mail</span></a>
+          <a class="app" id="mailApp" href="mailto:shalomalonyo24@gmail.com"><i style="background:#2563EB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.500" width="18" height="13" rx="2.500"/><path d="m4 7.500 8 6 8-6"/></svg></i><span>E-mail</span></a>
           <a class="app" href="https://www.linkedin.com/in/shalom-alonyo/" target="_blank" rel="noopener"><i style="background:#1D5FBF"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8.500" r="3.600"/><path d="M4.500 19.500c.6-3.600 3.700-5.600 7.500-5.600s6.900 2 7.500 5.600z"/></svg></i><span>LinkedIn</span></a>
           <a class="app" href="Shalom_Alonyo_CV.pdf" target="_blank" rel="noopener"><i style="background:#F4F3F0"><svg viewBox="0 0 24 24" fill="none" stroke="#0D0D0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg></i><span>CV</span></a>
           <a class="app" href="Shalom_Alonyo.vcf"><i style="background:#FF5330"><svg viewBox="0 0 24 24" fill="none" stroke="#0D0D0E" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="9" r="3.400"/><path d="M3.500 19c.6-3 3.200-4.800 6.500-4.800 1.400 0 2.700.3 3.800.9M18 14v6M15 17h6"/></svg></i><span data-en="Save contact">Enregistrer</span></a>
         </div>
         <div class="dock" aria-hidden="true"></div>
+        <div class="sheet" id="sheet" hidden>
+          <b data-en="Write to me">M'écrire</b>
+          <span class="addr">shalomalonyo24@gmail.com</span>
+          <a class="opt" href="mailto:shalomalonyo24@gmail.com" data-en="My mail app">Mon appli de mail</a>
+          <div class="two">
+            <button type="button" class="opt" data-web="https://mail.google.com/mail/?view=cm&amp;fs=1">Gmail</button>
+            <button type="button" class="opt" data-web="https://outlook.live.com/mail/0/deeplink/compose">Outlook</button>
+            <button type="button" class="opt" data-web="https://compose.mail.yahoo.com/">Yahoo</button>
+            <button type="button" class="opt" id="cp" data-en="Copy address">Copier l'adresse</button>
+          </div>
+          <p class="okm" id="okm" aria-live="polite"></p>
+          <button type="button" class="opt cls" data-en="Close">Fermer</button>
+        </div>
       </div>
     </div>
   </div>
@@ -394,49 +455,65 @@ function applyLang(){
     el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.fr;
   });
   $$('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === lang));
-  say(lastMsg); draw();
+  say(lastMsg, true); hudKey = ''; draw();
   try { localStorage.setItem('lang', lang); } catch(e){}
 }
 $$('.lang button').forEach(b => b.addEventListener('click', () => { lang = b.dataset.lang; applyLang(); }));
 
 /* ---------- la grue ---------- */
-/* Grue d'exemple : 1 pixel = 2 cm, capacité 7 tonnes-mètres, charge 1 tonne. */
+/* Grue d'exemple : bras de 3,3 m et de 3 m, rallonges de 2,2 m, charge d'une tonne, capacité de 7 tonnes-mètres. */
 const MSG = {
-  start:{t:{fr:'À vous.',en:'Your turn.'},d:{fr:"Allongez encore le bras : le calculateur vous arrêtera à la limite.",en:'Extend the boom further: the controller will stop you at the limit.'}},
-  s0:{t:{fr:'Stabilisateurs',en:'Stabilisers'},d:{fr:"On cale le camion avant tout. Tant que les pieds ne sont pas au sol, le calculateur interdit de bouger la grue.",en:'The truck is steadied first. Until the feet are on the ground, the controller will not let the crane move.'}},
-  s1:{t:{fr:'Vérin de levage',en:'Lift cylinder'},d:{fr:"L'huile sous pression pousse le vérin, qui lève le bras. Un clapet la garde enfermée : si un flexible casse, le bras ne tombe pas.",en:'Pressurised oil pushes the cylinder, which lifts the boom. A valve keeps it locked in: if a hose bursts, the boom does not drop.'}},
-  s2:{t:{fr:'Deuxième vérin',en:'Second cylinder'},d:{fr:"Même principe, un étage plus haut : l'huile monte le long du bras et ouvre le deuxième bras.",en:'Same principle, one stage up: the oil travels along the boom and opens the second boom.'}},
-  s3:{t:{fr:'Rallonges',en:'Extensions'},d:{fr:"Des vérins font sortir les rallonges. Plus on va loin, moins on peut porter : regardez la capacité utilisée.",en:'Cylinders push the extensions out. The further you reach, the less you can carry: watch the capacity used.'}},
-  lock:{warn:1,t:{fr:'Mouvement refusé',en:'Movement refused'},d:{fr:"Stabilisateurs non sortis : le calculateur bloque la grue par sécurité.",en:'Stabilisers not out: the controller locks the crane for safety.'}},
+  start:{t:{fr:'À vous.',en:'Your turn.'},d:{fr:"Poussez un levier vers le haut ou vers le bas : la grue bouge tant que vous le tenez.",en:'Push a lever up or down: the crane moves for as long as you hold it.'}},
+  stab:{t:{fr:'Stabilisateurs',en:'Stabilisers'},d:{fr:"On cale le camion avant tout. Tant que les pieds ne sont pas au sol, le calculateur interdit de bouger la grue.",en:'The truck is steadied first. Until the feet are on the ground, the controller will not let the crane move.'}},
+  slew:{t:{fr:'Rotation',en:'Slewing'},d:{fr:"La colonne tourne avec tout ce qu'elle porte. C'est pour cela qu'on sort les stabilisateurs des deux côtés.",en:'The column turns with everything it carries. That is why the stabilisers go out on both sides.'}},
+  a1:{t:{fr:'Vérin de levage',en:'Lift cylinder'},d:{fr:"L'huile sous pression pousse le vérin, qui lève le bras. Un clapet la garde enfermée : si un flexible casse, le bras ne tombe pas.",en:'Pressurised oil pushes the cylinder, which lifts the boom. A valve keeps it locked in: if a hose bursts, the boom does not drop.'}},
+  f:{t:{fr:'Deuxième vérin',en:'Second cylinder'},d:{fr:"Même principe, un étage plus haut : l'huile monte le long du bras et ouvre le deuxième bras.",en:'Same principle, one stage up: the oil travels along the boom and opens the second boom.'}},
+  e:{t:{fr:'Rallonges',en:'Extensions'},d:{fr:"Des vérins font sortir les rallonges. Plus on va loin, moins on peut porter : regardez la capacité utilisée.",en:'Cylinders push the extensions out. The further you reach, the less you can carry: watch the capacity used.'}},
+  lock:{warn:1,t:{fr:'Mouvement refusé',en:'Movement refused'},d:{fr:"Stabilisateurs non sortis : le calculateur bloque la grue par sécurité. Appuyez sur le bouton Stabilisateurs.",en:'Stabilisers not out: the controller locks the crane for safety. Press the Stabilisers button.'}},
   stow:{warn:1,t:{fr:'Mouvement refusé',en:'Movement refused'},d:{fr:"Grue dépliée : le calculateur garde les stabilisateurs au sol. Repliez d'abord la grue.",en:'Crane unfolded: the controller keeps the stabilisers down. Fold the crane first.'}},
   over:{warn:1,t:{fr:'Limite atteinte',en:'Limit reached'},d:{fr:"À cette portée, une tonne suffit à saturer la grue. Le calculateur refuse d'aller plus loin et laisse revenir.",en:'At this reach, one tonne is enough to max out the crane. The controller refuses to go further and lets you come back.'}},
-  down:{t:{fr:'Charge au sol',en:'Load on the ground'},d:{fr:"La charge est posée : impossible de descendre plus bas.",en:'The load is set down: it cannot go any lower.'}}
+  down:{t:{fr:'Charge au sol',en:'Load on the ground'},d:{fr:"La charge est posée : impossible de descendre plus bas.",en:'The load is set down: it cannot go any lower.'}},
+  hit:{warn:1,t:{fr:'Obstacle',en:'Obstacle'},d:{fr:"La charge toucherait le plateau. Levez d'abord le bras, ou tournez la grue sur le côté.",en:'The load would hit the bed. Lift the boom first, or slew the crane to the side.'}},
+  end:{t:{fr:'Fin de course',en:'End of travel'},d:{fr:"Le mouvement est arrivé en butée. Repartez dans l'autre sens.",en:'The movement has reached its stop. Go back the other way.'}},
+  stop:{warn:1,t:{fr:"Arrêt d'urgence",en:'Emergency stop'},d:{fr:"Tous les mouvements sont coupés. Appuyez de nouveau sur le bouton rouge pour réarmer.",en:'All movements are cut. Press the red button again to reset.'}},
+  go:{t:{fr:'Grue réarmée',en:'Crane reset'},d:{fr:"Les leviers commandent de nouveau la grue.",en:'The levers control the crane again.'}}
 };
-const S = {stab:0, a1:10, f:152, e:0};
-const sl = [0,1,2,3].map(i => $('#s' + i));
-const rad = d => d * Math.PI / 180;
+const S = {stab:0, a1:10, f:152, e:0, slew:0};
+const LIM = {slew:[-100,100], a1:[10,48], f:[5,152], e:[0,2.2]}, RATE = {slew:34, a1:11, f:38, e:.75}, KEYS = ['slew','a1','f','e'], IN = {slew:0, a1:0, f:0, e:0};
+const rad = d => d * Math.PI / 180, stage = $('#stage'), cv = $('#g3'), bStab = $('#bStab'), bStop = $('#bStop');
+let active = -1, lastMsg = 'start', shown = '', estop = false, stabT = 0, g3 = null, tried = false, inView = false, demo = null, raf = 0, last = 0, idle = 0, sig = '', hudKey = '';
 function geo(s){
-  const P1 = {x:182,y:225}, d1 = {x:Math.cos(rad(s.a1)), y:-Math.sin(rad(s.a1))};
-  const P2 = {x:P1.x + 165*d1.x, y:P1.y + 165*d1.y};
-  const b = s.a1 - s.f, d2 = {x:Math.cos(rad(b)), y:-Math.sin(rad(b))};
-  const P3 = {x:P2.x + 150*d2.x, y:P2.y + 150*d2.y};
-  const P4 = {x:P3.x + s.e*d2.x, y:P3.y + s.e*d2.y};
-  const reach = Math.max(0, (P4.x - 182) * .02), mom = reach / 7 * 100;
-  return {P1,P2,P3,P4,d1,d2,reach,mom,low: P4.y + 44 > 410.5};
+  const a = rad(s.a1), b = rad(s.a1 - s.f), L = 3 + s.e;
+  const r = 3.3 * Math.cos(a) + L * Math.cos(b), y = 3.6 + 3.3 * Math.sin(a) + L * Math.sin(b);
+  const x = r * Math.cos(rad(s.slew)), z = r * Math.sin(rad(s.slew));
+  const floor = (x > .5 && x < 6.75 && Math.abs(z) < 1.3) ? 1.34 : 0, bottom = y - .96;
+  return {r: Math.max(0, r), bottom, floor, low: bottom < floor - .001, mom: Math.max(0, r) / 7 * 100};
 }
+function say(k, force){
+  if (!force && shown === k + lang) return;
+  lastMsg = k; shown = k + lang; const m = MSG[k], t = $('#tell'); t.classList.toggle('warn', !!m.warn); t.innerHTML = `<b>${L(m.t)}</b>${L(m.d)}`;
+}
+function hud(){
+  const g = geo(S), key = g.r.toFixed(1) + Math.round(g.mom) + estop + lang; if (key === hudKey) return; hudKey = key;
+  $('#rReach').textContent = g.r.toFixed(1).replace('.', lang === 'fr' ? ',' : '.') + ' m';
+  $('#rMom').textContent = Math.round(Math.min(g.mom, 100)) + ' %';
+  const bar = $('#mbar'); bar.style.width = Math.min(100, g.mom) + '%'; bar.style.backgroundColor = g.mom > 92 ? 'var(--acc)' : g.mom > 70 ? 'var(--mark)' : 'var(--ok)';
+  $$('#leds i').forEach((el, i) => { el.className = estop ? (i === 4 ? 'r' : '') : g.mom > [8, 30, 55, 75, 92][i] ? (i < 2 ? 'g' : i < 4 ? 'y' : 'r') : ''; });
+}
+/* dessin en 2D : affiché tant que la 3D n'est pas prête, ou si elle ne démarre pas */
 const set = (id, o) => { const el = $('#' + id); for (const k in o) el.setAttribute(k, typeof o[k] === 'number' ? o[k].toFixed(1) : o[k]); };
 const pts = a => a.map(p => p.x.toFixed(1) + ',' + p.y.toFixed(1)).join(' ');
-let active = -1, offT = 0, lastMsg = 'start';
-function draw(){
-  const g = geo(S), {P1,P2,P3,P4,d1,d2} = g;
+function draw2(){
+  const d1 = {x:Math.cos(rad(S.a1)), y:-Math.sin(rad(S.a1))}, b = S.a1 - S.f, d2 = {x:Math.cos(rad(b)), y:-Math.sin(rad(b))}, e = S.e * 50;
+  const P1 = {x:182,y:225}, P2 = {x:P1.x + 165*d1.x, y:P1.y + 165*d1.y}, P3 = {x:P2.x + 150*d2.x, y:P2.y + 150*d2.y}, P4 = {x:P3.x + e*d2.x, y:P3.y + e*d2.y};
   set('stab', {y2: 372 + 34*S.stab}); set('foot', {y: 370 + 34*S.stab});
   set('b1', {x1:P1.x,y1:P1.y,x2:P2.x,y2:P2.y}); set('b2', {x1:P2.x,y1:P2.y,x2:P3.x,y2:P3.y});
   set('ext', {x1:P3.x - 40*d2.x, y1:P3.y - 40*d2.y, x2:P4.x, y2:P4.y});
   const C1 = {x:196,y:322}, B1 = {x:P1.x + 80*d1.x, y:P1.y + 80*d1.y};
-  let L = Math.hypot(B1.x-C1.x, B1.y-C1.y), u = {x:(B1.x-C1.x)/L, y:(B1.y-C1.y)/L}, M1 = {x:C1.x + 104*u.x, y:C1.y + 104*u.y};
+  let n = Math.hypot(B1.x-C1.x, B1.y-C1.y), u = {x:(B1.x-C1.x)/n, y:(B1.y-C1.y)/n}; const M1 = {x:C1.x + 104*u.x, y:C1.y + 104*u.y};
   set('c1b', {x1:C1.x,y1:C1.y,x2:M1.x,y2:M1.y}); set('c1r', {x1:M1.x,y1:M1.y,x2:B1.x,y2:B1.y});
   const A = {x:P1.x + 96*d1.x, y:P1.y + 96*d1.y}, B2 = {x:P2.x + 46*d2.x, y:P2.y + 46*d2.y};
-  L = Math.hypot(B2.x-A.x, B2.y-A.y); u = {x:(B2.x-A.x)/L, y:(B2.y-A.y)/L}; const M2 = {x:A.x + Math.min(40, L-2)*u.x, y:A.y + Math.min(40, L-2)*u.y};
+  n = Math.hypot(B2.x-A.x, B2.y-A.y); u = {x:(B2.x-A.x)/n, y:(B2.y-A.y)/n}; const M2 = {x:A.x + Math.min(40, n-2)*u.x, y:A.y + Math.min(40, n-2)*u.y};
   set('c2b', {x1:A.x,y1:A.y,x2:M2.x,y2:M2.y}); set('c2r', {x1:M2.x,y1:M2.y,x2:B2.x,y2:B2.y});
   set('j1', {cx:P1.x,cy:P1.y}); set('j2', {cx:P2.x,cy:P2.y});
   set('hook', {x1:P4.x,y1:P4.y,x2:P4.x,y2:P4.y + 16}); $('#load').setAttribute('transform', `translate(${(P4.x-21).toFixed(1)},${(P4.y+16).toFixed(1)})`);
@@ -446,53 +523,93 @@ function draw(){
   $('#h3').setAttribute('points', pts([D, {x:188,y:300}, {x:P1.x+4,y:P1.y+2}, P2, P3, P4]));
   ['h1','h2','h3'].forEach((h,i) => $('#' + h).classList.toggle('on', active === i + 1));
   const x = Math.max(186, P4.x); set('dl', {x1:182, x2:x}); set('dc', {cx:x}); set('dv', {x1:x, x2:x, y1:Math.min(436, P4.y + 46), y2:436});
-  $('#dim').style.opacity = g.reach > .4 ? .9 : 0;
-  $('#rReach').textContent = g.reach.toFixed(1).replace('.', lang === 'fr' ? ',' : '.') + ' m';
-  $('#rMom').textContent = Math.round(Math.min(g.mom, 100)) + ' %';
-  const bar = $('#mbar'); bar.style.width = Math.min(100, g.mom) + '%'; bar.style.backgroundColor = g.mom > 92 ? 'var(--acc)' : g.mom > 70 ? 'var(--mark)' : 'var(--ok)';
-  sl.forEach(r => r.style.setProperty('--p', r.value + '%'));
+  $('#dim').style.opacity = geo(S).r > .4 ? .9 : 0;
 }
-function say(k){ lastMsg = k; const m = MSG[k], t = $('#tell'); t.classList.toggle('warn', !!m.warn); t.innerHTML = `<b>${L(m.t)}</b>${L(m.d)}`; }
-function fromSliders(){ return {stab: sl[0].value/100, a1: 10 + sl[1].value*.32, f: 152 - sl[2].value*1.47, e: sl[3].value*1.1}; }
-function toSliders(){ sl[0].value = S.stab*100; sl[1].value = (S.a1-10)/.32; sl[2].value = (152-S.f)/1.47; sl[3].value = S.e/1.1; }
-function onInput(i){
-  stopDemo();
-  const n = fromSliders();
-  if (i > 0 && S.stab < .995) { toSliders(); draw(); return say('lock'); }
-  if (i === 0 && n.stab < .995 && (S.a1 > 10.5 || S.f < 151.5 || S.e > .5)) { toSliders(); draw(); return say('stow'); }
-  const g = geo(n), cur = geo(S);
-  if (i > 0 && g.low && g.P4.y > cur.P4.y) { toSliders(); draw(); return say('down'); }
-  if (i > 0 && g.mom > 100 && g.mom > cur.mom) { toSliders(); draw(); return say('over'); }
-  Object.assign(S, n); active = i; clearTimeout(offT); offT = setTimeout(() => { active = -1; draw(); }, 700);
-  draw(); say('s' + i);
+/* un pas de simulation : les leviers donnent une vitesse, le calculateur accepte ou refuse */
+function step(dt){
+  let act = -1;
+  if (!estop && S.stab !== stabT) { const d = dt / 2.2; S.stab = stabT > S.stab ? Math.min(stabT, S.stab + d) : Math.max(stabT, S.stab - d); act = 4; say('stab'); }
+  if (!demo) KEYS.forEach((k, i) => {
+    const v = IN[k]; if (!v) return;
+    if (estop) return say('stop');
+    if (S.stab < .995) return say('lock');
+    const n = Object.assign({}, S); n[k] = Math.min(LIM[k][1], Math.max(LIM[k][0], S[k] + (k === 'f' ? -1 : 1) * v * RATE[k] * dt));
+    if (n[k] === S[k]) return say('end');
+    const g = geo(n), c = geo(S);
+    if (g.low && (!c.low || g.bottom < c.bottom - 1e-6)) return say(g.floor ? 'hit' : 'down');
+    if (g.mom > 100 && g.mom > c.mom + 1e-9) return say('over');
+    S[k] = n[k]; act = i; say(k);
+  });
+  active = act;
 }
-sl.forEach((r,i) => r.addEventListener('input', () => onInput(i)));
+function demoStep(dt){
+  const d = demo; if (S.stab < 1) return;
+  const [k, to, dur, idx] = d.steps[d.i]; if (d.t === 0) { d.from = S[k]; say(k); }
+  d.t += dt; const p = Math.min(1, d.t / dur), q = p < .5 ? 2*p*p : 1 - Math.pow(-2*p + 2, 2) / 2;
+  S[k] = d.from + (to - d.from) * q; active = idx;
+  if (p >= 1) { d.i++; d.t = 0; if (d.i >= d.steps.length) { demo = null; active = -1; say('start'); } }
+}
+function draw(){ hud(); if (g3) g3.render(S, active, performance.now()); else draw2(); }
+function frame(t){
+  const dt = Math.min(.25, (t - last) / 1000 || 0); last = t;
+  step(dt); if (demo) demoStep(dt); draw();
+  const s = JSON.stringify(S) + active + JSON.stringify(IN); idle = s === sig ? idle + dt : 0; sig = s;
+  raf = inView && idle < 1.5 ? requestAnimationFrame(frame) : 0;
+}
+function wake(){ idle = 0; if (!raf && inView) { last = performance.now(); raf = requestAnimationFrame(frame); } }
+function stopDemo(){ if (demo) { demo = null; active = -1; } }
+function startDemo(){
+  stopDemo(); Object.assign(S, {stab:0, a1:10, f:152, e:0, slew:0}); estop = false; stabT = 1; bStop.setAttribute('aria-pressed', 'false'); bStab.setAttribute('aria-pressed', 'true');
+  if (reduce) { Object.assign(S, {stab:1, a1:38, f:45, e:.4, slew:-24}); say('start', true); return wake(); }
+  demo = {i:0, t:0, from:0, steps:[['a1',38,1.4,1],['f',45,1.7,2],['e',.4,.9,3],['slew',-24,1.6,0]]}; wake();
+}
+/* les leviers : on les pousse, ils reviennent seuls au centre */
+$$('.lv').forEach(lv => {
+  const k = lv.dataset.k, trk = $('.trk', lv); let id = null;
+  const put = v => { IN[k] = v; lv.style.setProperty('--v', v.toFixed(3)); trk.setAttribute('aria-valuenow', Math.round(v * 100)); wake(); };
+  const read = e => { const r = trk.getBoundingClientRect(), half = r.height / 2 - 16; let v = Math.max(-1, Math.min(1, (r.top + r.height / 2 - e.clientY) / half)); if (Math.abs(v) < .14) v = 0; put(v); };
+  const up = e => { if (e.pointerId !== id) return; id = null; lv.classList.add('rel'); put(0); };
+  trk.addEventListener('pointerdown', e => { e.preventDefault(); stopDemo(); id = e.pointerId; try { trk.setPointerCapture(id); } catch (x) {} lv.classList.remove('rel'); read(e); });
+  trk.addEventListener('pointermove', e => { if (e.pointerId === id) read(e); });
+  trk.addEventListener('pointerup', up); trk.addEventListener('pointercancel', up);
+  trk.addEventListener('keydown', e => { if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') return; e.preventDefault(); stopDemo(); put(e.key === 'ArrowUp' ? 1 : -1); });
+  trk.addEventListener('keyup', e => { if (e.key === 'ArrowUp' || e.key === 'ArrowDown') put(0); });
+  trk.addEventListener('blur', () => { if (IN[k]) put(0); });
+});
+bStab.addEventListener('click', () => {
+  stopDemo(); if (estop) return say('stop', true);
+  const want = stabT ? 0 : 1; if (!want && (S.a1 > 10.5 || S.f < 151.5 || S.e > .02)) return say('stow', true);
+  stabT = want; bStab.setAttribute('aria-pressed', String(!!want)); wake();
+});
+bStop.addEventListener('click', () => { stopDemo(); estop = !estop; bStop.setAttribute('aria-pressed', String(estop)); say(estop ? 'stop' : 'go', true); hudKey = ''; wake(); });
+$('#again').addEventListener('click', startDemo);
+/* la vue 3D : chargée seulement quand la grue approche de l'écran */
+function load3d(){
+  if (tried) return; tried = true;
+  import('./assets/grue3d.js').then(m => { g3 = m.create(cv); stage.classList.add('live'); addEventListener('resize', () => { g3.resize(); wake(); }); wake(); }).catch(() => {});
+}
+let dragX = null;
+cv.addEventListener('pointerdown', e => { dragX = e.clientX; });
+addEventListener('pointermove', e => { if (dragX === null || !g3) return; g3.turn((dragX - e.clientX) * .008); dragX = e.clientX; $('.spin').classList.add('off'); wake(); });
+addEventListener('pointerup', () => { dragX = null; }); addEventListener('pointercancel', () => { dragX = null; });
+new IntersectionObserver(es => { inView = es[0].isIntersecting; if (inView) { load3d(); wake(); } }, {rootMargin: '300px'}).observe(stage);
+new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { o.disconnect(); startDemo(); } }), {threshold: .45}).observe(stage);
 
-/* démonstration automatique, une fois, quand la grue arrive à l'écran */
-let raf = 0, demoOn = false;
-function stopDemo(){ if (demoOn) { demoOn = false; cancelAnimationFrame(raf); active = -1; } }
-function demo(){
-  stopDemo(); Object.assign(S, {stab:0, a1:10, f:152, e:0});
-  const end = {stab:1, a1:38, f:45, e:20};
-  if (reduce) { Object.assign(S, end); toSliders(); draw(); return say('start'); }
-  const steps = [['stab',0,1,900,0],['a1',10,38,1300,1],['f',152,45,1600,2],['e',0,20,900,3]];
-  let k = 0, t0 = 0; demoOn = true;
-  const tick = t => {
-    if (!demoOn) return;
-    const [key, a, b, dur, idx] = steps[k]; if (!t0) { t0 = t; say('s' + idx); }
-    const p = Math.min(1, (t - t0) / dur), q = 1 - Math.pow(1 - p, 3);
-    S[key] = a + (b - a) * q; active = idx; toSliders(); draw();
-    if (p >= 1) { k++; t0 = 0; if (k >= steps.length) { demoOn = false; active = -1; draw(); return say('start'); } }
-    raf = requestAnimationFrame(tick);
-  };
-  toSliders(); draw(); raf = requestAnimationFrame(tick);
-}
-$('#again').addEventListener('click', demo);
-new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { o.disconnect(); demo(); } }), {threshold: .45}).observe($('.stage'));
+/* ---------- e-mail : le visiteur choisit sa messagerie ---------- */
+const sheet = $('#sheet'), ADDR = $('.addr', sheet).textContent;
+$('#mailApp').addEventListener('click', e => { e.preventDefault(); $('#okm').textContent = ''; sheet.hidden = false; });
+sheet.addEventListener('click', e => {
+  const b = e.target.closest('.opt'); if (!b) return;
+  if (b.classList.contains('cls')) { sheet.hidden = true; return; }
+  if (!b.dataset.web && b.id !== 'cp') return;
+  const done = ok => { $('#okm').textContent = ok ? L({fr:'Adresse copiée.', en:'Address copied.'}) + (b.dataset.web ? ' ' + L({fr:'Collez-la dans le champ « À ».', en:'Paste it into the “To” field.'}) : '') : ADDR; };
+  if (navigator.clipboard) navigator.clipboard.writeText(ADDR).then(() => done(true), () => done(false)); else done(false);
+  if (b.dataset.web) window.open(b.dataset.web, '_blank', 'noopener');
+});
 
 /* ---------- visionneuse ---------- */
 const lb = $('#lb');
-$('#reel').addEventListener('click', e => { const z = e.target.closest('[data-zoom]'); if (!z) return; const im = $('img', z); $('#lbimg').src = im.src; $('#lbimg').alt = im.alt; $('#lbcap').textContent = $('figcaption', z).textContent; lb.showModal(); });
+document.addEventListener('click', e => { const z = e.target.closest('[data-zoom]'); if (!z) return; const im = $('img', z); $('#lbimg').src = im.src; $('#lbimg').alt = im.alt; $('#lbcap').textContent = ($('figcaption', z) || {textContent: im.alt}).textContent; lb.showModal(); });
 lb.addEventListener('click', e => { if (e.target === lb || !e.target.closest('img')) lb.close(); });
 
 /* ---------- apparitions, en-tête, bouton flottant, heure ---------- */
