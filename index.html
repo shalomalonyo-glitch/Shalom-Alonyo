@@ -106,6 +106,15 @@ h2{font-weight:700;font-size:clamp(32px,5.2vw,64px);line-height:1.02;letter-spac
 .tell b{display:block;font-family:var(--d);font-size:18px;color:var(--tx);margin-bottom:2px}
 .tell.warn b{color:var(--acc)}
 .again{margin-top:6px;min-height:44px;font-weight:600;font-size:15px;color:var(--mut);text-decoration:underline;text-decoration-color:var(--line2);text-underline-offset:4px}
+.tools{position:absolute;left:10px;right:10px;bottom:10px;display:flex;justify-content:space-between;align-items:flex-end;gap:8px;pointer-events:none}
+.tools>*{pointer-events:auto}
+.seg{display:flex;gap:2px;padding:3px;border-radius:13px;background:rgba(13,13,14,.8)}
+.seg button{min-width:50px;min-height:40px;padding:0 9px;border-radius:10px;font-size:13.5px;font-weight:700;color:#D4D3CE;transition:background-color .2s ease-out,color .2s ease-out}
+.seg button[aria-pressed=true]{background:var(--tx);color:#0D0D0E}
+.xr{min-height:46px;padding:0 14px;border-radius:13px;background:rgba(13,13,14,.8);font-size:13.5px;font-weight:700;color:var(--tx);transition:background-color .2s ease-out,color .2s ease-out,transform .16s ease-out}
+.xr:active{transform:scale(.97)}
+.xr[aria-pressed=true]{background:var(--acc);color:#0D0D0E}
+.stage:not(.live) .xr{display:none}
 /* la télécommande */
 .rc{--trv:30px;margin-top:10px;border-radius:24px;padding:14px 14px 12px;background:linear-gradient(180deg,#303136,#1a1b1e 62%);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),inset 0 -2px 0 rgba(0,0,0,.5),0 14px 34px rgba(0,0,0,.45);user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 .rc-top{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
@@ -275,7 +284,7 @@ dialog[open]{display:grid;place-items:center}
 <section id="grue">
   <div class="wrap">
     <h2 class="rv" data-en="Take the controls.">Prenez les commandes.</h2>
-    <p class="lead rv" data-en="This is the kind of crane I work on every day. Push the levers on the remote: I'll tell you what is happening inside.">C'est le genre de grue sur lequel je travaille tous les jours. Poussez les leviers de la télécommande : je vous dis ce qui se passe à l'intérieur.</p>
+    <p class="lead rv" data-en="This is the kind of crane I work on every day. Push the levers on the remote: I'll tell you what is happening inside.">C'est le genre de grue sur lequel je travaille tous les jours. Poussez les leviers de la télécommande&nbsp;: je vous dis ce qui se passe à l'intérieur.</p>
     <div class="rig rv">
       <div class="stage" id="stage"><div class="view"><canvas id="g3" aria-hidden="true"></canvas>
         <svg viewBox="0 -90 660 560" role="img" aria-label="Une grue hydraulique sur un camion, pilotée par les quatre leviers">
@@ -317,8 +326,8 @@ dialog[open]{display:grid;place-items:center}
           <!-- portée -->
           <g id="dim" opacity=".9"><line id="dl" y1="436" y2="436" stroke="#8E8D88" stroke-width="2" stroke-dasharray="5 6"/><line id="dv" stroke="#8E8D88" stroke-width="2" stroke-dasharray="5 6"/><circle id="dc" cy="436" r="4" fill="#8E8D88"/><circle cx="182" cy="436" r="4" fill="#8E8D88"/></g>
           <style>.hose{stroke:rgba(255,255,255,.22);stroke-width:2.5}.hose.on{stroke:#FF5330;stroke-width:4;stroke-dasharray:9 9;animation:oil .5s linear infinite}@keyframes oil{to{stroke-dashoffset:-18}}</style>
-        </svg></div>
-        <p class="spin" data-en="Drag to look around">Glissez pour tourner autour</p>
+        </svg><div class="tools"><div class="seg" role="group" aria-label="Charge au crochet"><button type="button" aria-pressed="false">500 kg</button><button type="button" aria-pressed="true">1 t</button><button type="button" aria-pressed="false">2 t</button></div><button type="button" class="xr" id="bXr" aria-pressed="false" data-en="Hydraulics">Hydraulique</button></div></div>
+        <p class="spin" data-en="Drag to turn. Tap a part.">Glissez pour tourner. Touchez une pièce.</p>
         <div class="bar" aria-hidden="true"><i id="mbar"></i></div>
         <div class="read">
           <div><span data-en="Reach">Portée</span><b id="rReach">0,0 m</b></div>
@@ -354,7 +363,7 @@ dialog[open]{display:grid;place-items:center}
     <div>
       <h2 class="rv" data-en="I like knowing how things work. Even more when they don't.">J'aime comprendre comment ça marche. Encore plus quand ça ne marche plus.</h2>
       <p class="rv" data-en="I'm Shalom, 22. When a machine runs again, I still want to know why it stopped. That is what keeps it from coming back to the workshop a week later.">Moi, c'est Shalom, 22 ans. Quand une machine repart, je veux encore savoir pourquoi elle s'était arrêtée. C'est ce qui évite de la revoir à l'atelier une semaine plus tard.</p>
-      <p class="rv" data-en="I'm doing a BTS in maintenance on a work-study contract with <strong>Serignac Services</strong>, in Toulouse. My daily work: truck-mounted hydraulic cranes, to repair and to keep running.">Je prépare un BTS Maintenance des Systèmes en alternance chez <strong>Serignac Services</strong>, à Toulouse. Mon quotidien : des grues hydrauliques montées sur camion, à dépanner et à entretenir.</p>
+      <p class="rv" data-en="I'm doing a BTS in maintenance on a work-study contract with <strong>Serignac Services</strong>, in Toulouse. My daily work: truck-mounted hydraulic cranes, to repair and to keep running.">Je prépare un BTS Maintenance des Systèmes en alternance chez <strong>Serignac Services</strong>, à Toulouse. Mon quotidien&nbsp;: des grues hydrauliques montées sur camion, à dépanner et à entretenir.</p>
     </div>
   </div>
 </section>
@@ -371,12 +380,12 @@ dialog[open]{display:grid;place-items:center}
     <p class="lead rv" style="margin-top:clamp(34px,5vw,60px)" data-en="These cranes deliver, lift and collect all day long. When one of them stops, it comes here.">Ces grues livrent, lèvent et collectent toute la journée. Quand l'une d'elles s'arrête, elle vient ici.</p>
   </div>
   <div class="reel rv" id="reel">
-    <figure data-zoom="camions"><img src="assets/camions.webp" width="1800" height="540" loading="lazy" alt="Une rangée de camions équipés de grues, dans la cour de l'atelier"><figcaption data-en="The yard: trucks waiting their turn">La cour : les camions attendent leur tour</figcaption></figure>
+    <figure data-zoom="camions"><img src="assets/camions.webp" width="1800" height="540" loading="lazy" alt="Une rangée de camions équipés de grues, dans la cour de l'atelier"><figcaption data-en="The yard: trucks waiting their turn">La cour&nbsp;: les camions attendent leur tour</figcaption></figure>
     <figure data-zoom="travee"><img src="assets/travee.webp" width="1500" height="1035" loading="lazy" alt="Un camion-grue dans une travée de l'atelier, stabilisateur sorti"><figcaption data-en="At work">En intervention</figcaption></figure>
     <figure data-zoom="cour"><img src="assets/cour.webp" width="1600" height="936" loading="lazy" alt="Une grue lève une masse d'essai dans la cour"><figcaption data-en="Load test">Essai en charge</figcaption></figure>
     <figure data-zoom="atelier"><img src="assets/atelier.webp" width="1800" height="1350" loading="lazy" alt="L'atelier vu d'en haut"><figcaption data-en="The workshop">L'atelier</figcaption></figure>
   </div>
-  <div class="wrap"><p class="hint" data-en="Swipe to see more. Photos: Shalom Alonyo.">Faites défiler pour voir la suite. Photos : Shalom Alonyo.</p></div>
+  <div class="wrap"><p class="hint" data-en="Swipe to see more. Photos: Shalom Alonyo.">Faites défiler pour voir la suite. Photos&nbsp;: Shalom Alonyo.</p></div>
 </section>
 
 <section id="parcours" style="padding-top:0">
@@ -398,7 +407,7 @@ dialog[open]{display:grid;place-items:center}
   <div class="wrap cgrid">
     <div>
       <h2 class="rv" data-en="Let's talk.">Parlons-en.</h2>
-      <p class="lead rv" data-en="Tap an icon: your phone calls me or writes to me directly.">Touchez une icône : votre téléphone m'appelle ou m'écrit directement.</p>
+      <p class="lead rv" data-en="Tap an icon: your phone calls me or writes to me directly.">Touchez une icône&nbsp;: votre téléphone m'appelle ou m'écrit directement.</p>
     </div>
     <div class="phone rv" aria-label="Mes coordonnées">
       <div class="scr">
@@ -463,22 +472,33 @@ $$('.lang button').forEach(b => b.addEventListener('click', () => { lang = b.dat
 /* ---------- la grue ---------- */
 /* Grue d'exemple : bras de 3,3 m et de 3 m, rallonges de 2,2 m, charge d'une tonne, capacité de 7 tonnes-mètres. */
 const MSG = {
-  start:{t:{fr:'À vous.',en:'Your turn.'},d:{fr:"Poussez un levier vers le haut ou vers le bas : la grue bouge tant que vous le tenez.",en:'Push a lever up or down: the crane moves for as long as you hold it.'}},
+  start:{t:{fr:'À vous.',en:'Your turn.'},d:{fr:"Poussez un levier vers le haut ou vers le bas : la grue bouge tant que vous le tenez.",en:'Push a lever up or down: the crane moves for as long as you hold it.'}},
   stab:{t:{fr:'Stabilisateurs',en:'Stabilisers'},d:{fr:"On cale le camion avant tout. Tant que les pieds ne sont pas au sol, le calculateur interdit de bouger la grue.",en:'The truck is steadied first. Until the feet are on the ground, the controller will not let the crane move.'}},
   slew:{t:{fr:'Rotation',en:'Slewing'},d:{fr:"La colonne tourne avec tout ce qu'elle porte. C'est pour cela qu'on sort les stabilisateurs des deux côtés.",en:'The column turns with everything it carries. That is why the stabilisers go out on both sides.'}},
-  a1:{t:{fr:'Vérin de levage',en:'Lift cylinder'},d:{fr:"L'huile sous pression pousse le vérin, qui lève le bras. Un clapet la garde enfermée : si un flexible casse, le bras ne tombe pas.",en:'Pressurised oil pushes the cylinder, which lifts the boom. A valve keeps it locked in: if a hose bursts, the boom does not drop.'}},
-  f:{t:{fr:'Deuxième vérin',en:'Second cylinder'},d:{fr:"Même principe, un étage plus haut : l'huile monte le long du bras et ouvre le deuxième bras.",en:'Same principle, one stage up: the oil travels along the boom and opens the second boom.'}},
-  e:{t:{fr:'Rallonges',en:'Extensions'},d:{fr:"Des vérins font sortir les rallonges. Plus on va loin, moins on peut porter : regardez la capacité utilisée.",en:'Cylinders push the extensions out. The further you reach, the less you can carry: watch the capacity used.'}},
-  lock:{warn:1,t:{fr:'Mouvement refusé',en:'Movement refused'},d:{fr:"Stabilisateurs non sortis : le calculateur bloque la grue par sécurité. Appuyez sur le bouton Stabilisateurs.",en:'Stabilisers not out: the controller locks the crane for safety. Press the Stabilisers button.'}},
-  stow:{warn:1,t:{fr:'Mouvement refusé',en:'Movement refused'},d:{fr:"Grue dépliée : le calculateur garde les stabilisateurs au sol. Repliez d'abord la grue.",en:'Crane unfolded: the controller keeps the stabilisers down. Fold the crane first.'}},
-  over:{warn:1,t:{fr:'Limite atteinte',en:'Limit reached'},d:{fr:"À cette portée, une tonne suffit à saturer la grue. Le calculateur refuse d'aller plus loin et laisse revenir.",en:'At this reach, one tonne is enough to max out the crane. The controller refuses to go further and lets you come back.'}},
-  down:{t:{fr:'Charge au sol',en:'Load on the ground'},d:{fr:"La charge est posée : impossible de descendre plus bas.",en:'The load is set down: it cannot go any lower.'}},
+  a1:{t:{fr:'Vérin de levage',en:'Lift cylinder'},d:{fr:"L'huile sous pression pousse le vérin, qui lève le bras. Un clapet la garde enfermée : si un flexible casse, le bras ne tombe pas.",en:'Pressurised oil pushes the cylinder, which lifts the boom. A valve keeps it locked in: if a hose bursts, the boom does not drop.'}},
+  f:{t:{fr:'Deuxième vérin',en:'Second cylinder'},d:{fr:"Même principe, un étage plus haut : l'huile monte le long du bras et ouvre le deuxième bras.",en:'Same principle, one stage up: the oil travels along the boom and opens the second boom.'}},
+  e:{t:{fr:'Rallonges',en:'Extensions'},d:{fr:"Des vérins font sortir les rallonges. Plus on va loin, moins on peut porter : regardez la capacité utilisée.",en:'Cylinders push the extensions out. The further you reach, the less you can carry: watch the capacity used.'}},
+  lock:{warn:1,t:{fr:'Mouvement refusé',en:'Movement refused'},d:{fr:"Stabilisateurs non sortis : le calculateur bloque la grue par sécurité. Appuyez sur le bouton Stabilisateurs.",en:'Stabilisers not out: the controller locks the crane for safety. Press the Stabilisers button.'}},
+  stow:{warn:1,t:{fr:'Mouvement refusé',en:'Movement refused'},d:{fr:"Grue dépliée : le calculateur garde les stabilisateurs au sol. Repliez d'abord la grue.",en:'Crane unfolded: the controller keeps the stabilisers down. Fold the crane first.'}},
+  over:{warn:1,t:{fr:'Limite atteinte',en:'Limit reached'},d:{fr:"À cette portée, la charge au crochet sature la grue. Le calculateur refuse d'aller plus loin et laisse revenir.",en:'At this reach, the load on the hook maxes out the crane. The controller refuses to go further and lets you come back.'}},
+  down:{t:{fr:'Charge au sol',en:'Load on the ground'},d:{fr:"La charge est posée : impossible de descendre plus bas.",en:'The load is set down: it cannot go any lower.'}},
   hit:{warn:1,t:{fr:'Obstacle',en:'Obstacle'},d:{fr:"La charge toucherait le plateau. Levez d'abord le bras, ou tournez la grue sur le côté.",en:'The load would hit the bed. Lift the boom first, or slew the crane to the side.'}},
   end:{t:{fr:'Fin de course',en:'End of travel'},d:{fr:"Le mouvement est arrivé en butée. Repartez dans l'autre sens.",en:'The movement has reached its stop. Go back the other way.'}},
   stop:{warn:1,t:{fr:"Arrêt d'urgence",en:'Emergency stop'},d:{fr:"Tous les mouvements sont coupés. Appuyez de nouveau sur le bouton rouge pour réarmer.",en:'All movements are cut. Press the red button again to reset.'}},
-  go:{t:{fr:'Grue réarmée',en:'Crane reset'},d:{fr:"Les leviers commandent de nouveau la grue.",en:'The levers control the crane again.'}}
+  go:{t:{fr:'Grue réarmée',en:'Crane reset'},d:{fr:"Les leviers commandent de nouveau la grue.",en:'The levers control the crane again.'}},
+  hooked:{t:{fr:'Charge accrochée',en:'Load hooked'},d:{fr:"Plus la charge est lourde, plus la limite de portée arrive tôt. Allongez le bras pour le vérifier.",en:'The heavier the load, the sooner the reach limit comes. Extend the boom to check.'}},
+  heavy:{warn:1,t:{fr:'Charge refusée',en:'Load refused'},d:{fr:"Trop lourd à cette portée. Rapprochez le bras, puis reprenez cette charge.",en:'Too heavy at this reach. Bring the boom in, then pick this load again.'}},
+  p_lift:{t:{fr:'Vérin de levage',en:'Lift cylinder'},d:{fr:"Il lève le premier bras. Le bloc orange est un clapet : il garde l'huile enfermée si un flexible casse.",en:'It lifts the first boom. The orange block is a valve: it keeps the oil locked in if a hose bursts.'}},
+  p_jib:{t:{fr:'Vérin du deuxième bras',en:'Second boom cylinder'},d:{fr:"Il ouvre et replie le deuxième bras. Il a son propre clapet de sécurité.",en:'It opens and folds the second boom. It has its own safety valve.'}},
+  p_ext:{t:{fr:'Vérin de rallonge',en:'Extension cylinder'},d:{fr:"Logé dans le bras, il pousse les rallonges. Activez la vue Hydraulique pour le voir.",en:'Housed inside the boom, it pushes the extensions out. Turn on the Hydraulics view to see it.'}},
+  p_valve:{t:{fr:'Distributeur',en:'Valve block'},d:{fr:"Il envoie l'huile de la pompe vers le bon vérin. Ses leviers jaunes bougent avec ceux de la télécommande.",en:'It sends oil from the pump to the right cylinder. Its yellow levers move with those of the remote.'}},
+  p_hose:{t:{fr:'Flexibles',en:'Hoses'},d:{fr:"Ils amènent l'huile sous pression aux vérins. Un flexible abîmé se remplace avant qu'il casse : j'en fabrique à l'atelier.",en:'They carry pressurised oil to the cylinders. A damaged hose is replaced before it bursts: I make them in the workshop.'}},
+  p_stab:{t:{fr:'Stabilisateur',en:'Stabiliser'},d:{fr:"Un vérin sort la poutre, un autre descend le pied. Des capteurs préviennent le calculateur quand il est en place.",en:'One cylinder pushes the beam out, another lowers the foot. Sensors tell the controller when it is in place.'}},
+  p_tank:{t:{fr:'Réservoir et pompe',en:'Tank and pump'},d:{fr:"La pompe, entraînée par le moteur du camion, aspire l'huile du réservoir et la met sous pression.",en:"The pump, driven by the truck's engine, draws oil from the tank and puts it under pressure."}},
+  p_slew:{t:{fr:'Colonne',en:'Column'},d:{fr:"Elle porte les deux bras et tourne sur l'embase. L'huile commande aussi sa rotation.",en:'It carries both booms and turns on the base. Oil drives its rotation too.'}}
 };
-const S = {stab:0, a1:10, f:152, e:0, slew:0};
+const S = {stab:0, a1:10, f:152, e:0, slew:0}, LOADS = [500, 1000, 2000], LABEL = ['500', '1 t', '2 t'];
+let ld = 1, sel = null;
 const LIM = {slew:[-100,100], a1:[10,48], f:[5,152], e:[0,2.2]}, RATE = {slew:34, a1:11, f:38, e:.75}, KEYS = ['slew','a1','f','e'], IN = {slew:0, a1:0, f:0, e:0};
 const rad = d => d * Math.PI / 180, stage = $('#stage'), cv = $('#g3'), bStab = $('#bStab'), bStop = $('#bStop');
 let active = -1, lastMsg = 'start', shown = '', estop = false, stabT = 0, g3 = null, tried = false, inView = false, demo = null, raf = 0, last = 0, idle = 0, sig = '', hudKey = '';
@@ -487,14 +507,14 @@ function geo(s){
   const r = 3.3 * Math.cos(a) + L * Math.cos(b), y = 3.6 + 3.3 * Math.sin(a) + L * Math.sin(b);
   const x = r * Math.cos(rad(s.slew)), z = r * Math.sin(rad(s.slew));
   const floor = (x > .5 && x < 6.75 && Math.abs(z) < 1.3) ? 1.34 : 0, bottom = y - .96;
-  return {r: Math.max(0, r), bottom, floor, low: bottom < floor - .001, mom: Math.max(0, r) / 7 * 100};
+  return {r: Math.max(0, r), bottom, floor, low: bottom < floor - .001, mom: Math.max(0, r) * LOADS[ld] / 7000 * 100};
 }
 function say(k, force){
   if (!force && shown === k + lang) return;
   lastMsg = k; shown = k + lang; const m = MSG[k], t = $('#tell'); t.classList.toggle('warn', !!m.warn); t.innerHTML = `<b>${L(m.t)}</b>${L(m.d)}`;
 }
 function hud(){
-  const g = geo(S), key = g.r.toFixed(1) + Math.round(g.mom) + estop + lang; if (key === hudKey) return; hudKey = key;
+  const g = geo(S), key = g.r.toFixed(1) + Math.round(g.mom) + estop + lang + ld; if (key === hudKey) return; hudKey = key;
   $('#rReach').textContent = g.r.toFixed(1).replace('.', lang === 'fr' ? ',' : '.') + ' m';
   $('#rMom').textContent = Math.round(Math.min(g.mom, 100)) + ' %';
   const bar = $('#mbar'); bar.style.width = Math.min(100, g.mom) + '%'; bar.style.backgroundColor = g.mom > 92 ? 'var(--acc)' : g.mom > 70 ? 'var(--mark)' : 'var(--ok)';
@@ -549,7 +569,7 @@ function demoStep(dt){
   S[k] = d.from + (to - d.from) * q; active = idx;
   if (p >= 1) { d.i++; d.t = 0; if (d.i >= d.steps.length) { demo = null; active = -1; say('start'); } }
 }
-function draw(){ hud(); if (g3) g3.render(S, active, performance.now()); else draw2(); }
+function draw(){ hud(); if (g3) g3.render(S, active, performance.now(), IN); else draw2(); }
 function frame(t){
   const dt = Math.min(.25, (t - last) / 1000 || 0); last = t;
   step(dt); if (demo) demoStep(dt); draw();
@@ -558,15 +578,23 @@ function frame(t){
 }
 function wake(){ idle = 0; if (!raf && inView) { last = performance.now(); raf = requestAnimationFrame(frame); } }
 function stopDemo(){ if (demo) { demo = null; active = -1; } }
+function setLoad(i){ ld = i; $$('.seg button').forEach((b, j) => b.setAttribute('aria-pressed', String(j === i))); if (g3) g3.setLoad(i); $('#load text').textContent = LABEL[i]; hudKey = ''; }
+function hook(i){
+  stopDemo(); if (i === ld) return; if (estop) return say('stop', true);
+  const was = ld; ld = i; const tooFar = geo(S).mom > 100; ld = was; if (tooFar) return say('heavy', true);
+  setLoad(i); say('hooked', true); wake();
+}
+function unselect(){ if (sel) { sel = null; if (g3) g3.focus(null); } }
+function select(k){ stopDemo(); sel = k; g3.focus(k); say(k, true); wake(); }
 function startDemo(){
-  stopDemo(); Object.assign(S, {stab:0, a1:10, f:152, e:0, slew:0}); estop = false; stabT = 1; bStop.setAttribute('aria-pressed', 'false'); bStab.setAttribute('aria-pressed', 'true');
+  stopDemo(); unselect(); setLoad(1); Object.assign(S, {stab:0, a1:10, f:152, e:0, slew:0}); estop = false; stabT = 1; bStop.setAttribute('aria-pressed', 'false'); bStab.setAttribute('aria-pressed', 'true');
   if (reduce) { Object.assign(S, {stab:1, a1:38, f:45, e:.4, slew:-24}); say('start', true); return wake(); }
   demo = {i:0, t:0, from:0, steps:[['a1',38,1.4,1],['f',45,1.7,2],['e',.4,.9,3],['slew',-24,1.6,0]]}; wake();
 }
 /* les leviers : on les pousse, ils reviennent seuls au centre */
 $$('.lv').forEach(lv => {
   const k = lv.dataset.k, trk = $('.trk', lv); let id = null;
-  const put = v => { IN[k] = v; lv.style.setProperty('--v', v.toFixed(3)); trk.setAttribute('aria-valuenow', Math.round(v * 100)); wake(); };
+  const put = v => { if (v) unselect(); IN[k] = v; lv.style.setProperty('--v', v.toFixed(3)); trk.setAttribute('aria-valuenow', Math.round(v * 100)); wake(); };
   const read = e => { const r = trk.getBoundingClientRect(), half = r.height / 2 - 16; let v = Math.max(-1, Math.min(1, (r.top + r.height / 2 - e.clientY) / half)); if (Math.abs(v) < .14) v = 0; put(v); };
   const up = e => { if (e.pointerId !== id) return; id = null; lv.classList.add('rel'); put(0); };
   trk.addEventListener('pointerdown', e => { e.preventDefault(); stopDemo(); id = e.pointerId; try { trk.setPointerCapture(id); } catch (x) {} lv.classList.remove('rel'); read(e); });
@@ -586,12 +614,18 @@ $('#again').addEventListener('click', startDemo);
 /* la vue 3D : chargée seulement quand la grue approche de l'écran */
 function load3d(){
   if (tried) return; tried = true;
-  import('./assets/grue3d.js').then(m => { g3 = m.create(cv); stage.classList.add('live'); addEventListener('resize', () => { g3.resize(); wake(); }); wake(); }).catch(() => {});
+  import('./assets/grue3d.js').then(m => { g3 = m.create(cv); g3.setLoad(ld); stage.classList.add('live'); addEventListener('resize', () => { g3.resize(); wake(); }); wake(); }).catch(() => {});
 }
-let dragX = null;
-cv.addEventListener('pointerdown', e => { dragX = e.clientX; });
-addEventListener('pointermove', e => { if (dragX === null || !g3) return; g3.turn((dragX - e.clientX) * .008); dragX = e.clientX; $('.spin').classList.add('off'); wake(); });
-addEventListener('pointerup', () => { dragX = null; }); addEventListener('pointercancel', () => { dragX = null; });
+let dragX = null, tap = null;
+cv.addEventListener('pointerdown', e => { dragX = e.clientX; tap = {x: e.clientX, y: e.clientY, t: performance.now()}; });
+addEventListener('pointermove', e => { if (dragX === null || !g3) return; if (tap && Math.hypot(e.clientX - tap.x, e.clientY - tap.y) > 8) tap = null; g3.turn((dragX - e.clientX) * .008); dragX = e.clientX; if (!tap) $('.spin').classList.add('off'); wake(); });
+cv.addEventListener('pointerup', e => {
+  if (tap && g3 && performance.now() - tap.t < 600) { const k = g3.pick(e.clientX, e.clientY); if (k && k.startsWith('load')) hook(+k.slice(4)); else if (k) select(k); else unselect(); $('.spin').classList.add('off'); wake(); }
+  tap = null;
+});
+addEventListener('pointerup', () => { dragX = null; }); addEventListener('pointercancel', () => { dragX = null; tap = null; });
+$$('.seg button').forEach((b, i) => b.addEventListener('click', () => hook(i)));
+$('#bXr').addEventListener('click', e => { const b = e.currentTarget, on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', String(on)); if (g3) g3.xray(on); wake(); });
 new IntersectionObserver(es => { inView = es[0].isIntersecting; if (inView) { load3d(); wake(); } }, {rootMargin: '300px'}).observe(stage);
 new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { o.disconnect(); startDemo(); } }), {threshold: .45}).observe(stage);
 
