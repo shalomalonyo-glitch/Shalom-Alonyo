@@ -1,69 +1,41 @@
 # Shalom Alonyo — Portfolio
 
-Site personnel de candidature pour une **alternance BTS Maintenance Industrielle / Production — rentrée 2026**.
+Site personnel de Shalom Alonyo, apprenti technicien de maintenance chez Serignac Services (Toulouse), en BTS Maintenance des Systèmes (2026 – 2028).
 
-Bac STI2D spécialité ITEC + 2 ans de BTS Bâtiment. Actuellement agent logistique au Centre Hospitalier de Rodez : supervision quotidienne de 6 AGV Swisslog, diagnostic d'incidents de 1er niveau, intervention terrain avec le contrôleur MCD8.
+**En ligne :** https://shalomalonyo-glitch.github.io/Shalom-Alonyo/
 
-## Liens
+## Contenu
 
-- **Site en ligne** : https://shalomalonyo-glitch.github.io/Shalom-Alonyo/
-- **CV (PDF)** : [Shalom_Alonyo_CV.pdf](Shalom_Alonyo_CV.pdf)
-- **Email** : shalomalonyo24@gmail.com
-- **Téléphone** : 06 33 12 33 26
+- **Profil** — qui je suis, où je travaille, ce que je prépare
+- **Jusqu'ici** — mes interventions en chiffres (décompte personnel)
+- **Le système** — schéma hydraulique animé d'une grue : cliquer sur un organe pour voir à quoi il sert et ce que j'ai fait dessus
+- **Interventions** — six chantiers racontés pas à pas (constat, diagnostic, action, résultat)
+- **Atelier** — photos de l'atelier
+- **Parcours**, **Compétences**, **Contact**
+
+Les photos sont les miennes. Aucun nom de client, aucune plaque, aucun document interne.
 
 ## Structure
 
 ```
-.
-├── index.html              Site portfolio
-├── Shalom_Alonyo_CV.pdf    CV ATS (1 page, accent #2F4FA8)
-├── css/
-│   └── style.css           Feuille de styles (2 100 lignes)
-├── js/
-│   └── main.js             JS + i18n FR/EN + module contrôleur
-├── assets/
-│   ├── logo.png
-│   ├── portrait.jpg
-│   ├── agv-swisslog.jpg         6 AGV au poste de charge
-│   ├── agv-supervision.jpg      Poste de supervision (2 écrans)
-│   ├── agv-controller-hand.jpg  Contrôleur MCD8 en main devant un AGV
-│   ├── controller-cutout.png    Contrôleur MCD8 détouré
-│   ├── doc-agv.jpg              Manuel LAMCAR-R (sous-ensembles)
-│   └── main-courante.jpg        Logbook d'incidents
-└── README.md
+index.html              tout le site (HTML, CSS et JS dans un seul fichier)
+Shalom_Alonyo_CV.pdf    CV, une page
+assets/                 photos (.webp), carte de partage (og-card.jpg), logo
 ```
 
-## Sections du site
+Les dossiers `css/` et `js/` et les anciennes images de `assets/` appartiennent à la version précédente du site ; ils ne sont plus utilisés.
 
-- **Hero** — proposition de valeur
-- **Parcours** — bento éditorial
-- **AGV** (intervention) — diptyque diagnostic/intervention + module MCD8 interactif
-- **Méthode** — 4 cartes : supervision, intervention, documentation LAMCAR-R, traçabilité
-- **Expérience** — timeline
-- **Compétences** — CAO, production/maintenance, organisation, bureautique, qualités, langues
-- **Formation** — BTS Bâtiment + Bac STI2D ITEC
-- **Certifications** — Pix + autoformations
-- **Plus** — langues et loisirs
-- **Contact** — coordonnées + CV
+## Modifier le site
 
-## Sélecteur de langue
+- Les textes sont dans `index.html`. Chaque texte français porte sa traduction dans l'attribut `data-en`.
+- Les fiches du schéma (`PARTS`) et les interventions (`CASES`) sont des tableaux au début du script, en bas de `index.html`.
+- Pour ajouter une intervention : copier un bloc de `CASES`, changer les textes et les noms d'images (fichiers `.webp` dans `assets/`).
 
-Bouton FR / EN dans la nav. Les traductions sont dans `js/main.js` (objet `DICT`). Pour ajouter une chaîne : clé dans les 2 langues + attribut `data-i18n="section.key"` sur l'élément HTML.
-
-## Stack
-
-- HTML + CSS (variables, grid, flexbox, `clamp()`, `100svh`) + vanilla JS
-- Polices : Outfit + DM Serif Text (Google Fonts)
-- Hébergement : GitHub Pages
-- SEO : OpenGraph, Twitter Card, JSON-LD `Person`, canonical
-
-## Développement local
+## Voir le site en local
 
 ```bash
 python3 -m http.server 8000
 # puis ouvrir http://localhost:8000
 ```
 
-## Module contrôleur MCD8
-
-9 hotspots mappés sur les vrais boutons du MCD8 (STOP OVERRIDE / ON TRACK / LOAD2 / AUT-MAN / FW-BW / LOAD1 / ESTOP / SPEED / COM). Les positions `--x/--y` et les données (nom / rôle / quand / précaution / exemple) sont dans `index.html`, bloc `<template id="ctrl-data">`. Voir le commentaire en tête de `js/main.js` pour le guide de configuration.
+Polices : Archivo et JetBrains Mono (Google Fonts). Hébergement : GitHub Pages.

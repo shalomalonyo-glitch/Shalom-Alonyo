@@ -1,400 +1,891 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Shalom Alonyo — Technicien de maintenance · Systèmes automatisés</title>
-<meta name="description" content="Shalom Alonyo, futur technicien de maintenance industrielle en alternance (BTS Maintenance des Systèmes, rentrée 2026). Diagnostic, automatisme, électrotechnique, supervision d'AGV. Toulouse / Blagnac." />
-<link rel="canonical" href="https://shalomalonyo-glitch.github.io/Shalom-Alonyo/" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Shalom Alonyo — Technicien de maintenance" />
-<meta property="og:description" content="Portfolio d'un futur technicien de maintenance industrielle en alternance — diagnostic, automatisme, AGV." />
-<meta property="og:url" content="https://shalomalonyo-glitch.github.io/Shalom-Alonyo/" />
-<meta property="og:image" content="https://shalomalonyo-glitch.github.io/Shalom-Alonyo/assets/og-card.jpg" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shalom Alonyo — Apprenti technicien de maintenance · Grues hydrauliques</title>
+<meta name="description" content="Shalom Alonyo, apprenti technicien de maintenance chez Serignac Services (Toulouse), en BTS Maintenance des Systèmes. Hydraulique, diagnostic, électrotechnique : mes interventions sur les grues auxiliaires HIAB.">
+<meta name="author" content="Shalom Alonyo">
+<meta name="theme-color" content="#0B0D10">
+<link rel="canonical" href="https://shalomalonyo-glitch.github.io/Shalom-Alonyo/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shalom Alonyo — Apprenti technicien de maintenance">
+<meta property="og:description" content="Hydraulique, diagnostic, électrotechnique : mes interventions sur les grues auxiliaires, en alternance chez Serignac Services (Toulouse).">
+<meta property="og:url" content="https://shalomalonyo-glitch.github.io/Shalom-Alonyo/">
+<meta property="og:image" content="https://shalomalonyo-glitch.github.io/Shalom-Alonyo/assets/og-card.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/hero.webp">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Shalom Alonyo","jobTitle":"Technicien de maintenance en alternance","email":"mailto:shalomalonyo24@gmail.com","telephone":"+33633123326","url":"https://shalomalonyo-glitch.github.io/Shalom-Alonyo/","sameAs":["https://www.linkedin.com/in/shalom-alonyo/"],"address":{"@type":"PostalAddress","addressLocality":"Blagnac","postalCode":"31700","addressCountry":"FR"},"alumniOf":"Pôle Formation UIMM Occitanie","knowsAbout":["Maintenance industrielle","Automatisme","Électrotechnique","Diagnostic de pannes","AGV Swisslog","GMAO"]}
+{"@context":"https://schema.org","@type":"Person","name":"Shalom Alonyo","jobTitle":"Apprenti technicien de maintenance","url":"https://shalomalonyo-glitch.github.io/Shalom-Alonyo/","image":"https://shalomalonyo-glitch.github.io/Shalom-Alonyo/assets/portrait.webp","address":{"@type":"PostalAddress","addressLocality":"Toulouse","addressCountry":"FR"},"worksFor":{"@type":"Organization","name":"Serignac Services"},"alumniOf":[{"@type":"EducationalOrganization","name":"Pôle Formation UIMM Occitanie"}],"knowsAbout":["Maintenance industrielle","Hydraulique","Diagnostic de pannes","Électrotechnique","Grues auxiliaires"],"sameAs":["https://www.linkedin.com/in/shalom-alonyo/","https://github.com/shalomalonyo-glitch"]}
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --bg:#0a0b0e; --bg2:#0e1117; --panel:#13171f; --panel2:#171c26;
-  --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.16);
-  --ink:#eef1f5; --ink2:#c4ccd6; --mut:#8b94a3;
-  --amber:#ffb020; --cyan:#46e6d6; --steel:#6f93b8; --red:#ff5b40;
-  --disp:'Bebas Neue',sans-serif; --head:'Archivo',sans-serif; --sans:'Sora',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace;
-  --gut:clamp(20px,5vw,96px); --ease:cubic-bezier(.2,.7,.2,1);
+  --bg:#0B0D10; --bg2:#101318; --card:#14181E; --card2:#1A1F27; --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.16);
+  --tx:#EDEFF2; --mut:#9CA5B1; --dim:#6B7480;
+  --y:#FFC61A; --y2:#FFD95A; --red:#FF5240; --blue:#45A8FF; --green:#3BD99A;
+  --disp:"Archivo",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --pad:clamp(20px,5vw,72px); --max:1280px; --ease:cubic-bezier(.2,.7,.1,1);
 }
-*{margin:0;padding:0;box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5;overflow-x:clip;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
+body{background:var(--bg);color:var(--tx);font-family:var(--disp);font-size:17px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
-::selection{background:var(--amber);color:#000}
-#prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--amber),var(--cyan));z-index:200}
-body::before{content:"";position:fixed;inset:0;z-index:-2;background:
-  radial-gradient(1100px 700px at 78% -10%, rgba(111,147,184,.16), transparent 60%),
-  radial-gradient(900px 600px at 0% 100%, rgba(70,230,214,.05), transparent 55%),
-  linear-gradient(180deg,#0a0b0e,#0c0e13 60%,#0a0b0e);}
-body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.045;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
-nav{position:fixed;top:0;left:0;right:0;z-index:120;transition:background .3s,border-color .3s}
-nav.scrolled{background:rgba(10,11,14,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-nav .wrap{max-width:1400px;margin:0 auto;padding:16px var(--gut);display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--head);font-weight:800;letter-spacing:.04em;font-size:15px}
-.brand i{width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 12px var(--amber);display:inline-block}
-.navlinks{display:flex;gap:24px;align-items:center}
-.navlinks a{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;color:var(--ink2);text-transform:uppercase;transition:color .2s}
-.navlinks a:hover{color:var(--amber)}
-.navtools{display:flex;align-items:center;gap:14px}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--y);color:#000}
+:focus-visible{outline:2px solid var(--y);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.skip{position:absolute;left:-999px;top:0;background:var(--y);color:#000;padding:10px 14px;z-index:99}
+.skip:focus{left:10px;top:10px}
+
+/* barre de progression */
+#prog{position:fixed;left:0;top:0;height:3px;width:100%;background:var(--y);transform-origin:0 50%;transform:scaleX(0);z-index:60}
+
+/* navigation */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,border-color .3s,transform .4s var(--ease);border-bottom:1px solid transparent}
+.nav.solid{background:rgba(11,13,16,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav.hide{transform:translateY(-100%)}
+.nav .in{display:flex;align-items:center;gap:22px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.01em;white-space:nowrap}
+.brand i{width:10px;height:10px;background:var(--y);display:block;transform:rotate(45deg)}
+.links{display:flex;gap:26px;margin-left:auto}
+.links a{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);position:relative;padding:6px 0;transition:color .2s}
+.links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--y);transform:scaleX(0);transform-origin:0 50%;transition:transform .3s var(--ease)}
+.links a:hover,.links a.on{color:var(--tx)}
+.links a:hover::after,.links a.on::after{transform:scaleX(1)}
 .lang{display:flex;border:1px solid var(--line2);border-radius:999px;overflow:hidden}
-.lang button{font-family:var(--mono);font-size:11px;letter-spacing:.05em;padding:6px 10px;background:transparent;color:var(--mut);border:0;cursor:pointer;transition:.2s}
-.lang button.on{background:var(--ink);color:#000}
-.navcv{font-family:var(--mono);font-size:12px;letter-spacing:.05em;padding:9px 16px;border:1px solid var(--line2);border-radius:999px;text-transform:uppercase;transition:.2s}
-.navcv:hover{background:var(--amber);color:#000;border-color:var(--amber)}
-.burger{display:none;width:42px;height:38px;border:1px solid var(--line2);border-radius:10px;background:transparent;cursor:pointer;position:relative}
-.burger i,.burger:before,.burger:after{content:"";position:absolute;left:10px;right:10px;height:2px;background:var(--ink);transition:.3s}
-.burger:before{top:13px}.burger i{top:18px}.burger:after{top:23px}
-nav.open .burger:before{transform:translateY(5px) rotate(45deg)}
-nav.open .burger i{opacity:0}
-nav.open .burger:after{transform:translateY(-5px) rotate(-45deg)}
-.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;letter-spacing:.04em;text-transform:uppercase;padding:14px 22px;border-radius:999px;transition:.25s var(--ease);cursor:pointer;border:1px solid transparent}
-.btn .ar{transition:transform .25s}.btn:hover .ar{transform:translateX(4px)}
-.btn-a{background:var(--amber);color:#0a0b0e;font-weight:600;box-shadow:0 10px 30px -10px rgba(255,176,32,.5)}
-.btn-a:hover{transform:translateY(-2px)}
-.btn-o{border-color:var(--line2);color:var(--ink)}.btn-o:hover{border-color:var(--cyan);color:var(--cyan)}
-.sec-k{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:10px}
-.sec-k::before{content:"";width:26px;height:1px;background:var(--amber)}
-.h2{font-family:var(--head);font-weight:800;font-size:clamp(30px,5vw,60px);line-height:1.03;letter-spacing:-.02em;margin-top:14px}
-.blk{padding:clamp(64px,10vw,140px) var(--gut);max-width:1400px;margin:0 auto;position:relative}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.reveal.in{opacity:1;transform:none}
-.lead{font-size:clamp(17px,2vw,22px);line-height:1.6;color:var(--ink2);font-weight:300}
-.lead b{font-weight:600;color:#fff}.lead em{font-style:italic;color:var(--amber)}
-/* HERO */
-.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;padding:0 var(--gut) clamp(40px,6vw,80px)}
-.hero-bg{position:absolute;inset:0;z-index:0;background:url('assets/blueprint-agv.jpg') center/cover no-repeat;opacity:.22;mix-blend-mode:luminosity}
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,11,14,.65),rgba(10,11,14,.2) 40%,rgba(10,11,14,.95))}
-.hero-grid{position:relative;z-index:2;max-width:1400px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.15fr .85fr;align-items:end;gap:10px}
-.hero-word{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(150px,26vw,330px);z-index:1;font-family:var(--disp);line-height:.8;font-size:clamp(74px,20vw,310px);color:transparent;-webkit-text-stroke:1.4px rgba(255,255,255,.16);pointer-events:none;white-space:nowrap}
-.hero-word b{-webkit-text-stroke:0;background:linear-gradient(180deg,#eef1f5,#7f8a99);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hero-photo{position:absolute;right:clamp(0px,4vw,90px);bottom:0;z-index:2;height:clamp(380px,76vh,860px);filter:drop-shadow(0 30px 60px rgba(0,0,0,.6))}
-.hero-photo img{height:100%;width:auto;object-fit:contain;-webkit-mask-image:linear-gradient(180deg,#000 88%,transparent);mask-image:linear-gradient(180deg,#000 88%,transparent)}
-.hero-left{position:relative;z-index:3;max-width:580px;padding-bottom:6px}
-.hpill{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);border:1px solid var(--line2);border-radius:999px;padding:8px 15px;background:rgba(20,24,31,.5);backdrop-filter:blur(6px)}
-.hpill .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-.hero-name{font-family:var(--head);font-weight:900;font-size:clamp(34px,6vw,76px);line-height:.95;letter-spacing:-.02em;margin:18px 0 6px}
-.hero-role{font-family:var(--mono);font-size:clamp(12px,1.3vw,15px);letter-spacing:.04em;color:var(--amber);text-transform:uppercase}
-.hero-sub{color:var(--ink2);font-size:clamp(15px,1.5vw,18px);max-width:480px;margin:18px 0 26px;font-weight:300}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-.scrollcue{position:absolute;left:var(--gut);bottom:22px;z-index:3;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);display:flex;align-items:center;gap:10px}
-.scrollcue .ln{width:46px;height:1px;background:var(--mut);position:relative;overflow:hidden}
-.scrollcue .ln::after{content:"";position:absolute;inset:0;background:var(--amber);transform:translateX(-100%);animation:slide 2.4s infinite}
-@keyframes slide{50%{transform:translateX(0)}100%{transform:translateX(100%)}}
-.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(14,17,23,.5);overflow:hidden;white-space:nowrap;padding:16px 0}
-.marquee .track{display:inline-flex;gap:42px;animation:mq 30s linear infinite;will-change:transform}
-.marquee span{font-family:var(--head);font-weight:800;font-size:15px;color:var(--ink2);text-transform:uppercase;display:inline-flex;align-items:center;gap:42px}
-.marquee span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--amber)}
+.lang button{font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding:6px 11px;color:var(--mut)}
+.lang button[aria-pressed=true]{background:var(--tx);color:#000}
+.burger{display:none;width:42px;height:42px;border:1px solid var(--line2);border-radius:10px;align-items:center;justify-content:center}
+.burger span{display:block;width:18px;height:2px;background:var(--tx);box-shadow:0 6px 0 var(--tx),0 -6px 0 var(--tx)}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.hero .media{position:absolute;inset:-6% 0 -6% 0;z-index:-2;will-change:transform}
+.hero .media img{width:100%;height:100%;object-fit:cover;filter:saturate(.55) contrast(1.08) brightness(.82);transform:scale(1.14);animation:kb 2.6s var(--ease) .1s forwards}
+@keyframes kb{to{transform:scale(1.02)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(180deg,rgba(11,13,16,.55) 0%,rgba(11,13,16,0) 22%,rgba(11,13,16,0) 45%,rgba(11,13,16,.86) 82%,var(--bg) 100%),
+  linear-gradient(90deg,rgba(11,13,16,.55) 0%,rgba(11,13,16,0) 60%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(180deg,#000,transparent 70%)}
+.hero .in{width:100%;padding-bottom:clamp(40px,7vh,84px);padding-top:120px}
+.chip{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);background:rgba(11,13,16,.55);backdrop-filter:blur(8px);border-radius:999px;padding:8px 14px 8px 12px}
+.chip b{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(59,217,154,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(59,217,154,0)}100%{box-shadow:0 0 0 0 rgba(59,217,154,0)}}
+h1{font-stretch:62%;font-weight:900;text-transform:uppercase;line-height:.84;letter-spacing:-.012em;font-size:clamp(66px,11.4vw,178px);margin:18px 0 0 -.03em;display:flex;flex-wrap:wrap;gap:0 .2em}
+h1 .l{display:block;overflow:hidden;padding-top:.06em}
+h1 .l>span{display:block;transform:translateY(105%);animation:up 1.1s var(--ease) forwards}
+h1 .l:nth-child(2)>span{animation-delay:.12s;color:transparent;-webkit-text-stroke:1.5px var(--tx)}
+@keyframes up{to{transform:none}}
+.hero .sub{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end;margin-top:26px}
+.hero .role{font-size:clamp(18px,2.1vw,26px);line-height:1.3;font-weight:500;max-width:30ch}
+.hero .role em{font-style:normal;color:var(--y)}
+.hero .role small{display:block;margin-top:10px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);font-weight:400}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 22px;border-radius:999px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;transition:transform .25s var(--ease),background .2s,color .2s,border-color .2s}
+.btn.p{background:var(--y);color:#0B0D10}
+.btn.p:hover{background:var(--y2);transform:translateY(-2px)}
+.btn.s{border:1px solid var(--line2);background:rgba(11,13,16,.4);backdrop-filter:blur(8px)}
+.btn.s:hover{border-color:var(--tx);transform:translateY(-2px)}
+.btn svg{width:14px;height:14px}
+.fade{opacity:0;animation:fd .9s ease .55s forwards}
+@keyframes fd{to{opacity:1}}
+/* repère sur la charge */
+.spot{position:absolute;left:0;top:0;z-index:1;pointer-events:none;opacity:0;animation:fd .8s ease 1.5s forwards}
+.spot .ring{position:absolute;left:-13px;top:-13px;width:26px;height:26px;border:2px solid var(--y);border-radius:50%}
+.spot .ring::after{content:"";position:absolute;inset:-2px;border:2px solid var(--y);border-radius:50%;animation:ring 2.2s ease-out infinite}
+@keyframes ring{to{transform:scale(2.8);opacity:0}}
+.spot .ln{position:absolute;left:13px;top:-1px;height:2px;width:0;background:var(--y);animation:ln .6s var(--ease) 1.9s forwards}
+@keyframes ln{to{width:74px}}
+.spot .tag{position:absolute;left:96px;top:-22px;white-space:nowrap;opacity:0;animation:fd .5s ease 2.3s forwards}
+.spot .tag b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--y)}
+.spot .tag span{font-size:14px;color:var(--tx)}
+.scroll{position:absolute;right:var(--pad);top:50%;writing-mode:vertical-rl;color:var(--mut);display:flex;align-items:center;gap:12px}
+.scroll::after{content:"";width:1px;height:56px;background:linear-gradient(var(--y),transparent);animation:drop 2s ease-in-out infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* bandeau défilant */
+.mq{border-block:1px solid var(--line);overflow:hidden;background:var(--bg2)}
+.mq .t{display:flex;width:max-content;animation:mq 38s linear infinite}
+.mq span{font-stretch:62%;font-weight:800;text-transform:uppercase;font-size:clamp(28px,4.4vw,58px);line-height:1;padding:18px 26px;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.34)}
+.mq span:nth-child(3n+1){color:var(--tx);-webkit-text-stroke:0}
+.mq span::after{content:"";display:inline-block;width:.34em;height:.34em;background:var(--y);transform:rotate(45deg) translateY(-.18em);margin-left:52px}
 @keyframes mq{to{transform:translateX(-50%)}}
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,72px);align-items:center;margin-top:40px}
-.about-photo{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--panel)}
-.about-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
-.about-photo .cap{position:absolute;left:14px;bottom:14px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink);background:rgba(10,11,14,.55);backdrop-filter:blur(6px);border:1px solid var(--line2);padding:6px 11px;border-radius:8px}
-/* PARCOURS */
-.parcours{background:linear-gradient(180deg,rgba(111,147,184,.06),transparent)}
-.timeline{margin-top:42px;border-left:1px solid var(--line2);display:flex;flex-direction:column;gap:6px}
-.tl{position:relative;padding:22px 0 22px 30px}
-.tl::before{content:"";position:absolute;left:-6px;top:28px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--amber)}
-.tl .yr{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--cyan)}
-.tl h3{font-family:var(--head);font-weight:700;font-size:clamp(18px,2.2vw,24px);margin:6px 0 4px}
-.tl .where{font-size:13.5px;color:var(--amber);font-family:var(--mono);letter-spacing:.02em}
-.tl p{color:var(--mut);font-size:14.5px;font-weight:300;margin-top:8px;max-width:640px;line-height:1.55}
-/* COMPÉTENCES */
-.comp{position:relative;background:radial-gradient(900px 500px at 85% 0%,rgba(111,147,184,.12),transparent 60%)}
-.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:42px}
-.ccard{border:1px solid var(--line);border-radius:18px;padding:26px 24px;background:linear-gradient(180deg,rgba(23,28,38,.7),rgba(15,17,23,.7));backdrop-filter:blur(8px);transition:.3s var(--ease)}
-.ccard:hover{transform:translateY(-5px);border-color:var(--line2);box-shadow:0 20px 50px -25px rgba(0,0,0,.8)}
-.ccard .no{font-family:var(--mono);font-size:12px;color:var(--cyan)}
-.ccard h3{font-family:var(--head);font-weight:700;font-size:20px;margin:12px 0 10px}
-.ccard p{color:var(--mut);font-size:14.5px;font-weight:300;line-height:1.55}
-.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
-.chip{font-family:var(--mono);font-size:11px;color:var(--ink2);border:1px solid var(--line);border-radius:7px;padding:5px 9px}
-/* TERRAIN */
-.terrain-hero{margin-top:36px;border-radius:22px;overflow:hidden;border:1px solid var(--line);position:relative}
-.terrain-hero img{width:100%;display:block;aspect-ratio:21/9;object-fit:cover}
-.terrain-hero .ov{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,11,14,.85),rgba(10,11,14,.1));display:flex;align-items:flex-end;padding:clamp(22px,4vw,46px)}
-.terrain-hero .ov p{max-width:520px}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
-.step{border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--panel)}
-.step .n{font-family:var(--mono);font-size:11px;color:var(--cyan)}
-.step h4{font-family:var(--head);font-weight:700;font-size:15.5px;margin:8px 0 6px}
-.step p{color:var(--mut);font-size:13px;font-weight:300;line-height:1.5}
-.t-duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
-.t-duo figure{border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative;background:var(--panel)}
-.t-duo img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10}
-.t-duo figcaption{position:absolute;left:12px;bottom:12px;font-family:var(--mono);font-size:11px;color:var(--ink);background:rgba(10,11,14,.6);border:1px solid var(--line2);padding:5px 10px;border-radius:8px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
-.stat .n{font-family:var(--disp);font-size:clamp(44px,7vw,80px);line-height:.9;color:var(--ink);display:flex;align-items:flex-start;gap:4px}
-.stat .n .u{font-family:var(--head);font-size:.3em;color:var(--amber);margin-top:.4em}
-.stat .l{color:var(--mut);font-size:13.5px;margin-top:8px;max-width:200px}
-/* EN BREF */
-.brief{background:linear-gradient(180deg,rgba(111,147,184,.06),transparent)}
-.bgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}
-.bcard{border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--panel)}
-.bcard .k{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase}
-.bcard .v{font-family:var(--head);font-weight:700;font-size:15px;margin-top:7px}
-.bcard .v.a{color:var(--amber)}
-/* CONTACT */
-.contact{text-align:center}
-.phone-wrap{display:flex;justify-content:center;margin-top:46px}
-.phone{width:332px;max-width:88vw;aspect-ratio:9/19.5;border-radius:54px;background:linear-gradient(160deg,#262a31,#0b0d11);padding:12px;box-shadow:0 40px 90px -30px rgba(0,0,0,.9),inset 0 0 0 2px rgba(255,255,255,.06)}
-.phone .screen{position:relative;width:100%;height:100%;border-radius:44px;overflow:hidden;background:
-  radial-gradient(130% 90% at 50% -10%,rgba(111,147,184,.32),transparent 55%),linear-gradient(180deg,#10141b,#0a0b0e);
-  border:1px solid rgba(255,255,255,.05);display:flex;flex-direction:column;padding:50px 16px 20px}
-.notch{position:absolute;top:13px;left:50%;transform:translateX(-50%);width:104px;height:25px;background:#000;border-radius:14px;z-index:3}
-.statusbar{position:absolute;top:16px;left:20px;right:20px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--ink2);z-index:2}
-.screen.off .ui{opacity:0;transform:translateY(12px)}
-.screen .ui{transition:opacity .6s ease,transform .6s var(--ease)}
-.c-ava{width:72px;height:72px;border-radius:50%;margin:0 auto;overflow:hidden;border:2px solid var(--amber);box-shadow:0 0 22px -6px var(--amber)}
-.c-ava img{width:100%;height:100%;object-fit:cover}
-.c-name{font-family:var(--head);font-weight:800;font-size:20px;margin-top:12px}
-.c-role{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--cyan);text-transform:uppercase;margin-top:4px}
-.c-list{display:flex;flex-direction:column;gap:9px;margin-top:18px;text-align:left}
-.c-row{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:14px;padding:11px 13px;transition:.2s}
-.c-row:hover{background:rgba(255,255,255,.1);border-color:var(--line2)}
-.c-ic{width:34px;height:34px;flex:none;border-radius:9px;display:grid;place-items:center;background:rgba(255,255,255,.06)}
-.c-ic svg{width:18px;height:18px}
-.c-ic.mail svg{color:var(--amber)}.c-ic.tel svg{color:var(--cyan)}.c-ic.li{background:#0a66c2}.c-ic.li svg{color:#fff}
-.c-tx{min-width:0}.c-tx .t{font-size:9.5px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
-.c-tx .d{font-size:13px;font-weight:500;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.c-dl{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--amber);color:#0a0b0e;font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;padding:13px;border-radius:14px;transition:.2s;margin-top:16px}
-.c-dl:hover{filter:brightness(1.08)}.c-dl svg{width:15px;height:15px}
-.contact-side{max-width:440px;margin:42px auto 0;color:var(--mut);font-weight:300}
-footer{border-top:1px solid var(--line);padding:30px var(--gut);max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:var(--mut);font-family:var(--mono);font-size:12px}
-footer a:hover{color:var(--amber)}
-.totop{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;border:1px solid var(--line2);background:rgba(14,17,23,.8);backdrop-filter:blur(8px);color:var(--ink);cursor:pointer;z-index:90;opacity:0;transform:translateY(10px);transition:.3s;font-size:18px}
-.totop.show{opacity:1;transform:none}
-@media(max-width:960px){
-  .navlinks{position:fixed;inset:64px 0 auto 0;flex-direction:column;align-items:stretch;background:rgba(10,11,14,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:14px var(--gut);transform:translateY(-130%);transition:transform .35s var(--ease)}
-  .navlinks.open{transform:none}.navlinks a{padding:14px 2px;font-size:14px}
-  .navcv{display:none}.burger{display:block}
-  .hero-grid{grid-template-columns:1fr}
-  .hero-word{bottom:auto;top:clamp(90px,20vw,150px);font-size:clamp(56px,17vw,120px);opacity:.5}
-  .hero-photo{position:relative;right:auto;height:auto;width:min(78%,360px);margin:90px auto -2px;opacity:.95}
-  .hero{align-items:flex-start}.hero-left{order:2;max-width:none;margin-top:-30px}
-  .about-grid{grid-template-columns:1fr}
-  .cgrid{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.t-duo{grid-template-columns:1fr}
-  .stats{grid-template-columns:1fr}.bgrid{grid-template-columns:1fr 1fr}
-  .scrollcue{display:none}
+
+/* sections */
+section{padding:clamp(72px,11vw,150px) 0;position:relative}
+.eyebrow{display:flex;align-items:center;gap:14px;color:var(--y);margin-bottom:18px}
+.eyebrow::before{content:"";height:1px;width:44px;background:var(--y);transform-origin:0 50%}
+h2{font-stretch:68%;font-weight:800;text-transform:uppercase;line-height:.94;letter-spacing:-.008em;font-size:clamp(40px,6.6vw,96px);text-wrap:balance}
+h2 em{font-style:normal;color:transparent;-webkit-text-stroke:1.2px var(--tx)}
+.lead{color:var(--mut);font-size:clamp(17px,1.5vw,20px);max-width:62ch;margin-top:22px}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.hz{height:14px;background:repeating-linear-gradient(-45deg,var(--y) 0 14px,#0B0D10 14px 28px);opacity:.9}
+
+/* profil */
+.pro{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(28px,5vw,80px);align-items:center;margin-top:clamp(34px,5vw,64px)}
+.frame{position:relative}
+.frame img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px;filter:contrast(1.04)}
+.frame::before,.frame::after{content:"";position:absolute;width:38px;height:38px;border:2px solid var(--y);z-index:2;transition:transform .6s var(--ease)}
+.frame::before{left:-10px;top:-10px;border-right:0;border-bottom:0}
+.frame::after{right:-10px;bottom:-10px;border-left:0;border-top:0}
+.frame figcaption{position:absolute;left:14px;bottom:14px;background:rgba(11,13,16,.78);backdrop-filter:blur(8px);border:1px solid var(--line2);padding:7px 11px;border-radius:6px;color:var(--tx)}
+.pro p{font-size:clamp(18px,1.55vw,21px);line-height:1.62;color:#C9CED6}
+.pro p+p{margin-top:18px}
+.pro p strong{color:var(--tx);font-weight:600}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:34px}
+.facts div{background:var(--card);padding:16px 18px}
+.facts dt{color:var(--dim);margin-bottom:4px}
+.facts dd{font-weight:600;line-height:1.3}
+
+/* chiffres */
+.nums{background:var(--bg2);border-block:1px solid var(--line)}
+.kp{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(18px,3vw,44px);margin-top:clamp(34px,5vw,60px)}
+.kp>div{border-top:1px solid var(--line2);padding-top:18px}
+.kp b{display:block;font-stretch:62%;font-weight:900;font-size:clamp(64px,9.4vw,138px);line-height:.86;font-variant-numeric:tabular-nums}
+.kp b sup{font-size:.3em;color:var(--y);vertical-align:top;margin-left:.1em;position:relative;top:.3em}
+.kp p{color:var(--mut);margin-top:12px;font-size:15.5px;line-height:1.4;max-width:24ch}
+.split{margin-top:clamp(40px,5vw,64px)}
+.split .bar{display:flex;height:16px;border-radius:999px;overflow:hidden;background:var(--card2);gap:3px}
+.split .bar i{display:block;height:100%;width:0;transition:width 1.4s var(--ease);transition-delay:var(--d,0s)}
+.split .lg{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:14px;color:var(--mut)}
+.split .lg span{display:inline-flex;align-items:center;gap:8px}
+.split .lg i{width:10px;height:10px;border-radius:2px;display:block}
+.note{color:var(--dim);margin-top:16px}
+
+/* le système */
+.sys{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;margin-top:clamp(34px,5vw,60px)}
+.board{background:linear-gradient(180deg,#0F1319,#0B0E13);border:1px solid var(--line);border-radius:16px;position:relative;overflow:hidden;padding:44px 8px 8px}
+.board::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(69,168,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(69,168,255,.06) 1px,transparent 1px);background-size:28px 28px}
+.board svg{position:relative;width:100%;height:auto;display:block}
+.board .cap{position:absolute;left:18px;top:14px;color:var(--dim)}
+.keys{position:absolute;right:18px;top:14px;display:flex;gap:16px;color:var(--mut)}
+.keys span{display:inline-flex;align-items:center;gap:7px}
+.keys i{width:18px;height:3px;border-radius:2px;display:block}
+.flow{stroke-dasharray:11 12;animation:flow 1.1s linear infinite}
+.flow.r{animation-duration:1.7s}
+@keyframes flow{to{stroke-dashoffset:-46}}
+.elec{stroke-dasharray:3 7;animation:flow 2.4s linear infinite}
+.rod{animation:rod 5s ease-in-out infinite alternate}
+@keyframes rod{0%,12%{transform:translateX(0)}88%,100%{transform:translateX(86px)}}
+.spin{transform-box:fill-box;transform-origin:center;animation:spin 3s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.lvl{animation:lvl 5s ease-in-out infinite alternate}
+@keyframes lvl{0%,12%{transform:translateY(0)}88%,100%{transform:translateY(7px)}}
+.hs{cursor:pointer}
+.hs circle.b{fill:#0B0D10;stroke:var(--y);stroke-width:2;transition:fill .2s}
+.hs text{fill:var(--y);font-family:var(--mono);font-size:18px;font-weight:700;text-anchor:middle;dominant-baseline:central;transition:fill .2s}
+.hs circle.p{fill:none;stroke:var(--y);stroke-width:1.5;opacity:.7;transform-box:fill-box;transform-origin:center;animation:ring2 2.6s ease-out infinite}
+@keyframes ring2{to{transform:scale(1.75);opacity:0}}
+.hs:hover circle.b,.hs.on circle.b{fill:var(--y)}
+.hs:hover text,.hs.on text{fill:#0B0D10}
+.hs:focus{outline:none}.hs:focus-visible circle.b{stroke:#fff;stroke-width:3}
+.lbl{fill:#8A93A0;font-family:var(--mono);font-size:14.5px;letter-spacing:.1em;text-transform:uppercase}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.7fr)}
+.panel .ph{position:relative;min-height:270px;overflow:hidden;background:#000}
+.panel .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s,transform 1.2s var(--ease)}
+.panel .ph .n{position:absolute;left:14px;top:14px;width:36px;height:36px;border-radius:50%;background:var(--y);color:#000;font-family:var(--mono);font-weight:700;display:grid;place-items:center;z-index:2}
+.panel .bd{padding:26px 30px 26px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 36px;align-content:start}
+.panel .bd h3,.panel .bd .nx{grid-column:1/-1}
+.panel h3{font-stretch:75%;font-weight:800;font-size:clamp(24px,2.3vw,32px);line-height:1.05;text-transform:uppercase}
+.panel dt{color:var(--y);margin-bottom:4px}
+.panel dd{color:#C9CED6;font-size:16px;line-height:1.5}
+.panel .nx{display:flex;gap:8px;padding-top:8px;max-width:420px}
+.panel .nx button{flex:1;height:44px;border:1px solid var(--line2);border-radius:10px;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;transition:background .2s,color .2s,border-color .2s}
+.panel .nx button:hover{background:var(--tx);color:#000;border-color:var(--tx)}
+.swap{animation:swap .45s var(--ease)}
+@keyframes swap{from{opacity:0;transform:translateY(10px)}}
+
+/* interventions */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.filters button{height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);transition:all .2s}
+.filters button:hover{color:var(--tx);border-color:var(--tx)}
+.filters button[aria-pressed=true]{background:var(--y);border-color:var(--y);color:#000;font-weight:700}
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:26px}
+.case{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-align:left;display:flex;flex-direction:column;transition:transform .45s var(--ease),border-color .3s,opacity .35s}
+.case:hover{transform:translateY(-6px);border-color:var(--line2)}
+.case.off{display:none}
+.case .im{aspect-ratio:4/3;overflow:hidden;position:relative;display:block}
+.case .im img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease),filter .4s;filter:saturate(.85)}
+.case:hover .im img{transform:scale(1.07);filter:saturate(1.05)}
+.case .im::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(20,24,30,.9))}
+.case .tg{position:absolute;left:12px;top:12px;z-index:2;background:rgba(11,13,16,.8);backdrop-filter:blur(6px);border:1px solid var(--line2);border-radius:999px;padding:5px 11px;color:var(--y)}
+.case .tx{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.case .tx>*{display:block}
+.case .h{font-stretch:78%;font-weight:800;font-size:22px;line-height:1.12;text-transform:uppercase;color:var(--tx)}
+.case .mc{color:var(--dim)}
+.case .pp{color:var(--mut);font-size:15.5px;line-height:1.5}
+.case .tx>.go{margin-top:auto;padding-top:10px;display:flex;align-items:center;gap:8px;color:var(--tx)}
+.case .go svg{width:14px;height:14px;transition:transform .3s var(--ease)}
+.case:hover .go svg{transform:translateX(5px)}
+
+/* fenêtres */
+dialog{border:0;padding:0;background:transparent;color:var(--tx);max-width:none;max-height:none;width:100vw;height:100dvh;margin:0}
+dialog::backdrop{background:rgba(5,6,8,.86);backdrop-filter:blur(6px)}
+dialog[open]{display:grid;place-items:center;animation:fd .25s ease}
+.sheet{position:relative;width:min(1080px,calc(100vw - 28px));max-height:calc(100dvh - 28px);overflow:auto;background:var(--card);border:1px solid var(--line2);border-radius:18px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);animation:pop .4s var(--ease)}
+@keyframes pop{from{transform:translateY(22px) scale(.98);opacity:0}}
+.sheet .pics{display:grid;gap:3px;background:#000;align-content:start}
+.sheet .pics img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.sheet .pics img:first-child:last-child{aspect-ratio:auto;height:100%}
+.sheet .ct{padding:clamp(22px,3vw,40px)}
+.sheet h3{font-stretch:72%;font-weight:800;font-size:clamp(28px,3.4vw,44px);line-height:1;text-transform:uppercase;margin:10px 0 6px}
+.steps{margin-top:22px;position:relative;list-style:none;counter-reset:s}
+.steps::before{content:"";position:absolute;left:13px;top:8px;bottom:8px;width:1px;background:var(--line2)}
+.steps li{position:relative;padding:0 0 18px 44px;counter-increment:s}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:27px;height:27px;border-radius:50%;background:var(--card);border:1.5px solid var(--y);color:var(--y);font-family:var(--mono);font-size:12px;font-weight:700;display:grid;place-items:center}
+.steps b{display:block;color:var(--y);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+.steps span{color:#C9CED6;font-size:16px;line-height:1.5}
+.learn{border-left:3px solid var(--y);padding:10px 0 10px 16px;color:var(--tx);font-size:16.5px;line-height:1.45;margin-top:4px}
+.x{position:absolute;right:12px;top:12px;z-index:3;width:42px;height:42px;border-radius:50%;background:rgba(11,13,16,.8);border:1px solid var(--line2);display:grid;place-items:center;transition:transform .3s var(--ease),background .2s}
+.x:hover{transform:rotate(90deg);background:var(--y);color:#000}
+#lb .big{position:relative;max-width:min(1400px,96vw)}
+#lb img{max-height:86dvh;width:auto;max-width:96vw;border-radius:10px}
+#lb p{margin-top:12px;color:var(--mut);text-align:center}
+
+/* atelier */
+.bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:clamp(120px,13vw,190px);gap:12px;margin-top:clamp(34px,5vw,60px)}
+.bento button{position:relative;overflow:hidden;border-radius:12px;background:var(--card);display:block}
+.bento img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease),filter .4s;filter:saturate(.8) brightness(.9)}
+.bento button:hover img{transform:scale(1.06);filter:saturate(1.05) brightness(1)}
+.bento span{position:absolute;left:12px;bottom:12px;right:12px;text-align:left;color:var(--tx);background:linear-gradient(transparent,transparent);text-shadow:0 1px 10px #000}
+.bento button::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.72))}
+.bento span{z-index:2}
+.b1{grid-column:span 8;grid-row:span 3}.b2{grid-column:span 4;grid-row:span 3}.b3{grid-column:span 4;grid-row:span 2}.b4{grid-column:span 4;grid-row:span 2}.b5{grid-column:span 4;grid-row:span 2}
+
+/* parcours */
+.tl{position:relative;margin-top:clamp(34px,5vw,60px);padding-left:34px}
+.tl::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.tl .fill{position:absolute;left:6px;top:8px;width:2px;height:calc(100% - 16px);background:var(--y);transform-origin:50% 0;transform:scaleY(0)}
+.st{position:relative;display:grid;grid-template-columns:150px minmax(0,1fr) minmax(0,.8fr);gap:clamp(16px,3vw,44px);padding:0 0 clamp(34px,4.6vw,60px)}
+.st::before{content:"";position:absolute;left:-34px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--y)}
+.st.now::before{background:var(--y);box-shadow:0 0 0 6px rgba(255,198,26,.16)}
+.st .yr{color:var(--y);padding-top:3px}
+.st h3{font-stretch:80%;font-weight:800;font-size:clamp(22px,2.3vw,30px);line-height:1.1;text-transform:uppercase}
+.st .wh{color:var(--mut);margin:8px 0 12px}
+.st p{color:#C9CED6;font-size:16.5px}
+.st ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px;align-content:start}
+.st li,.tags li{border:1px solid var(--line2);border-radius:999px;padding:5px 11px;color:var(--mut);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.st figure{border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.st figure img{width:100%;aspect-ratio:16/10;object-fit:cover}
+
+/* compétences */
+.sk{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:clamp(34px,5vw,60px)}
+.sk>div{background:var(--card);padding:26px 24px 28px;transition:background .3s}
+.sk>div:hover{background:var(--card2)}
+.sk .ic{width:42px;height:42px;color:var(--y);margin-bottom:18px}
+.sk h3{font-stretch:80%;font-weight:800;font-size:22px;text-transform:uppercase;line-height:1.1;margin-bottom:14px}
+.sk ul{list-style:none;display:grid;gap:9px}
+.sk li{color:#C9CED6;font-size:15.5px;line-height:1.4;padding-left:16px;position:relative}
+.sk li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;background:var(--y);transform:rotate(45deg)}
+.also{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:18px}
+.also>div{border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.also .mono{color:var(--dim);margin-bottom:10px}
+.tags{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+
+/* contact */
+.ct2{background:var(--bg2);border-top:1px solid var(--line);overflow:hidden}
+.ct2 h2{font-size:clamp(56px,11vw,170px);font-stretch:62%;font-weight:900}
+.cgrid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,80px);align-items:end;margin-top:clamp(28px,4vw,50px)}
+.rows{border-top:1px solid var(--line2)}
+.rows a{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:16px;align-items:center;padding:20px 4px;border-bottom:1px solid var(--line2);transition:padding .35s var(--ease),background .3s}
+.rows a:hover{padding-left:16px;padding-right:16px;background:rgba(255,198,26,.06)}
+.rows .k{color:var(--dim)}
+.rows .v{font-size:clamp(16px,1.8vw,23px);font-weight:600;overflow-wrap:anywhere}
+.rows svg{width:18px;height:18px;color:var(--y);transition:transform .35s var(--ease)}
+.rows a:hover svg{transform:translate(4px,-4px)}
+footer{border-top:1px solid var(--line);padding:26px 0 34px;color:var(--dim)}
+footer .in{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
+
+@media (max-width:1020px){
+  .links{display:none;position:fixed;inset:66px 0 auto 0;background:#0B0D10;flex-direction:column;gap:0;padding:8px var(--pad) 18px;border-bottom:1px solid var(--line)}
+  .links.open{display:flex}
+  .links a{padding:15px 0;font-size:13px;border-bottom:1px solid var(--line)}
+  .burger{display:flex}.lang{margin-left:auto}
+  .cases{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sk{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .st{grid-template-columns:110px minmax(0,1fr)}
+  .st>:last-child{grid-column:2}
 }
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+@media (max-width:760px){
+  body{font-size:16px}
+  .hero .sub{grid-template-columns:1fr}
+  .scroll,.spot{display:none}
+  .pro{grid-template-columns:1fr}
+  .frame{max-width:420px}
+  .kp{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 18px}
+  .board{padding-top:8px}
+  .keys{position:static;padding:8px 10px 0;flex-wrap:wrap;gap:6px 14px}
+  .board .cap{position:static;padding:8px 10px 0;display:block}
+  .panel{grid-template-columns:1fr}
+  .panel .ph{min-height:0;aspect-ratio:16/10}
+  .panel .bd{grid-template-columns:1fr;padding:20px}
+  .lbl{font-size:19px}
+  .cases{grid-template-columns:1fr}
+  .sheet{grid-template-columns:1fr}
+  .sheet .pics{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:3px}
+  .sheet .pics img{flex:0 0 82%;scroll-snap-align:start;aspect-ratio:4/3}
+  .sheet .pics img:first-child:last-child{flex-basis:100%;height:auto;aspect-ratio:16/10}
+  .bento{grid-auto-rows:120px}
+  .b1{grid-column:span 12;grid-row:span 2}.b2,.b3{grid-column:span 6;grid-row:span 2}.b4,.b5{grid-column:span 6;grid-row:span 2}
+  .st{grid-template-columns:1fr;gap:8px}
+  .st>:last-child{grid-column:auto;margin-top:8px}
+  .sk{grid-template-columns:1fr}
+  .also{grid-template-columns:1fr}
+  .cgrid{grid-template-columns:1fr}
+  .rows a{grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:16px 2px}
+  .rows .k{grid-column:1/-1}
+  .rows .v{font-size:17px}
+  .chip{font-size:10px;letter-spacing:.08em;padding:7px 12px 7px 10px}
+  .facts{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+  .hero .media img{transform:none}
+  h1 .l>span{transform:none}
+}
 </style>
 </head>
 <body>
+<a class="skip" href="#profil">Aller au contenu</a>
 <div id="prog"></div>
 
-<nav id="nav"><div class="wrap">
-  <a class="brand" href="#top"><i></i><span>Shalom Alonyo</span></a>
-  <div class="navlinks" id="menu">
-    <a href="#apropos" data-i18n="nav.about">À propos</a>
-    <a href="#parcours" data-i18n="nav.path">Parcours</a>
-    <a href="#competences" data-i18n="nav.skills">Compétences</a>
-    <a href="#terrain" data-i18n="nav.field">Terrain</a>
-    <a href="#contact" data-i18n="nav.contact">Contact</a>
+<header class="nav" id="nav">
+  <div class="wrap in">
+    <a class="brand" href="#top"><i></i>Shalom Alonyo</a>
+    <nav class="links" id="links" aria-label="Sections">
+      <a href="#profil" data-en="Profile">Profil</a>
+      <a href="#systeme" data-en="The system">Le système</a>
+      <a href="#interventions" data-en="Jobs">Interventions</a>
+      <a href="#atelier" data-en="Workshop">Atelier</a>
+      <a href="#parcours" data-en="Background">Parcours</a>
+      <a href="#competences" data-en="Skills">Compétences</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Langue">
+      <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
   </div>
-  <div class="navtools">
-    <div class="lang"><button data-lang="fr" class="on">FR</button><button data-lang="en">EN</button></div>
-    <a class="navcv" href="Shalom_Alonyo_CV.pdf" target="_blank" rel="noopener">CV ↗</a>
-    <button class="burger" id="burger" aria-label="Menu"><i></i></button>
-  </div>
-</div></nav>
+</header>
 
-<a id="top"></a>
-<header class="hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-word" data-par="0.12">MAINTE<b>NANCE</b></div>
-  <figure class="hero-photo" data-par="0.05"><img src="assets/technicien-cut.png" alt="Shalom Alonyo, technicien de maintenance" /></figure>
-  <div class="hero-grid">
-    <div class="hero-left">
-      <span class="hpill"><span class="dot"></span><span data-i18n="hero.pill">Disponible · Alternance rentrée 2026</span></span>
-      <h1 class="hero-name">Shalom<br>Alonyo</h1>
-      <p class="hero-role" data-i18n="hero.role">Futur technicien de maintenance · Systèmes automatisés</p>
-      <p class="hero-sub" data-i18n="hero.sub">Je cherche l'entreprise qui me formera au métier de technicien de maintenance, en alternance à la rentrée 2026. Installé à Blagnac, mobile et véhiculé.</p>
-      <div class="hero-cta">
-        <a class="btn btn-a" href="Shalom_Alonyo_CV.pdf" target="_blank" rel="noopener"><span data-i18n="hero.cta1">Voir mon CV</span><span class="ar">↗</span></a>
-        <a class="btn btn-o" href="#contact"><span data-i18n="hero.cta2">Me contacter</span><span class="ar">→</span></a>
+<main id="top">
+<!-- HERO -->
+<section class="hero" style="padding:0">
+  <div class="media" id="media">
+    <img id="heroimg" src="assets/hero.webp" width="2200" height="1650" alt="Une grue auxiliaire HIAB soulève une masse d'essai sous un ciel d'orage, devant l'atelier">
+    <div class="spot" id="spot" aria-hidden="true">
+      <div class="ring"></div><div class="ln"></div>
+      <div class="tag"><b data-en="Load test">Essai en charge</b><span data-en="after the repair, before handing the crane back">après l'intervention, avant de rendre la grue</span></div>
+    </div>
+  </div>
+  <div class="wrap in">
+    <div class="chip mono fade"><b></b><span data-en="In post · Serignac Services · Toulouse">En poste · Serignac Services · Toulouse</span></div>
+    <h1><span class="l"><span>Shalom</span></span><span class="l"><span>Alonyo</span></span></h1>
+    <div class="sub fade">
+      <p class="role"><span data-en="Apprentice maintenance technician. I work on <em>truck-mounted hydraulic cranes</em>.">Apprenti technicien de maintenance. Je travaille sur des <em>grues hydrauliques montées sur camion</em>.</span>
+        <small data-en="BTS Maintenance des Systèmes · work-study · 2026 – 2028">BTS Maintenance des Systèmes · en alternance · 2026 – 2028</small></p>
+      <div class="cta">
+        <a class="btn p" href="#interventions"><span data-en="See my jobs">Voir mes interventions</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn s" href="#contact" data-en="Contact me">Me contacter</a>
       </div>
     </div>
   </div>
-  <div class="scrollcue"><span data-i18n="hero.scroll">Défiler</span><span class="ln"></span></div>
-</header>
+  <div class="scroll mono fade" aria-hidden="true" data-en="Scroll">Défiler</div>
+</section>
 
-<div class="marquee" aria-hidden="true"><div class="track">
-  <span>Maintenance industrielle</span><span>Automatisme</span><span>Électrotechnique</span><span>Diagnostic de pannes</span><span>AGV Swisslog</span><span>GMAO</span><span>Mécanique</span>
-  <span>Maintenance industrielle</span><span>Automatisme</span><span>Électrotechnique</span><span>Diagnostic de pannes</span><span>AGV Swisslog</span><span>GMAO</span><span>Mécanique</span>
+<div class="mq" aria-hidden="true"><div class="t" id="mq">
+  <span>Hydraulique</span><span>Diagnostic</span><span>Électrotechnique</span><span>Sertissage</span><span>Maintenance préventive</span><span>Capteurs</span><span>Essais en charge</span><span>Mécanique</span>
 </div></div>
 
-<!-- À PROPOS : narratif -->
-<section class="blk" id="apropos">
-  <p class="sec-k reveal" data-i18n="ab.k">Profil</p>
-  <h2 class="h2 reveal" data-i18n="ab.h">Comprendre les machines, les réparer.</h2>
-  <div class="about-grid">
-    <figure class="about-photo reveal" data-par="0.03">
-      <img src="assets/portrait-ai.jpg" alt="Shalom Alonyo" loading="lazy" />
-      <figcaption class="cap">Shalom Alonyo · 21 ans · Blagnac (31)</figcaption>
-    </figure>
-    <div>
-      <p class="lead reveal" data-i18n-html="ab.p">J'ai 21 ans et une idée fixe : comprendre comment fonctionne une machine, et la remettre en marche quand elle s'arrête. Mon poste actuel m'a mis les mains dans l'<b>automatisme</b> au quotidien et a transformé cet intérêt en projet clair : devenir <b>technicien de maintenance</b>. Je suis du genre <em>méthodique, curieux et fiable</em>, et j'avance vite quand on me laisse apprendre sur le terrain. Je m'installe à Blagnac pour me rapprocher du tissu industriel toulousain.</p>
+<!-- PROFIL -->
+<section id="profil">
+  <div class="wrap">
+    <div class="eyebrow mono rv" data-en="01 — Profile">01 — Profil</div>
+    <h2 class="rv" data-en="Find the fault. <em>Get it running.</em>">Comprendre la panne. <em>Remettre en service.</em></h2>
+    <div class="pro">
+      <figure class="frame rv">
+        <img src="assets/portrait.webp" width="900" height="1117" loading="lazy" alt="Portrait de Shalom Alonyo">
+        <figcaption class="mono" data-en="Shalom Alonyo · 22 · Toulouse">Shalom Alonyo · 22 ans · Toulouse</figcaption>
+      </figure>
+      <div>
+        <p class="rv" data-en="I'm 22 and I'm an apprentice maintenance technician at <strong>Serignac Services</strong> in Toulouse. I work in the after-sales workshop for <strong>HIAB loader cranes</strong>: the hydraulic cranes fitted on trucks that deliver building materials, collect glass or place loads on site. Paired with a technician, I take part in breakdown repairs, services and modifications.">J'ai 22 ans et je suis apprenti technicien de maintenance chez <strong>Serignac Services</strong>, à Toulouse. Je travaille à l'atelier SAV des <strong>grues auxiliaires HIAB</strong> : ces grues hydrauliques montées sur camion qui livrent les matériaux, collectent le verre ou posent des charges sur les chantiers. En binôme avec un technicien, je participe aux dépannages, aux révisions et aux modifications.</p>
+        <p class="rv" style="--d:.08s" data-en="Before that, at Rodez hospital, I supervised a fleet of six AGV robots. That is where I understood I wanted maintenance to be my trade. Today I'm preparing a BTS in maintenance on a work-study contract, and I write down every job: the fault, the cause, what we did.">Avant, au Centre Hospitalier de Rodez, je supervisais une flotte de six robots AGV. C'est là que j'ai compris que je voulais faire de la maintenance mon métier. Aujourd'hui je prépare le BTS Maintenance des Systèmes en alternance, et je note chaque intervention : la panne, la cause, ce qu'on a fait.</p>
+        <dl class="facts rv" style="--d:.14s">
+          <div><dt class="mono" data-en="Position">Poste</dt><dd data-en="Apprentice maintenance technician">Apprenti technicien de maintenance</dd></div>
+          <div><dt class="mono" data-en="Company">Entreprise</dt><dd data-en="Serignac Services · crane after-sales workshop">Serignac Services · atelier SAV grues</dd></div>
+          <div><dt class="mono" data-en="Training">Formation</dt><dd data-en="BTS Maintenance des Systèmes, production systems option">BTS Maintenance des Systèmes, option Systèmes de production</dd></div>
+          <div><dt class="mono" data-en="School">Centre</dt><dd>Pôle Formation UIMM Occitanie</dd></div>
+        </dl>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PARCOURS / FORMATIONS -->
-<section class="blk parcours" id="parcours">
-  <p class="sec-k reveal" data-i18n="pa.k">Parcours</p>
-  <h2 class="h2 reveal" data-i18n="pa.h">Un parcours technique, assumé.</h2>
-  <div class="timeline">
-    <div class="tl reveal"><div class="yr">2026 – 2028</div><h3 data-i18n="pa.1h">BTS Maintenance des Systèmes</h3><div class="where" data-i18n="pa.1w">Pôle Formation UIMM Occitanie · Beauzelle · en alternance</div><p data-i18n="pa.1p">Option Systèmes de Production : maintenance corrective et préventive, automatisme, génie électrique, mécanique. C'est ma formation cible, pour laquelle je cherche une entreprise d'accueil.</p></div>
-    <div class="tl reveal"><div class="yr">2023 – 2025</div><h3 data-i18n="pa.2h">BTS Bâtiment</h3><div class="where" data-i18n="pa.2w">Lycée Louis Vicat</div><p data-i18n="pa.2p">Lecture de plans, RDM, métrés, CAO/DAO (AutoCAD, Revit). Deux années qui m'ont donné des bases techniques solides et le sens de la rigueur, que je remets aujourd'hui au service de l'industrie.</p></div>
-    <div class="tl reveal"><div class="yr">2023</div><h3 data-i18n="pa.3h">Baccalauréat STI2D — spécialité ITEC</h3><div class="where" data-i18n="pa.3w">Lycée Alexis Monteil · Rodez</div><p data-i18n="pa.3p">Sciences et technologies de l'industrie : conception SolidWorks, analyse fonctionnelle, Arduino, impression 3D, simulation mécanique.</p></div>
+<!-- CHIFFRES -->
+<section class="nums" id="chiffres">
+  <div class="wrap">
+    <div class="eyebrow mono rv" data-en="02 — So far">02 — Jusqu'ici</div>
+    <h2 class="rv" data-en="Five weeks <em>on the shop floor.</em>">Cinq semaines <em>d'atelier.</em></h2>
+    <div class="kp">
+      <div class="rv"><b data-count="26">0</b><p data-en="jobs followed from start to finish">interventions suivies du début à la fin</p></div>
+      <div class="rv" style="--d:.08s"><b data-count="22">0</b><p data-en="breakdown repairs and fault-finding">dépannages et diagnostics</p></div>
+      <div class="rv" style="--d:.16s"><b data-count="2">0</b><p data-en="scheduled services (preventive maintenance)">révisions programmées (maintenance préventive)</p></div>
+      <div class="rv" style="--d:.24s"><b><span data-count="1000">0</span><sup>kg</sup></b><p data-en="the test weight lifted before a crane goes back to its owner">la masse d'essai levée avant de rendre une grue</p></div>
+    </div>
+    <div class="split rv" id="split">
+      <div class="bar" role="img" aria-label="22 correctif, 2 préventif, 2 modifications">
+        <i style="background:var(--red)" data-w="84.6"></i><i style="background:var(--y);--d:.15s" data-w="7.7"></i><i style="background:var(--blue);--d:.3s" data-w="7.7"></i>
+      </div>
+      <div class="lg mono">
+        <span><i style="background:var(--red)"></i><b data-en="Corrective · 22">Correctif · 22</b></span>
+        <span><i style="background:var(--y)"></i><b data-en="Preventive · 2">Préventif · 2</b></span>
+        <span><i style="background:var(--blue)"></i><b data-en="Modifications · 2">Modifications · 2</b></span>
+      </div>
+      <p class="note mono" data-en="My own count, from 28 Sept. to 13 Nov. 2026 — not a workshop statistic.">Mon propre décompte, du 28 sept. au 13 nov. 2026 — pas une statistique de l'atelier.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LE SYSTÈME -->
+<section id="systeme">
+  <div class="wrap">
+    <div class="eyebrow mono rv" data-en="03 — The system">03 — Le système</div>
+    <h2 class="rv" data-en="A crane is <em>a circuit.</em>">Une grue, c'est <em>un circuit.</em></h2>
+    <p class="lead rv" data-en="A pump pushes oil, a valve block steers it, a cylinder turns it into force, and a controller watches over everything. Click a number: what the part does, and what I have done on it.">Une pompe pousse l'huile, un distributeur l'oriente, un vérin la transforme en force, et un calculateur surveille le tout. Cliquez sur un numéro : à quoi sert l'organe, et ce que j'ai fait dessus.</p>
+    <div class="sys rv">
+      <div class="board">
+        <span class="cap mono" data-en="Simplified diagram">Schéma de principe simplifié</span>
+        <div class="keys mono"><span><i style="background:var(--red)"></i><b data-en="Pressure">Pression</b></span><span><i style="background:var(--blue)"></i><b data-en="Return">Retour</b></span><span><i style="background:var(--green)"></i><b data-en="Signal">Signal</b></span></div>
+        <svg viewBox="40 92 940 500" role="group" aria-label="Schéma hydraulique simplifié d'une grue">
+          <g fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+            <!-- aspiration -->
+            <path d="M150 440V330" stroke="#3A4350"/>
+            <!-- pression -->
+            <path d="M150 270V170H470" stroke="#5A1F1A"/><path class="flow" d="M150 270V170H470" stroke="var(--red)"/>
+            <path d="M620 150H690V288H720" stroke="#5A1F1A"/><path class="flow" d="M620 150H690V288H720" stroke="var(--red)"/>
+            <!-- retour -->
+            <path d="M880 262V190H620" stroke="#17344F"/><path class="flow r" d="M880 262V190H620" stroke="var(--blue)"/>
+            <path d="M545 215V500H240" stroke="#17344F"/><path class="flow r" d="M545 215V500H240" stroke="var(--blue)"/>
+          </g>
+          <!-- signaux -->
+          <g fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round">
+            <path class="elec" d="M760 262V232H800V420"/><path class="elec" d="M930 345V420H900"/><path class="elec" d="M740 470H500V215"/>
+          </g>
+          <!-- réservoir -->
+          <g>
+            <rect x="60" y="440" width="180" height="110" rx="8" fill="#12161C" stroke="#4A5462" stroke-width="2.5"/>
+            <clipPath id="tk"><rect x="62" y="442" width="176" height="106" rx="6"/></clipPath>
+            <g clip-path="url(#tk)"><rect class="lvl" x="60" y="478" width="180" height="90" fill="rgba(255,198,26,.2)"/><path class="lvl" d="M60 478q22-8 45 0t45 0 45 0 45 0" fill="none" stroke="var(--y)" stroke-width="2"/></g>
+            <text class="lbl" x="150" y="576" text-anchor="middle" data-en="Tank">Réservoir</text>
+          </g>
+          <!-- filtre retour -->
+          <g><path d="M380 474l26 26-26 26-26-26z" fill="#12161C" stroke="var(--blue)" stroke-width="2.5"/><path d="M362 500h36" stroke="var(--blue)" stroke-width="2" stroke-dasharray="3 4"/><text class="lbl" x="380" y="552" text-anchor="middle" data-en="Return filter">Filtre retour</text></g>
+          <!-- pompe -->
+          <g>
+            <circle cx="150" cy="300" r="32" fill="#12161C" stroke="#4A5462" stroke-width="2.5"/>
+            <path class="spin" d="M150 280l17 30h-34z" fill="var(--y)"/>
+            <text class="lbl" x="198" y="296" data-en="Pump">Pompe</text><text class="lbl" x="198" y="316" style="font-size:11.5px;letter-spacing:.06em" data-en="driven by the truck">entraînée par le camion</text>
+          </g>
+          <!-- filtre HP -->
+          <g><path d="M310 140l30 30-30 30-30-30z" fill="#12161C" stroke="var(--red)" stroke-width="2.5"/><path d="M290 170h40" stroke="var(--red)" stroke-width="2" stroke-dasharray="3 4"/>
+            <text class="lbl" x="310" y="228" text-anchor="middle" data-en="HP filter">Filtre HP</text></g>
+          <!-- distributeur -->
+          <g>
+            <rect x="470" y="125" width="150" height="90" rx="6" fill="#12161C" stroke="#4A5462" stroke-width="2.5"/>
+            <path d="M520 125v90M570 125v90" stroke="#4A5462" stroke-width="2"/>
+            <path d="M486 185l18-30M536 155v30M586 155l18 30" stroke="var(--y)" stroke-width="2.5" stroke-linecap="round"/>
+            <text class="lbl" x="500" y="116" data-en="Valve block">Distributeur</text>
+          </g>
+          <!-- clapet -->
+          <g><rect x="676" y="268" width="44" height="40" rx="4" fill="#12161C" stroke="var(--y)" stroke-width="2.5"/><path d="M688 296l10-16 10 16z" fill="none" stroke="var(--y)" stroke-width="2"/><text class="lbl" x="664" y="294" text-anchor="end" data-en="Lock valve">Clapet</text><text class="lbl" x="712" y="228" data-en="Hoses">Flexibles</text></g>
+          <!-- vérin -->
+          <g>
+            <g class="rod"><rect x="800" y="278" width="150" height="20" fill="#C9CED6"/><rect x="792" y="266" width="14" height="44" fill="#6B7480"/><circle cx="952" cy="288" r="13" fill="#12161C" stroke="#C9CED6" stroke-width="3"/></g>
+            <rect x="720" y="262" width="170" height="52" rx="4" fill="rgba(18,22,28,.82)" stroke="#4A5462" stroke-width="2.5"/>
+            <text class="lbl" x="812" y="338" text-anchor="middle" data-en="Cylinder">Vérin</text>
+          </g>
+          <!-- capteurs -->
+          <g><circle cx="760" cy="262" r="9" fill="#0B0D10" stroke="var(--green)" stroke-width="2.5"/><text x="760" y="262" fill="var(--green)" font-family="JetBrains Mono" font-size="10" font-weight="700" text-anchor="middle" dominant-baseline="central">P</text>
+             <circle cx="930" cy="345" r="9" fill="#0B0D10" stroke="var(--green)" stroke-width="2.5"/><text x="930" y="345" fill="var(--green)" font-family="JetBrains Mono" font-size="10" font-weight="700" text-anchor="middle" dominant-baseline="central">α</text></g>
+          <!-- calculateur -->
+          <g>
+            <rect x="740" y="420" width="160" height="92" rx="8" fill="#12161C" stroke="var(--green)" stroke-width="2.5"/>
+            <rect x="754" y="436" width="72" height="60" rx="3" fill="#0B0D10" stroke="#2A3A33"/>
+            <path d="M762 486v-12M772 486v-26M782 486v-18M792 486v-36M802 486v-10M812 486v-22" stroke="var(--green)" stroke-width="4"><animate attributeName="opacity" values="1;.45;1" dur="1.6s" repeatCount="indefinite"/></path>
+            <circle cx="864" cy="466" r="15" fill="none" stroke="var(--red)" stroke-width="3"/>
+            <text class="lbl" x="820" y="538" text-anchor="middle" data-en="Controller">Calculateur</text><text class="lbl" x="906" y="394" text-anchor="end" data-en="Sensors">Capteurs</text>
+          </g>
+          <!-- numéros -->
+          <g id="hs"></g>
+        </svg>
+      </div>
+      <aside class="panel" id="panel" aria-live="polite">
+        <div class="ph"><span class="n" id="pn">1</span><img id="pimg" src="assets/filtre-reservoir.webp" alt="" loading="lazy"></div>
+        <div class="bd">
+          <h3 id="pt"></h3>
+          <dl><dt class="mono" data-en="What it does">À quoi ça sert</dt><dd id="pa"></dd></dl>
+          <dl><dt class="mono" data-en="What I did">Ce que j'ai fait</dt><dd id="pb"></dd></dl>
+          <div class="nx"><button type="button" id="pprev" data-en="← Previous">← Précédent</button><button type="button" id="pnext" data-en="Next →">Suivant →</button></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div class="hz" aria-hidden="true"></div>
+
+<!-- INTERVENTIONS -->
+<section id="interventions">
+  <div class="wrap">
+    <div class="eyebrow mono rv" data-en="04 — Jobs">04 — Interventions</div>
+    <h2 class="rv" data-en="Six jobs, <em>step by step.</em>">Six chantiers, <em>pas à pas.</em></h2>
+    <p class="lead rv" data-en="Each time: what we saw, what we looked for, what we did, and how it ended. Done with a technician from the workshop; the photos are mine.">À chaque fois : ce qu'on a constaté, ce qu'on a cherché, ce qu'on a fait, et comment ça s'est terminé. Réalisées avec un technicien de l'atelier ; les photos sont les miennes.</p>
+    <div class="filters rv" id="filters" role="group" aria-label="Filtrer"></div>
+    <div class="cases" id="cases"></div>
+  </div>
+</section>
+
+<!-- ATELIER -->
+<section id="atelier" style="background:var(--bg2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="eyebrow mono rv" data-en="05 — Workshop">05 — Atelier</div>
+    <h2 class="rv" data-en="Where <em>I learn.</em>">Là où <em>j'apprends.</em></h2>
+    <p class="lead rv" data-en="Truck bays, an overhead crane, a cylinder bench, a hose-crimping station, a hydraulic parts store, and one tool trolley per technician. Mine is number 5.">Des travées pour les camions, un pont roulant, un banc pour les vérins, un poste de sertissage, un magasin hydraulique, et une servante par technicien. La mienne porte le numéro 5.</p>
+    <div class="bento rv" id="bento">
+      <button class="b1" type="button" data-img="atelier"><img src="assets/atelier.webp" loading="lazy" alt="Vue de l'atelier depuis la mezzanine"><span class="mono" data-en="The workshop, from the mezzanine">L'atelier, vu de la mezzanine</span></button>
+      <button class="b2" type="button" data-img="magasin"><img src="assets/magasin.webp" loading="lazy" alt="Une allée du magasin de pièces"><span class="mono" data-en="The parts store">Le magasin de pièces</span></button>
+      <button class="b3" type="button" data-img="outils"><img src="assets/outils.webp" loading="lazy" alt="Un tiroir de clés dans ma servante"><span class="mono" data-en="A drawer of my trolley">Un tiroir de ma servante</span></button>
+      <button class="b4" type="button" data-img="banc-verin"><img src="assets/banc-verin.webp" loading="lazy" alt="Un vérin télescopique sur le banc de démontage"><span class="mono" data-en="A cylinder on the bench">Un vérin sur le banc</span></button>
+      <button class="b5" type="button" data-img="servante"><img src="assets/servante.webp" loading="lazy" alt="Ma servante d'outillage, la caisse numéro 5"><span class="mono" data-en="Trolley no. 5">La caisse n° 5</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- PARCOURS -->
+<section id="parcours">
+  <div class="wrap">
+    <div class="eyebrow mono rv" data-en="06 — Background">06 — Parcours</div>
+    <h2 class="rv" data-en="From drawings <em>to machines.</em>">Du plan <em>à la machine.</em></h2>
+    <div class="tl" id="tl">
+      <i class="fill" id="tlfill"></i>
+      <article class="st now rv">
+        <div class="yr mono">2026 → 2028</div>
+        <div><h3 data-en="BTS Maintenance des Systèmes — work-study">BTS Maintenance des Systèmes — en alternance</h3>
+          <p class="wh mono">Serignac Services · Pôle Formation UIMM Occitanie</p>
+          <p data-en="After-sales workshop for loader cranes in Toulouse. Breakdown repairs, services, fault-finding with the diagnostic PC, hose making. At school: electrical engineering, automation, mechanics, maintenance methods.">Atelier SAV des grues auxiliaires, à Toulouse. Dépannages, révisions, diagnostic au PC, fabrication de flexibles. Au centre : électrotechnique, automatismes, mécanique, méthodes de maintenance.</p></div>
+        <ul><li data-en="Hydraulics">Hydraulique</li><li data-en="Fault-finding">Diagnostic</li><li data-en="Preventive">Préventif</li><li>HIAB</li></ul>
+      </article>
+      <article class="st rv">
+        <div class="yr mono">2025 → 2026</div>
+        <div><h3 data-en="Logistics agent — AGV supervision">Agent logistique — supervision d'AGV</h3>
+          <p class="wh mono" data-en="Rodez hospital">Centre Hospitalier de Rodez</p>
+          <p data-en="Daily supervision of a fleet of six Swisslog AGVs carrying meals, linen and waste across the hospital. First-level faults: find the cause, get the robot moving again, log the incident and hand over to maintenance when needed.">Supervision quotidienne d'une flotte de six AGV Swisslog qui transportent repas, linge et déchets dans tout l'hôpital. Pannes de premier niveau : trouver la cause, relancer le robot, tracer l'incident et passer le relais à la maintenance si besoin.</p></div>
+        <figure><img src="assets/agv.webp" loading="lazy" alt="Les six AGV Swisslog à leur poste de charge"></figure>
+      </article>
+      <article class="st rv">
+        <div class="yr mono">2023 → 2025</div>
+        <div><h3>BTS Bâtiment</h3>
+          <p class="wh mono">Lycée Louis Vicat · Rodez</p>
+          <p data-en="Two years reading drawings, sizing structures, taking off quantities and working in CAD. It gave me rigour and a habit of reading the documentation first.">Deux années à lire des plans, dimensionner, métrer et travailler en CAO. J'en garde la rigueur et l'habitude de lire la documentation d'abord.</p></div>
+        <ul><li>AutoCAD</li><li>Revit</li><li data-en="Drawings">Plans</li><li data-en="Strength of materials">RDM</li></ul>
+      </article>
+      <article class="st rv">
+        <div class="yr mono">2023</div>
+        <div><h3 data-en="Baccalauréat STI2D — ITEC option">Baccalauréat STI2D — spécialité ITEC</h3>
+          <p class="wh mono">Lycée Alexis Monteil · Rodez</p>
+          <p data-en="Industrial science and technology: design in SolidWorks, functional analysis, Arduino, 3D printing.">Sciences et technologies de l'industrie : conception sous SolidWorks, analyse fonctionnelle, Arduino, impression 3D.</p></div>
+        <ul><li>SolidWorks</li><li>Arduino</li><li data-en="3D printing">Impression 3D</li></ul>
+      </article>
+    </div>
   </div>
 </section>
 
 <!-- COMPÉTENCES -->
-<section class="blk comp" id="competences">
-  <p class="sec-k reveal" data-i18n="sk.k">Compétences</p>
-  <h2 class="h2 reveal" data-i18n="sk.h">Ce que je sais faire</h2>
-  <div class="cgrid">
-    <div class="ccard reveal"><div class="no">01</div><h3 data-i18n="sk.1h">Diagnostic & dépannage</h3><p data-i18n="sk.1p">Identifier la panne, intervenir, remettre en service. Capteurs, défauts de détection, 1er niveau en autonomie.</p><div class="chips"><span class="chip">Diagnostic</span><span class="chip">Capteurs</span><span class="chip">Multimètre</span></div></div>
-    <div class="ccard reveal"><div class="no">02</div><h3 data-i18n="sk.2h">Automatisme & systèmes</h3><p data-i18n="sk.2p">Supervision de systèmes automatisés et d'AGV, lecture du comportement machine, gestion des flux.</p><div class="chips"><span class="chip">AGV Swisslog</span><span class="chip">Automatisme</span><span class="chip">Supervision</span></div></div>
-    <div class="ccard reveal"><div class="no">03</div><h3 data-i18n="sk.3h">Électrotechnique & méca</h3><p data-i18n="sk.3p">Bases solides en électricité, mécanique et lecture de plans et de schémas.</p><div class="chips"><span class="chip">Électrotechnique</span><span class="chip">Mécanique</span><span class="chip">Plans</span></div></div>
-    <div class="ccard reveal"><div class="no">04</div><h3 data-i18n="sk.4h">Maintenance préventive</h3><p data-i18n="sk.4p">Contrôles, préconisations et prévention pour limiter les arrêts et fiabiliser les équipements.</p><div class="chips"><span class="chip">Préventif</span><span class="chip">Correctif</span><span class="chip">GMAO</span></div></div>
-    <div class="ccard reveal"><div class="no">05</div><h3 data-i18n="sk.5h">CAO / DAO</h3><p data-i18n="sk.5p">Conception et lecture sur SolidWorks, AutoCAD et Revit, héritées de mon parcours technique.</p><div class="chips"><span class="chip">SolidWorks</span><span class="chip">AutoCAD</span><span class="chip">Revit</span></div></div>
-    <div class="ccard reveal"><div class="no">06</div><h3 data-i18n="sk.6h">Sécurité & traçabilité</h3><p data-i18n="sk.6p">Respect des règles de sécurité et qualité, main courante et reporting clair à l'équipe maintenance.</p><div class="chips"><span class="chip">Sécurité</span><span class="chip">Main courante</span><span class="chip">Reporting</span></div></div>
+<section id="competences" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow mono rv" data-en="07 — Skills">07 — Compétences</div>
+    <h2 class="rv" data-en="What I do <em>at the workshop.</em>">Ce que je fais <em>à l'atelier.</em></h2>
+    <p class="lead rv" data-en="Still learning, always with a technician. Everything listed here, I have done at least once with my own hands.">En cours d'acquisition, toujours avec un technicien. Tout ce qui est écrit ici, je l'ai fait au moins une fois de mes mains.</p>
+    <div class="sk rv">
+      <div><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5c8 10 12 16 12 23a12 12 0 0 1-24 0c0-7 4-13 12-23z"/><path d="M18 30a6 6 0 0 0 6 6"/></svg>
+        <h3 data-en="Hydraulics">Hydraulique</h3><ul>
+        <li data-en="Replacing tank, high-pressure and valve-section filters">Remplacer les filtres réservoir, haute pression et section de valves</li>
+        <li data-en="Making a hose: cutting, skiving, crimping to size">Fabriquer un flexible : coupe, dénudage, sertissage à la cote</li>
+        <li data-en="Stripping a cylinder on the bench and checking its seals">Démonter un vérin sur le banc et contrôler ses joints</li>
+        <li data-en="Checking a pressure with a gauge">Contrôler une pression au manomètre</li>
+        <li data-en="Bending a rigid pipe">Cintrer un tube rigide</li></ul></div>
+      <div><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M27 4 11 27h12l-3 17 17-24H25z"/></svg>
+        <h3 data-en="Electrics & fault-finding">Électricité &amp; diagnostic</h3><ul>
+        <li data-en="Reading and clearing fault codes with the diagnostic PC">Lire et effacer les codes défauts au PC de diagnostic</li>
+        <li data-en="Replacing pressure, angle and proximity sensors">Remplacer un capteur de pression, d'angle ou de proximité</li>
+        <li data-en="Checking wiring and rebuilding a cable">Contrôler un câblage, refaire un câble</li>
+        <li data-en="Recalibrating control levers">Recalibrer les leviers de commande</li>
+        <li data-en="Configuring a control panel after replacement">Configurer un pupitre de commande après remplacement</li></ul></div>
+      <div><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="7"/><path d="M24 4v6M24 38v6M4 24h6M38 24h6M10 10l4 4M34 34l4 4M38 10l-4 4M14 34l-4 4"/></svg>
+        <h3 data-en="Mechanics & lifting">Mécanique &amp; manutention</h3><ul>
+        <li data-en="Removing a crane column with the overhead crane">Déposer une colonne de grue au pont roulant</li>
+        <li data-en="Replacing column bushings and slewing seals">Remplacer des bagues de colonne et des joints de rotation</li>
+        <li data-en="Checking and retightening fixings">Contrôler et resserrer les fixations</li>
+        <li data-en="Greasing and lubricating the extensions">Graisser, lubrifier les extensions</li>
+        <li data-en="Load-testing with a test weight">Faire un essai en charge avec une masse</li></ul></div>
+      <div><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6h18l8 8v28H12z"/><path d="M30 6v8h8M18 24h12M18 31h12M18 17h6"/></svg>
+        <h3 data-en="Method & paperwork">Méthode &amp; documents</h3><ul>
+        <li data-en="Following a manufacturer's service schedule point by point">Suivre une gamme d'entretien constructeur point par point</li>
+        <li data-en="Filling in the job sheet: operations, parts, time">Remplir le bon de travail : opérations, pièces, temps</li>
+        <li data-en="Marking every hose before removal">Repérer chaque flexible avant de démonter</li>
+        <li data-en="Working safely: release pressure, never under a load">Travailler en sécurité : dépressuriser, jamais sous la charge</li>
+        <li data-en="Keeping a daily log of what I learn">Tenir un carnet de bord de ce que j'apprends</li></ul></div>
+    </div>
+    <div class="also rv">
+      <div><p class="mono" data-en="Software">Logiciels</p><ul class="tags"><li>SolidWorks</li><li>AutoCAD</li><li>Revit</li><li>Excel</li></ul></div>
+      <div><p class="mono" data-en="Languages">Langues</p><ul class="tags"><li data-en="French · native">Français · natif</li><li data-en="English · B2">Anglais · B2</li><li data-en="Spanish · B1">Espagnol · B1</li></ul></div>
+      <div><p class="mono" data-en="Outside work">En dehors</p><ul class="tags"><li data-en="Weight training">Musculation</li><li>Football</li><li data-en="Photography">Photographie</li></ul></div>
+    </div>
   </div>
 </section>
 
-<!-- TERRAIN AGV (visuels réels + process) -->
-<section class="blk" id="terrain">
-  <p class="sec-k reveal" data-i18n="tr.k">Expérience terrain</p>
-  <h2 class="h2 reveal" data-i18n-html="tr.h">6 robots. Une disponibilité<br>de chaque instant.</h2>
-  <div class="terrain-hero reveal">
-    <img src="assets/agv-fleet.jpg" alt="Flotte de 6 AGV Swisslog au CH de Rodez" loading="lazy" />
-    <div class="ov"><p class="lead" data-i18n="tr.p">Au Centre Hospitalier de Rodez, je supervise une flotte de 6 AGV Swisslog qui approvisionnent tout l'hôpital : repas, linge, déchets, pharmacie. Mon rôle, chaque jour : qu'elle ne s'arrête jamais.</p></div>
-  </div>
-  <div class="steps">
-    <div class="step reveal"><div class="n">01</div><h4 data-i18n="tr.1h">Surveillance</h4><p data-i18n="tr.1p">Je suis les déplacements des AGV depuis le poste de supervision.</p></div>
-    <div class="step reveal"><div class="n">02</div><h4 data-i18n="tr.2h">Diagnostic</h4><p data-i18n="tr.2p">Robot à l'arrêt : j'identifie la cause (obstacle, capteur, défaut).</p></div>
-    <div class="step reveal"><div class="n">03</div><h4 data-i18n="tr.3h">Remise en service</h4><p data-i18n="tr.3p">Je traite ce qui relève de mon périmètre et relance l'équipement.</p></div>
-    <div class="step reveal"><div class="n">04</div><h4 data-i18n="tr.4h">Traçabilité</h4><p data-i18n="tr.4p">Je trace en main courante et passe le relais à la maintenance si besoin.</p></div>
-  </div>
-  <div class="t-duo">
-    <figure class="reveal"><img src="assets/agv-supervision.jpg" alt="Poste de supervision des AGV" loading="lazy" /><figcaption data-i18n="tr.c1">Poste de supervision</figcaption></figure>
-    <figure class="reveal"><img src="assets/agv-controller-hand.jpg" alt="Contrôleur MCD8 en main" loading="lazy" /><figcaption data-i18n="tr.c2">Contrôleur MCD8</figcaption></figure>
-  </div>
-  <div class="stats">
-    <div class="stat reveal"><div class="n" data-count="6">0</div><div class="l" data-i18n="tr.s1">AGV supervisés au quotidien</div></div>
-    <div class="stat reveal"><div class="n" data-count="4"><span class="u">+</span>0</div><div class="l" data-i18n="tr.s2">interventions de 1er niveau / jour</div></div>
-    <div class="stat reveal"><div class="n" data-count="2"><span class="u">/2</span>0</div><div class="l" data-i18n="tr.s3">le rythme d'alternance visé</div></div>
-  </div>
-</section>
-
-<!-- EN BREF (faits, une seule fois) -->
-<section class="blk brief" id="enbref">
-  <p class="sec-k reveal" data-i18n="br.k">En bref</p>
-  <h2 class="h2 reveal" data-i18n="br.h">L'essentiel, en un coup d'œil</h2>
-  <div class="bgrid">
-    <div class="bcard reveal"><div class="k" data-i18n="br.1k">Statut</div><div class="v a" data-i18n="br.1v">Admis en BTS · en recherche</div></div>
-    <div class="bcard reveal"><div class="k" data-i18n="br.2k">Formation</div><div class="v" data-i18n="br.2v">BTS Maintenance des Systèmes</div></div>
-    <div class="bcard reveal"><div class="k" data-i18n="br.3k">Centre</div><div class="v" data-i18n="br.3v">Pôle Formation UIMM · Beauzelle</div></div>
-    <div class="bcard reveal"><div class="k" data-i18n="br.4k">Démarrage</div><div class="v" data-i18n="br.4v">Flexible · rentrée 2026</div></div>
-    <div class="bcard reveal"><div class="k" data-i18n="br.5k">Rythme</div><div class="v" data-i18n="br.5v">2 sem. entreprise / 2 sem. centre</div></div>
-    <div class="bcard reveal"><div class="k" data-i18n="br.6k">Zone</div><div class="v" data-i18n="br.6v">Toulouse · Blagnac · Occitanie</div></div>
-    <div class="bcard reveal"><div class="k" data-i18n="br.7k">Mobilité</div><div class="v" data-i18n="br.7v">Permis B · véhiculé</div></div>
-    <div class="bcard reveal"><div class="k" data-i18n="br.8k">Langues</div><div class="v" data-i18n="br.8v">FR natif · EN B2 · ES B1</div></div>
-  </div>
-</section>
-
-<!-- CONTACT iPhone premium -->
-<section class="blk contact" id="contact">
-  <p class="sec-k reveal" style="justify-content:center" data-i18n="co.k">Contact</p>
-  <h2 class="h2 reveal" data-i18n="co.h">On échange ?</h2>
-  <div class="phone-wrap reveal">
-    <div class="phone"><div class="screen off" id="screen">
-      <div class="notch"></div>
-      <div class="statusbar"><span>9:41</span><span>5G ▮▮▮</span></div>
-      <div class="ui">
-        <div class="c-ava"><img src="assets/technicien.jpg" alt="Shalom Alonyo" loading="lazy" /></div>
-        <div class="c-name">Shalom Alonyo</div>
-        <div class="c-role" data-i18n="co.role">Technicien de maintenance · Alternance</div>
-        <div class="c-list">
-          <a class="c-row" href="mailto:shalomalonyo24@gmail.com">
-            <span class="c-ic mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
-            <span class="c-tx"><span class="t">Email</span><span class="d">shalomalonyo24@gmail.com</span></span></a>
-          <a class="c-row" href="tel:+33633123326">
-            <span class="c-ic tel"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .7-.2 1l-2.3 2.2z"/></svg></span>
-            <span class="c-tx"><span class="t" data-i18n="co.tel">Téléphone</span><span class="d">06 33 12 33 26</span></span></a>
-          <a class="c-row" href="https://www.linkedin.com/in/shalom-alonyo/" target="_blank" rel="noopener">
-            <span class="c-ic li"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></span>
-            <span class="c-tx"><span class="t">LinkedIn</span><span class="d">in/shalom-alonyo</span></span></a>
-        </div>
-        <a class="c-dl" href="Shalom_Alonyo_CV.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg><span data-i18n="co.cv">Télécharger mon CV</span></a>
+<!-- CONTACT -->
+<section class="ct2" id="contact">
+  <div class="wrap">
+    <div class="eyebrow mono rv" data-en="08 — Contact">08 — Contact</div>
+    <h2 class="rv" data-en="Let's <em>talk.</em>">On <em>échange ?</em></h2>
+    <div class="cgrid">
+      <p class="lead rv" style="margin:0" data-en="I'm in post until 2028. A question about my path, the trade or a technical topic? Write to me — I answer quickly.">Je suis en poste jusqu'en 2028. Une question sur mon parcours, sur le métier ou sur un sujet technique ? Écrivez-moi, je réponds vite.</p>
+      <div class="rows rv">
+        <a href="mailto:shalomalonyo24@gmail.com"><span class="k mono">E-mail</span><span class="v">shalomalonyo24@gmail.com</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a href="tel:+33633123326"><span class="k mono" data-en="Phone">Téléphone</span><span class="v">06 33 12 33 26</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a href="https://www.linkedin.com/in/shalom-alonyo/" target="_blank" rel="noopener"><span class="k mono">LinkedIn</span><span class="v">in/shalom-alonyo</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a href="Shalom_Alonyo_CV.pdf" target="_blank" rel="noopener"><span class="k mono">CV</span><span class="v" data-en="Download the PDF">Télécharger le PDF</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></a>
       </div>
-    </div></div>
+    </div>
   </div>
-  <p class="contact-side reveal" data-i18n="co.side">Une entreprise, une question, une opportunité d'alternance ? Écrivez-moi, je réponds vite.</p>
 </section>
+</main>
 
-<footer>
-  <span>© <span id="yr"></span> Shalom Alonyo</span>
-  <a href="https://www.linkedin.com/in/shalom-alonyo/" target="_blank" rel="noopener">LinkedIn ↗</a>
-  <span data-i18n="foot.r">Technicien de maintenance · Alternance 2026</span>
-</footer>
-<button class="totop" id="totop" aria-label="Haut">↑</button>
+<footer><div class="wrap in mono">
+  <span>© 2026 Shalom Alonyo</span>
+  <span data-en="Photos taken by me at the workshop, published with care for customers' privacy.">Photos prises par moi à l'atelier, publiées sans nom de client.</span>
+  <a href="#top" data-en="Back to top ↑">Haut de page ↑</a>
+</div></footer>
+
+<dialog id="dlg" aria-labelledby="dh"><div class="sheet"><button class="x" type="button" data-close aria-label="Fermer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 5l14 14M19 5 5 19"/></svg></button><div class="pics" id="dpics"></div><div class="ct"><span class="mono" id="dtag" style="color:var(--y)"></span><h3 id="dh"></h3><p class="mono" id="dmc" style="color:var(--dim)"></p><ol class="steps" id="dsteps"></ol><p class="learn" id="dlearn"></p></div></div></dialog>
+<dialog id="lb"><div class="big"><button class="x" type="button" data-close aria-label="Fermer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 5l14 14M19 5 5 19"/></svg></button><img id="lbimg" src="" alt=""><p class="mono" id="lbcap"></p></div></dialog>
 
 <script>
-const nav=document.getElementById('nav'),prog=document.getElementById('prog'),totop=document.getElementById('totop');
-addEventListener('scroll',()=>{const h=document.documentElement,sc=h.scrollTop,mx=h.scrollHeight-h.clientHeight;prog.style.width=(mx>0?sc/mx*100:0)+'%';nav.classList.toggle('scrolled',sc>30);totop.classList.toggle('show',sc>600);},{passive:true});
-totop.onclick=()=>scrollTo({top:0,behavior:'smooth'});
-const burger=document.getElementById('burger'),menu=document.getElementById('menu');
-burger.onclick=()=>{menu.classList.toggle('open');nav.classList.toggle('open')};
-menu.querySelectorAll('a').forEach(a=>a.onclick=()=>{menu.classList.remove('open');nav.classList.remove('open')});
-const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-const par=[...document.querySelectorAll('[data-par]')];
-addEventListener('scroll',()=>{const y=scrollY;par.forEach(el=>{const s=parseFloat(el.dataset.par);el.style.transform=`translateY(${y*s*-1}px)`})},{passive:true});
-const cio=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){const el=e.target,to=+el.dataset.count;let n=0;const step=()=>{n++;el.childNodes.forEach(c=>{if(c.nodeType===3)c.textContent=n});if(n<to)setTimeout(step,90)};el.lastChild&&(el.lastChild.textContent=0);step();cio.unobserve(el)}}),{threshold:.5});
-document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
-const screen=document.getElementById('screen');
-new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)setTimeout(()=>screen.classList.remove('off'),250)}),{threshold:.4}).observe(screen);
-const hp=document.querySelector('.hero-photo');
-addEventListener('mousemove',(e)=>{if(innerWidth<960)return;const x=(e.clientX/innerWidth-.5),y=(e.clientY/innerHeight-.5);hp.style.transform=`translate(${x*-12}px,${y*-8}px)`},{passive:true});
-document.getElementById('yr').textContent=new Date().getFullYear();
-const DICT={fr:{
-'nav.about':'À propos','nav.path':'Parcours','nav.skills':'Compétences','nav.field':'Terrain','nav.contact':'Contact',
-'hero.pill':'Disponible · Alternance rentrée 2026','hero.role':'Futur technicien de maintenance · Systèmes automatisés','hero.sub':"Je cherche l'entreprise qui me formera au métier de technicien de maintenance, en alternance à la rentrée 2026. Installé à Blagnac, mobile et véhiculé.",'hero.cta1':'Voir mon CV','hero.cta2':'Me contacter','hero.scroll':'Défiler',
-'ab.k':'Profil','ab.h':'Comprendre les machines, les réparer.','ab.p':"J'ai 21 ans et une idée fixe : comprendre comment fonctionne une machine, et la remettre en marche quand elle s'arrête. Mon poste actuel m'a mis les mains dans l'<b>automatisme</b> au quotidien et a transformé cet intérêt en projet clair : devenir <b>technicien de maintenance</b>. Je suis du genre <em>méthodique, curieux et fiable</em>, et j'avance vite quand on me laisse apprendre sur le terrain. Je m'installe à Blagnac pour me rapprocher du tissu industriel toulousain.",
-'pa.k':'Parcours','pa.h':'Un parcours technique, assumé.','pa.1h':'BTS Maintenance des Systèmes','pa.1w':'Pôle Formation UIMM Occitanie · Beauzelle · en alternance','pa.1p':"Option Systèmes de Production : maintenance corrective et préventive, automatisme, génie électrique, mécanique. C'est ma formation cible, pour laquelle je cherche une entreprise d'accueil.",'pa.2h':'BTS Bâtiment','pa.2w':'Lycée Louis Vicat','pa.2p':"Lecture de plans, RDM, métrés, CAO/DAO (AutoCAD, Revit). Deux années qui m'ont donné des bases techniques solides et le sens de la rigueur, que je remets aujourd'hui au service de l'industrie.",'pa.3h':'Baccalauréat STI2D — spécialité ITEC','pa.3w':'Lycée Alexis Monteil · Rodez','pa.3p':"Sciences et technologies de l'industrie : conception SolidWorks, analyse fonctionnelle, Arduino, impression 3D, simulation mécanique.",
-'sk.k':'Compétences','sk.h':'Ce que je sais faire','sk.1h':'Diagnostic & dépannage','sk.1p':'Identifier la panne, intervenir, remettre en service. Capteurs, défauts de détection, 1er niveau en autonomie.','sk.2h':'Automatisme & systèmes','sk.2p':"Supervision de systèmes automatisés et d'AGV, lecture du comportement machine, gestion des flux.",'sk.3h':'Électrotechnique & méca','sk.3p':'Bases solides en électricité, mécanique et lecture de plans et de schémas.','sk.4h':'Maintenance préventive','sk.4p':'Contrôles, préconisations et prévention pour limiter les arrêts et fiabiliser les équipements.','sk.5h':'CAO / DAO','sk.5p':'Conception et lecture sur SolidWorks, AutoCAD et Revit, héritées de mon parcours technique.','sk.6h':'Sécurité & traçabilité','sk.6p':"Respect des règles de sécurité et qualité, main courante et reporting clair à l'équipe maintenance.",
-'tr.k':'Expérience terrain','tr.h':'6 robots. Une disponibilité<br>de chaque instant.','tr.p':"Au Centre Hospitalier de Rodez, je supervise une flotte de 6 AGV Swisslog qui approvisionnent tout l'hôpital : repas, linge, déchets, pharmacie. Mon rôle, chaque jour : qu'elle ne s'arrête jamais.",'tr.1h':'Surveillance','tr.1p':'Je suis les déplacements des AGV depuis le poste de supervision.','tr.2h':'Diagnostic','tr.2p':"Robot à l'arrêt : j'identifie la cause (obstacle, capteur, défaut).",'tr.3h':'Remise en service','tr.3p':"Je traite ce qui relève de mon périmètre et relance l'équipement.",'tr.4h':'Traçabilité','tr.4p':'Je trace en main courante et passe le relais à la maintenance si besoin.','tr.c1':'Poste de supervision','tr.c2':'Contrôleur MCD8','tr.s1':'AGV supervisés au quotidien','tr.s2':'interventions de 1er niveau / jour','tr.s3':"le rythme d'alternance visé",
-'br.k':'En bref','br.h':"L'essentiel, en un coup d'œil",'br.1k':'Statut','br.1v':'Admis en BTS · en recherche','br.2k':'Formation','br.2v':'BTS Maintenance des Systèmes','br.3k':'Centre','br.3v':'Pôle Formation UIMM · Beauzelle','br.4k':'Démarrage','br.4v':'Flexible · rentrée 2026','br.5k':'Rythme','br.5v':'2 sem. entreprise / 2 sem. centre','br.6k':'Zone','br.6v':'Toulouse · Blagnac · Occitanie','br.7k':'Mobilité','br.7v':'Permis B · véhiculé','br.8k':'Langues','br.8v':'FR natif · EN B2 · ES B1',
-'co.k':'Contact','co.h':'On échange ?','co.role':'Technicien de maintenance · Alternance','co.tel':'Téléphone','co.cv':'Télécharger mon CV','co.side':"Une entreprise, une question, une opportunité d'alternance ? Écrivez-moi, je réponds vite.",'foot.r':'Technicien de maintenance · Alternance 2026'
-},en:{
-'nav.about':'About','nav.path':'Background','nav.skills':'Skills','nav.field':'Field','nav.contact':'Contact',
-'hero.pill':'Available · Apprenticeship autumn 2026','hero.role':'Future maintenance technician · Automated systems','hero.sub':'I am looking for the company that will train me as a maintenance technician, on a work-study basis from autumn 2026. Based in Blagnac, mobile with a car.','hero.cta1':'View my CV','hero.cta2':'Contact me','hero.scroll':'Scroll',
-'ab.k':'Profile','ab.h':'Understand machines, fix them.','ab.p':"I am 21 and have one fixation: understanding how a machine works, and getting it running again when it stops. My current job put my hands on <b>automation</b> every day and turned that interest into a clear plan: becoming a <b>maintenance technician</b>. I am <em>methodical, curious and reliable</em>, and I learn fast on the field. I am moving to Blagnac to be close to the Toulouse industrial area.",
-'pa.k':'Background','pa.h':'A technical path, fully owned.','pa.1h':'BTS Maintenance of Systems','pa.1w':'Pôle Formation UIMM Occitanie · Beauzelle · work-study','pa.1p':'Production Systems option: corrective and preventive maintenance, automation, electrical engineering, mechanics. This is my target programme, for which I am looking for a host company.','pa.2h':'BTS Construction','pa.2w':'Lycée Louis Vicat','pa.2p':'Reading plans, strength of materials, quantity surveying, CAD (AutoCAD, Revit). Two years that gave me solid technical basics and rigour, which I now bring to industry.','pa.3h':'STI2D Baccalaureate — ITEC','pa.3w':'Lycée Alexis Monteil · Rodez','pa.3p':'Industrial sciences and technology: SolidWorks design, functional analysis, Arduino, 3D printing, mechanical simulation.',
-'sk.k':'Skills','sk.h':'What I can do','sk.1h':'Diagnosis & repair','sk.1p':'Find the fault, act, restart. Sensors, detection faults, first-level fixes in autonomy.','sk.2h':'Automation & systems','sk.2p':'Supervising automated systems and AGVs, reading machine behaviour, managing flows.','sk.3h':'Electrical & mechanical','sk.3p':'Solid basics in electricity, mechanics and reading plans and schematics.','sk.4h':'Preventive maintenance','sk.4p':'Checks, guidelines and prevention to reduce downtime and keep equipment reliable.','sk.5h':'CAD','sk.5p':'Design and reading in SolidWorks, AutoCAD and Revit, from my technical background.','sk.6h':'Safety & traceability','sk.6p':'Following safety and quality rules, logbook and clear reporting to the maintenance team.',
-'tr.k':'Field experience','tr.h':'6 robots. Available<br>at every moment.','tr.p':'At Rodez Hospital, I supervise a fleet of 6 Swisslog AGVs that supply the whole hospital: meals, linen, waste, pharmacy. My job, every day: keep it running.','tr.1h':'Monitoring','tr.1p':'I track the AGVs from the supervision desk.','tr.2h':'Diagnosis','tr.2p':'Robot stopped: I find the cause (obstacle, sensor, fault).','tr.3h':'Restart','tr.3p':'I handle what is within my scope and restart the equipment.','tr.4h':'Traceability','tr.4p':'I log it and hand over to maintenance when needed.','tr.c1':'Supervision desk','tr.c2':'MCD8 controller','tr.s1':'AGVs supervised daily','tr.s2':'first-level interventions / day','tr.s3':'the apprenticeship rhythm',
-'br.k':'At a glance','br.h':'The essentials, at a glance','br.1k':'Status','br.1v':'Admitted · searching','br.2k':'Programme','br.2v':'BTS Maintenance of Systems','br.3k':'School','br.3v':'Pôle Formation UIMM · Beauzelle','br.4k':'Start','br.4v':'Flexible · autumn 2026','br.5k':'Rhythm','br.5v':'2 wks company / 2 wks school','br.6k':'Area','br.6v':'Toulouse · Blagnac · Occitanie','br.7k':'Mobility','br.7v':'Driving licence · car','br.8k':'Languages','br.8v':'FR native · EN B2 · ES B1',
-'co.k':'Contact','co.h':"Let's talk?",'co.role':'Maintenance technician · Apprenticeship','co.tel':'Phone','co.cv':'Download my CV','co.side':'A company, a question, an apprenticeship opportunity? Write to me, I reply fast.','foot.r':'Maintenance technician · Apprenticeship 2026'
-}};
-function applyLang(l){document.documentElement.lang=l;document.querySelectorAll('[data-i18n]').forEach(e=>{const v=DICT[l][e.getAttribute('data-i18n')];if(v!=null)e.textContent=v});document.querySelectorAll('[data-i18n-html]').forEach(e=>{const v=DICT[l][e.getAttribute('data-i18n-html')];if(v!=null)e.innerHTML=v});document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));try{localStorage.setItem('sa-lang',l)}catch(e){}}
-document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>applyLang(b.dataset.lang));
-applyLang((()=>{try{return localStorage.getItem('sa-lang')||'fr'}catch(e){return 'fr'}})());
+(() => {
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let lang = 'fr';
+const L = o => o[lang] ?? o.fr;
+
+/* ---------- données ---------- */
+const PARTS = [
+ {x:150,y:440,img:'filtre-reservoir',
+  t:{fr:'Réservoir & filtre retour',en:'Tank & return filter'},
+  a:{fr:"Le réservoir stocke l'huile et la laisse reposer. Le filtre retour retient les particules avant qu'elles ne repartent dans le circuit.",en:'The tank stores the oil and lets it settle. The return filter traps particles before they go round the circuit again.'},
+  b:{fr:"Remplacement de la cartouche, vidange et appoint d'huile pendant les révisions.",en:'Replacing the cartridge, draining and topping up the oil during services.'}},
+ {x:310,y:118,img:'filtre-hp',
+  t:{fr:'Filtre haute pression',en:'High-pressure filter'},
+  a:{fr:'Placé juste après la pompe, il protège le distributeur et les vérins des particules.',en:'Fitted right after the pump, it protects the valve block and the cylinders from particles.'},
+  b:{fr:"Cartouche remplacée à la révision des 50 heures d'une grue neuve : pendant le rodage, les pièces neuves relâchent de fines particules de métal.",en:"Cartridge replaced at a new crane's 50-hour service: while running in, new parts shed fine metal particles."}},
+ {x:472,y:112,img:'distributeur',
+  t:{fr:'Distributeur',en:'Valve block'},
+  a:{fr:"Il envoie l'huile vers le bon vérin, dans le bon sens, selon la commande de l'opérateur.",en:"It sends oil to the right cylinder, in the right direction, following the operator's command."},
+  b:{fr:"Remplacement d'un capteur de tiroir puis recalibrage des leviers au PC ; recherche de fuite sur les raccords.",en:'Replacing a spool sensor, then recalibrating the levers with the PC; tracing leaks at the fittings.'}},
+ {x:690,y:222,img:'flexibles',
+  t:{fr:'Flexibles',en:'Hoses'},
+  a:{fr:"Ils transportent l'huile sous pression jusqu'aux organes qui bougent.",en:'They carry pressurised oil to the parts that move.'},
+  b:{fr:"Fabrication à l'atelier : coupe, dénudage, sertissage à la cote, contrôle au pied à coulisse. Et repérage avant démontage, pour remonter chaque flexible à sa place.",en:'Made in the workshop: cutting, skiving, crimping to size, checking with a caliper. And marking before removal, so each hose goes back in its place.'}},
+ {x:698,y:330,img:'clapet',
+  t:{fr:'Clapet de maintien de charge',en:'Load-holding valve'},
+  a:{fr:"Organe de sécurité : il bloque l'huile dans le vérin pour que la charge ne redescende pas, même si un flexible casse.",en:'A safety component: it locks the oil in the cylinder so the load cannot drop, even if a hose bursts.'},
+  b:{fr:"Diagnostic d'une extension qui ne sortait plus en charge : clapet remplacé, pressions contrôlées au manomètre, essai avec une masse.",en:'Fault-finding on an extension that would not come out under load: valve replaced, pressures checked with a gauge, test with a weight.'}},
+ {x:846,y:262,img:'banc-verin',
+  t:{fr:'Vérin',en:'Cylinder'},
+  a:{fr:"Il transforme la pression en force : c'est lui qui lève, déplie et allonge la flèche.",en:'It turns pressure into force: it lifts, unfolds and extends the boom.'},
+  b:{fr:'Dépose puis démontage complet sur le banc : tige, piston, joints. Contrôle des pièces, remontage et essais.',en:'Removal, then full strip-down on the bench: rod, piston, seals. Checking the parts, reassembly and tests.'}},
+ {x:930,y:392,img:'boitier',
+  t:{fr:'Capteurs',en:'Sensors'},
+  a:{fr:"Pression, angle, proximité : ils disent au calculateur ce que fait réellement la grue.",en:'Pressure, angle, proximity: they tell the controller what the crane is really doing.'},
+  b:{fr:"Remplacement de capteurs et de leurs câbles : une gaine coupée au ras d'un connecteur suffit à bloquer une grue.",en:'Replacing sensors and their cables: a sheath cut right at a connector is enough to lock a crane out.'}},
+ {x:900,y:512,img:'pc-hiab',
+  t:{fr:'Calculateur & diagnostic',en:'Controller & diagnostics'},
+  a:{fr:"Il surveille la stabilité, limite les mouvements dangereux et garde les défauts en mémoire.",en:'It monitors stability, limits dangerous movements and stores the faults.'},
+  b:{fr:"Lecture et effacement des codes défauts au PC de diagnostic, recalibrage, configuration d'un pupitre de commande neuf.",en:'Reading and clearing fault codes with the diagnostic PC, recalibration, configuring a new control panel.'}}
+];
+const CATS = [['all',{fr:'Tout',en:'All'}],['prev',{fr:'Préventif',en:'Preventive'}],['corr',{fr:'Correctif',en:'Corrective'}],['diag',{fr:'Diagnostic',en:'Fault-finding'}],['fab',{fr:'Fabrication',en:'Fabrication'}]];
+const ST = {c:{fr:'Constat',en:'What we saw'},d:{fr:'Diagnostic',en:'Fault-finding'},a:{fr:'Action',en:'What we did'},r:{fr:'Résultat',en:'Result'},w:{fr:'Pourquoi',en:'Why'},e:{fr:'Étapes',en:'Steps'}};
+const CASES = [
+ {c:'prev',img:'essai',pics:['essai','filtre-hp','filtre-reservoir'],
+  t:{fr:"Révision des 50 heures d'une grue neuve",en:"A new crane's 50-hour service"},
+  m:{fr:'Grue HIAB eX 262 HiPro · camion plateau',en:'HIAB eX 262 HiPro crane · flatbed truck'},
+  p:{fr:"Fin de rodage : le constructeur impose une révision complète. Filtres, serrages, graissage, puis essai avec une masse de 1 000 kg.",en:"End of running-in: the manufacturer requires a full service. Filters, fixings, greasing, then a test with a 1,000 kg weight."},
+  s:[['w',{fr:"Pendant les 50 premières heures, les pièces neuves s'ajustent et relâchent des particules de métal ; les vibrations peuvent desserrer les raccords.",en:'Over the first 50 hours new parts bed in and shed metal particles; vibration can loosen fittings.'}],
+     ['a',{fr:"Contrôle et resserrage des fixations. Remplacement des filtres du réservoir, haute pression et de la section de valves. Appoint d'huile, graissage complet.",en:'Checking and retightening the fixings. Replacing the tank, high-pressure and valve-section filters. Oil top-up, full greasing.'}],
+     ['a',{fr:'Remise à zéro des défauts enregistrés, lavage de la grue.',en:'Clearing the stored faults, washing the crane.'}],
+     ['r',{fr:"Essai en charge dehors avec la masse de 1 000 kg : tous les mouvements, personne sous la flèche.",en:'Load test outside with the 1,000 kg weight: every movement, nobody under the boom.'}]],
+  l:{fr:"Une révision sert aussi à repérer les défauts naissants : on contrôle tout, pas seulement les filtres.",en:'A service is also there to catch faults early: you check everything, not just the filters.'}},
+ {c:'corr',img:'colonne',pics:['colonne','bagues','bague-place','fut'],
+  t:{fr:'Du jeu dans la colonne : remplacer les bagues',en:'Play in the column: replacing the bushings'},
+  m:{fr:'Grue HIAB X-HiDuo 258 · trois jours de chantier',en:'HIAB X-HiDuo 258 crane · a three-day job'},
+  p:{fr:"Une fuite à l'embase, et un jeu important dans la colonne. Il a fallu sortir la colonne au pont roulant pour changer ses deux bagues.",en:'A leak at the base, and a lot of play in the column. The column had to come out with the overhead crane to change both bushings.'},
+  s:[['c',{fr:"Fuite d'huile à l'embase de la grue. Au contrôle, la colonne bouge dans son logement.",en:"Oil leak at the crane's base. On inspection, the column moves in its housing."}],
+     ['d',{fr:"Joints des deux fûts de rotation à remplacer ; bagues de colonne usées.",en:'Seals of both slewing cylinders to be replaced; column bushings worn.'}],
+     ['a',{fr:"Dépose des fûts de rotation. Repérage de chaque flexible avec un collier avant de le débrancher. Sortie de la colonne au pont roulant, nettoyage des portées, pose des bagues et des joints neufs.",en:'Removing the slewing cylinders. Tagging every hose before disconnecting it. Lifting the column out with the overhead crane, cleaning the seats, fitting new bushings and seals.'}],
+     ['r',{fr:"Remontage terminé par l'équipe à l'arrivée du dernier joint, qui manquait au magasin.",en:'Reassembly finished by the team once the last seal, missing from stock, came in.'}]],
+  l:{fr:"Changer une bague à temps évite que la colonne et l'embase frottent métal contre métal.",en:'Changing a bushing in time stops the column and the base rubbing metal on metal.'}},
+ {c:'corr',img:'banc-verin',pics:['banc-verin','clapet'],
+  t:{fr:"Une extension qui ne sort plus en charge",en:'An extension that will not come out under load'},
+  m:{fr:'Grue HIAB eX 262 HiPro · camion plateau',en:'HIAB eX 262 HiPro crane · flatbed truck'},
+  p:{fr:"Flèche relevée, la dernière extension ralentit puis s'arrête. Vérin démonté sur le banc, pressions mesurées : la cause était ailleurs.",en:'With the boom raised, the last extension slows down and stops. Cylinder stripped on the bench, pressures measured: the cause was elsewhere.'},
+  s:[['c',{fr:"À l'horizontale, tout sort. Flèche relevée, les dernières extensions ralentissent ; en charge, c'est pire.",en:'Horizontal, everything extends. With the boom raised, the last extensions slow down; under load it is worse.'}],
+     ['d',{fr:"Dépose du vérin et démontage complet sur le banc : tige, piston, joints sans défaut. Mesure des pressions au manomètre avec un raccord en T.",en:'Cylinder removed and fully stripped on the bench: rod, piston and seals all sound. Pressures measured with a gauge on a tee fitting.'}],
+     ['a',{fr:"Remplacement du clapet de maintien de charge et d'un joint de vérin.",en:'Replacing the load-holding valve and a cylinder seal.'}],
+     ['r',{fr:"Essai en charge : flèche relevée, toutes les extensions sortent.",en:'Load test: boom raised, all the extensions come out.'}]],
+  l:{fr:"Quand la pièce qu'on soupçonne est saine, on a quand même avancé : on sait où ne plus chercher.",en:'When the suspected part turns out sound, you have still made progress: you know where not to look.'}},
+ {c:'diag',img:'pc-hiab',pics:['pc-hiab','boitier'],
+  t:{fr:'Grue bloquée, deux codes défaut',en:'Crane locked out, two fault codes'},
+  m:{fr:'Grue HIAB X-HiPro 162 · une heure',en:'HIAB X-HiPro 162 crane · one hour'},
+  p:{fr:"La grue refuse de bouger d'un côté. Le PC donne deux codes ; le câblage donne la cause.",en:'The crane refuses to move on one side. The PC gives two codes; the wiring gives the cause.'},
+  s:[['c',{fr:"Grue bloquée côté droit, deux codes défaut affichés.",en:'Crane locked on the right-hand side, two fault codes displayed.'}],
+     ['d',{fr:"Lecture au PC de diagnostic : les codes désignent le capteur de pression du premier bras. Contrôle du câble : gaine coupée au niveau du connecteur.",en:'Reading with the diagnostic PC: the codes point to the first-boom pressure sensor. Checking the cable: sheath cut at the connector.'}],
+     ['a',{fr:"Remplacement du câble du capteur, effacement des défauts.",en:'Replacing the sensor cable, clearing the faults.'}],
+     ['r',{fr:"Essais : la grue retrouve tous ses mouvements.",en:'Tests: the crane has all its movements back.'}]],
+  l:{fr:"Le code dit où regarder, pas quoi changer : ici le capteur était bon, c'est son câble qui était coupé.",en:'The code tells you where to look, not what to change: here the sensor was fine, its cable was cut.'}},
+ {c:'fab',img:'sertir',pics:['sertir','sertir-reglage','flexibles'],
+  t:{fr:'Fabriquer un flexible hydraulique',en:'Making a hydraulic hose'},
+  m:{fr:"Poste de sertissage de l'atelier",en:'Workshop crimping station'},
+  p:{fr:"Quand le flexible n'existe pas en stock à la bonne longueur, on le fabrique. Quatre gestes, une cote à respecter.",en:'When the right length is not in stock, we make the hose. Four steps, one dimension to respect.'},
+  s:[['e',{fr:"Choisir le tuyau selon la pression (deux ou quatre tresses d'acier), puis la jupe et l'embout qui correspondent au diamètre.",en:'Choose the hose for the pressure (two or four steel braids), then the ferrule and fitting for that diameter.'}],
+     ['e',{fr:"Couper à la longueur, dénuder la gaine à la cote du tableau.",en:'Cut to length, skive the cover to the dimension in the chart.'}],
+     ['e',{fr:"Engager l'embout, régler la presse et sertir à la cote.",en:'Push the fitting in, set the press and crimp to size.'}],
+     ['r',{fr:"Contrôler le diamètre serti au pied à coulisse avant de monter le flexible.",en:'Check the crimped diameter with a caliper before fitting the hose.'}]],
+  l:{fr:"Trop faible, le sertissage fuit. Trop fort, il écrase le tuyau. La cote du tableau ne se discute pas.",en:'Too light, the crimp leaks. Too hard, it crushes the hose. The chart dimension is not negotiable.'}},
+ {c:'fab',img:'cintreuse',pics:['cintreuse','flexibles'],
+  t:{fr:'Des stabilisateurs qui se retournent',en:'Stabilisers that flip up'},
+  m:{fr:"Modification à la demande d'un client · une semaine",en:"Modification at a customer's request · one week"},
+  p:{fr:"Monter un système de retournement sur les stabilisateurs d'un camion, avec des flexibles et un tube rigide faits sur mesure.",en:"Fitting a tilting system to a truck's stabilisers, with hoses and a rigid pipe made to measure."},
+  s:[['c',{fr:"Le client veut pouvoir retourner ses stabilisateurs. La solution retenue est la plus économique : des pièces d'occasion et des pièces neuves.",en:'The customer wants to be able to tilt the stabilisers. The chosen solution is the cheapest one: a mix of used and new parts.'}],
+     ['a',{fr:"Montage du système de retournement. Comme le stabilisateur pivote, il faut des flexibles : fabriqués et sertis en binôme.",en:'Fitting the tilting system. Since the stabiliser pivots, it needs hoses: made and crimped as a pair.'}],
+     ['a',{fr:"Mise en forme d'un tube rigide à la cintreuse pour suivre le châssis.",en:'Shaping a rigid pipe on the bender to follow the chassis.'}],
+     ['r',{fr:"Essais du retournement des deux côtés.",en:'Testing the tilt on both sides.'}]],
+  l:{fr:"Une modification, c'est de la maintenance à l'envers : on part d'un besoin, pas d'une panne.",en:'A modification is maintenance in reverse: you start from a need, not a fault.'}}
+];
+const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+/* ---------- langue ---------- */
+function applyLang(){
+  document.documentElement.lang = lang;
+  $$('[data-en]').forEach(el => {
+    const svgText = el instanceof SVGElement;
+    if (el.dataset.fr === undefined) el.dataset.fr = svgText ? el.textContent : el.innerHTML;
+    const v = lang === 'en' ? el.dataset.en : el.dataset.fr;
+    if (svgText) el.textContent = v; else el.innerHTML = v;
+  });
+  $$('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === lang));
+  renderParts(); renderFilters(); renderCases(); fillMarquee();
+  try { localStorage.setItem('lang', lang); } catch(e){}
+}
+$$('.lang button').forEach(b => b.addEventListener('click', () => { lang = b.dataset.lang; applyLang(); }));
+
+/* ---------- bandeau ---------- */
+const MQ = {fr:['Hydraulique','Diagnostic','Électrotechnique','Sertissage','Maintenance préventive','Capteurs','Essais en charge','Mécanique'],en:['Hydraulics','Fault-finding','Electrics','Hose crimping','Preventive maintenance','Sensors','Load testing','Mechanics']};
+function fillMarquee(){ const h = MQ[lang].map(w => `<span>${w}</span>`).join(''); $('#mq').innerHTML = h + h + h + h; }
+
+/* ---------- schéma ---------- */
+let cur = 0;
+function renderParts(){
+  $('#hs').innerHTML = PARTS.map((p,i) => `<g class="hs${i===cur?' on':''}" data-i="${i}" tabindex="0" role="button" aria-label="${i+1} — ${L(p.t)}"><circle class="p" cx="${p.x}" cy="${p.y}" r="20"/><circle class="b" cx="${p.x}" cy="${p.y}" r="20"/><text x="${p.x}" y="${p.y}">${i+1}</text></g>`).join('');
+  showPart(cur, false);
+}
+function showPart(i, anim = true){
+  cur = (i + PARTS.length) % PARTS.length; const p = PARTS[cur];
+  $$('.hs').forEach((g,k) => g.classList.toggle('on', k === cur));
+  $('#pn').textContent = cur + 1; $('#pt').textContent = L(p.t); $('#pa').textContent = L(p.a); $('#pb').textContent = L(p.b);
+  const im = $('#pimg'); if (!im.src.endsWith(p.img + '.webp')) { im.style.opacity = 0; const n = new Image(); n.onload = () => { im.src = n.src; im.alt = L(p.t); im.style.opacity = 1; }; n.src = `assets/${p.img}.webp`; }
+  if (anim) { const b = $('#panel .bd'); b.classList.remove('swap'); void b.offsetWidth; b.classList.add('swap'); }
+}
+$('#hs').addEventListener('click', e => { const g = e.target.closest('.hs'); if (g) showPart(+g.dataset.i); });
+$('#hs').addEventListener('keydown', e => { const g = e.target.closest('.hs'); if (g && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); showPart(+g.dataset.i); } });
+$('#pprev').addEventListener('click', () => showPart(cur - 1)); $('#pnext').addEventListener('click', () => showPart(cur + 1));
+
+/* ---------- interventions ---------- */
+let filter = 'all';
+function renderFilters(){
+  $('#filters').innerHTML = CATS.map(([k,t]) => `<button type="button" data-k="${k}" aria-pressed="${k===filter}">${L(t)}</button>`).join('');
+}
+$('#filters').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; filter = b.dataset.k; renderFilters(); $$('.case').forEach(c => c.classList.toggle('off', filter !== 'all' && c.dataset.c !== filter)); });
+function renderCases(){
+  const cat = Object.fromEntries(CATS);
+  $('#cases').innerHTML = CASES.map((c,i) => `<button type="button" class="case rv in${filter!=='all'&&c.c!==filter?' off':''}" data-i="${i}" data-c="${c.c}"><span class="im"><img src="assets/${c.img}.webp" loading="lazy" alt=""></span><span class="tg mono">${L(cat[c.c])}</span><span class="tx"><span class="h">${L(c.t)}</span><span class="mc mono">${L(c.m)}</span><span class="pp">${L(c.p)}</span><span class="go mono">${lang==='en'?'Read the job':'Lire le déroulé'} ${ARROW}</span></span></button>`).join('');
+}
+const dlg = $('#dlg'), lb = $('#lb');
+$('#cases').addEventListener('click', e => {
+  const b = e.target.closest('.case'); if (!b) return; const c = CASES[+b.dataset.i], cat = Object.fromEntries(CATS);
+  $('#dtag').textContent = L(cat[c.c]); $('#dh').textContent = L(c.t); $('#dmc').textContent = L(c.m);
+  $('#dpics').innerHTML = c.pics.map(p => `<img src="assets/${p}.webp" alt="">`).join('');
+  $('#dsteps').innerHTML = c.s.map(([k,t]) => `<li><b>${L(ST[k])}</b><span>${L(t)}</span></li>`).join('');
+  $('#dlearn').textContent = L(c.l); dlg.showModal(); $('.sheet', dlg).scrollTop = 0;
+});
+$('#bento').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $('#lbimg').src = `assets/${b.dataset.img}.webp`; $('#lbimg').alt = $('img', b).alt; $('#lbcap').textContent = $('span', b).textContent; lb.showModal(); });
+[dlg, lb].forEach(d => d.addEventListener('click', e => { if (e.target === d || e.target.closest('[data-close]')) d.close(); }));
+
+/* ---------- apparitions, compteurs ---------- */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return; const el = e.target; el.classList.add('in'); io.unobserve(el);
+  $$('[data-count]', el).concat(el.matches('[data-count]') ? [el] : []).forEach(count);
+  if (el.id === 'split') $$('.bar i', el).forEach(i => i.style.width = i.dataset.w + '%');
+}), {threshold: .16, rootMargin: '0px 0px -6% 0px'});
+$$('.rv').forEach(el => io.observe(el));
+function count(el){
+  const to = +el.dataset.count; if (reduce) { el.textContent = to.toLocaleString('fr-FR'); return; }
+  const t0 = performance.now(), dur = 1500;
+  (function f(t){ const k = Math.min(1, (t - t0) / dur), v = Math.round(to * (1 - Math.pow(1 - k, 4))); el.textContent = v.toLocaleString('fr-FR'); if (k < 1) requestAnimationFrame(f); })(t0);
+}
+
+/* ---------- navigation, défilement ---------- */
+const nav = $('#nav'), prog = $('#prog'), media = $('#media'), tl = $('#tl'), fill = $('#tlfill');
+let last = 0;
+function onScroll(){
+  const y = scrollY, h = document.documentElement.scrollHeight - innerHeight;
+  prog.style.transform = `scaleX(${h > 0 ? y / h : 0})`;
+  nav.classList.toggle('solid', y > 40);
+  nav.classList.toggle('hide', y > 600 && y > last && !$('#links').classList.contains('open')); last = y;
+  if (!reduce && y < innerHeight * 1.2) media.style.transform = `translate3d(0,${y * .22}px,0)`;
+  const r = tl.getBoundingClientRect(); fill.style.transform = `scaleY(${Math.max(0, Math.min(1, (innerHeight * .7 - r.top) / r.height))})`;
+}
+addEventListener('scroll', onScroll, {passive: true});
+const secs = $$('main section[id]'), lk = $$('#links a');
+const so = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) lk.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id)); }), {rootMargin: '-45% 0px -50% 0px'});
+secs.forEach(s => so.observe(s));
+const burger = $('#burger');
+burger.addEventListener('click', () => { const o = $('#links').classList.toggle('open'); burger.setAttribute('aria-expanded', o); nav.classList.toggle('solid', o || scrollY > 40); });
+lk.forEach(a => a.addEventListener('click', () => { $('#links').classList.remove('open'); burger.setAttribute('aria-expanded', false); }));
+
+/* ---------- repère sur la charge (suit le cadrage de la photo) ---------- */
+const hi = $('#heroimg'), spot = $('#spot'), PT = {x: .178, y: .478};
+function place(){
+  const cw = media.clientWidth, ch = media.clientHeight, iw = 2200, ih = 1650, narrow = cw < 760;
+  const px = narrow ? .2 : .5, py = narrow ? .3 : .92; hi.style.objectPosition = `${px * 100}% ${py * 100}%`;
+  const s = Math.max(cw / iw, ch / ih), dw = iw * s, dh = ih * s;
+  spot.style.transform = `translate(${(cw - dw) * px + PT.x * dw}px,${(ch - dh) * py + PT.y * dh}px)`;
+}
+addEventListener('resize', place);
+
+/* ---------- démarrage ---------- */
+try { const s = localStorage.getItem('lang'); if (s === 'en' || s === 'fr') lang = s; } catch(e){}
+applyLang(); place(); onScroll();
+})();
 </script>
 </body>
 </html>
